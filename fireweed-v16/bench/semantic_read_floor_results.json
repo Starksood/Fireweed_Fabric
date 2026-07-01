@@ -1,5 +1,5 @@
 {
-  "source": "/Users/CIM/Fireweed/Fireweed Fabric/fireweed-v16/bench/cross_model_interchangeability_results.json",
+  "source": "fireweed-v16/bench/cross_model_interchangeability_results.json",
   "embedding_model": "text-embedding-nomic-embed-text-v1.5",
   "n_pairs": 45,
   "model_a": "qwen/qwen3-4b-2507",
