@@ -1,0 +1,88 @@
+{
+  "experiment": "lesion_contrast",
+  "corpus_turns": 26,
+  "models": [
+    "google/gemma-3-1b",
+    "google/gemma-3-4b",
+    "qwen/qwen3-4b-2507"
+  ],
+  "semantic_on": true,
+  "per_model": {
+    "google/gemma-3-1b": {
+      "substrate_nodes": 34,
+      "substrate_entities": 2,
+      "naive_claims": 51,
+      "naive_entities": 22,
+      "naive_entity_mentions": 47
+    },
+    "google/gemma-3-4b": {
+      "substrate_nodes": 59,
+      "substrate_entities": 3,
+      "naive_claims": 80,
+      "naive_entities": 11,
+      "naive_entity_mentions": 19
+    },
+    "qwen/qwen3-4b-2507": {
+      "substrate_nodes": 64,
+      "substrate_entities": 3,
+      "naive_claims": 80,
+      "naive_entities": 23,
+      "naive_entity_mentions": 26
+    }
+  },
+  "substrate_pairwise": {
+    "google/gemma-3-1b vs google/gemma-3-4b": {
+      "entity_jaccard": 0.6667,
+      "domain_jaccard": 0.8462,
+      "claim_lexical": 0.5685,
+      "claim_semantic": 0.8403
+    },
+    "google/gemma-3-1b vs qwen/qwen3-4b-2507": {
+      "entity_jaccard": 0.6667,
+      "domain_jaccard": 1.0,
+      "claim_lexical": 0.7331,
+      "claim_semantic": 0.8971
+    },
+    "google/gemma-3-4b vs qwen/qwen3-4b-2507": {
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 0.8462,
+      "claim_lexical": 0.6867,
+      "claim_semantic": 0.9085
+    }
+  },
+  "naive_pairwise": {
+    "google/gemma-3-1b vs google/gemma-3-4b": {
+      "entity_jaccard": 0.0645,
+      "domain_jaccard": 0.2424,
+      "claim_lexical": 0.6004,
+      "claim_semantic": 0.8589
+    },
+    "google/gemma-3-1b vs qwen/qwen3-4b-2507": {
+      "entity_jaccard": 0.0976,
+      "domain_jaccard": 0.275,
+      "claim_lexical": 0.7229,
+      "claim_semantic": 0.9025
+    },
+    "google/gemma-3-4b vs qwen/qwen3-4b-2507": {
+      "entity_jaccard": 0.1333,
+      "domain_jaccard": 0.3913,
+      "claim_lexical": 0.7187,
+      "claim_semantic": 0.9225
+    }
+  },
+  "substrate_mean": {
+    "entity_jaccard": 0.7778,
+    "domain_jaccard": 0.8975,
+    "claim_lexical": 0.6628,
+    "claim_semantic": 0.882
+  },
+  "naive_mean": {
+    "entity_jaccard": 0.0985,
+    "domain_jaccard": 0.3029,
+    "claim_lexical": 0.6807,
+    "claim_semantic": 0.8946
+  },
+  "entity_jaccard_gap": 0.6793,
+  "verdict": "\u2713\u2713 SUBSTRATE PRESERVES, NAIVE DOES NOT \u2014 canonicalization/resolution is what carries the account across the swap",
+  "note": "Identical perception; ablates ONLY the deterministic consolidation (entity canonicalization/merge + claim resolution/dedup + grounding). Naive store = append raw perceiver output. G3 external anchor for Paper 1."
+}

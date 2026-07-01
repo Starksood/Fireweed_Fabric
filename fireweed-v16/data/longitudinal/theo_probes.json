@@ -1,0 +1,22 @@
+{
+  "persona": "theo", "core_entity": "theo",
+  "anchors": [
+    {"id": "restaurant", "origin": "early", "keywords": ["Marrow"]},
+    {"id": "sister",     "origin": "early", "keywords": ["Nadia"]},
+    {"id": "hometown",   "origin": "early", "keywords": ["Trieste"]},
+    {"id": "souschef",   "origin": "early", "keywords": ["Lin"]},
+    {"id": "supplier",   "origin": "early", "keywords": ["Hector"]}
+  ],
+  "probes": [
+    {"id": "fish",     "kind": "updated",   "query": "Where does Theo get his fish?",        "gold_keywords": ["wholesaler", "Oakland"], "stale_keywords": ["Hector"]},
+    {"id": "sister",   "kind": "early",     "query": "Who is Theo's sister?",                "gold_keywords": ["Nadia"]},
+    {"id": "restaurant","kind": "early",    "query": "What restaurant does Theo run?",       "gold_keywords": ["Marrow"]},
+    {"id": "rent",     "kind": "mid",       "query": "What is straining Theo's finances?",   "gold_keywords": ["rent", "nine thousand"]},
+    {"id": "kitchen",  "kind": "synthesis", "query": "Who works with Theo at the restaurant?","gold_keywords": ["Lin", "sous"]}
+  ],
+  "update": {
+    "session_id": "theo_update",
+    "turn_text": "I stopped buying fish from Hector this winter. I now buy all my halibut from a wholesaler in Oakland instead.",
+    "new_keywords": ["wholesaler"], "stale_keywords": ["from Hector"]
+  }
+}

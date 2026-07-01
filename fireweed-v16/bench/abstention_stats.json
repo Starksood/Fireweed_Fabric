@@ -1,0 +1,14 @@
+{
+  "n_paired_nonerror": 57,
+  "rag_fabrications": 18,
+  "fw_fabrications": 9,
+  "discordant_rag_only": 13,
+  "discordant_fw_only": 4,
+  "mcnemar_exact_p_two_sided": 0.049,
+  "reduction_in_fab_rate": 0.1579,
+  "reduction_ci95": [
+    0.0175,
+    0.2982
+  ],
+  "note": "paired over same (question,model); 3 RAG-error rows excluded; per-reader n=12 too small for per-reader inference"
+}

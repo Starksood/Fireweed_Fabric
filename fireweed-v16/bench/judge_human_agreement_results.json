@@ -1,0 +1,22 @@
+{
+  "n_items": 24,
+  "agreement": 0.917,
+  "cohens_kappa": 0.747,
+  "confusion_human_judge": {
+    "H=assert,J=assert": 4,
+    "H=assert,J=decline": 1,
+    "H=decline,J=assert": 1,
+    "H=decline,J=decline": 18
+  },
+  "disagreements": {
+    "0-FW": {
+      "human": "assert",
+      "judge": "decline"
+    },
+    "16-RAG": {
+      "human": "decline",
+      "judge": "assert"
+    }
+  },
+  "note": "single annotator (author); pre-defined rule; stratified 24-item subset of the 120 judged prose items"
+}

@@ -1,0 +1,40 @@
+{
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "read_side": [
+    {
+      "model_a": "qwen/qwen3-4b-2507",
+      "model_b": "google/gemma-3-4b",
+      "n_pairs": 45,
+      "matched": 0.7686,
+      "floor": 0.3421,
+      "perm_p": 0.0005,
+      "trials": 2000
+    },
+    {
+      "model_a": "google/gemma-3-1b",
+      "model_b": "qwen/qwen3-4b-2507",
+      "n_pairs": 37,
+      "matched": 0.6902,
+      "floor": 0.3296,
+      "perm_p": 0.0005,
+      "trials": 2000
+    }
+  ],
+  "write_side_pairwise_sbert": [
+    {
+      "pair": "google/gemma-3-1b vs google/gemma-3-4b",
+      "claim_semantic_sbert": 0.7669
+    },
+    {
+      "pair": "google/gemma-3-1b vs qwen/qwen3-4b-2507",
+      "claim_semantic_sbert": 0.8707
+    },
+    {
+      "pair": "google/gemma-3-4b vs qwen/qwen3-4b-2507",
+      "claim_semantic_sbert": 0.8313
+    }
+  ],
+  "write_cross_persona_floor_sbert": 0.2878,
+  "write_same_perceiver_ceiling": 1.0,
+  "note": "All claim-semantic re-scored on ONE embedder (sbert) so read and write are on one scale."
+}

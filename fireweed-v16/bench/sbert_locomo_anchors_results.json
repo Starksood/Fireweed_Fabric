@@ -1,0 +1,47 @@
+{
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "corpus": "LoCoMo (Maharana et al.) \u2014 conv-26 Caroline (focal) vs conv-30 Jon (floor)",
+  "cross_perceiver_same_person_sbert": {
+    "note": "Caroline's account through 3 perceivers \u2014 the interchangeability signal.",
+    "pairwise": [
+      {
+        "pair": "google/gemma-3-1b vs google/gemma-3-4b",
+        "claim_semantic_sbert": 0.7292
+      },
+      {
+        "pair": "google/gemma-3-1b vs qwen/qwen3-4b-2507",
+        "claim_semantic_sbert": 0.8299
+      },
+      {
+        "pair": "google/gemma-3-4b vs qwen/qwen3-4b-2507",
+        "claim_semantic_sbert": 0.8081
+      }
+    ],
+    "mean": 0.7891
+  },
+  "cross_person_floor_sbert": {
+    "note": "Caroline vs Jon, perceiver held fixed \u2014 discriminating floor.",
+    "per_perceiver": [
+      {
+        "perceiver": "google/gemma-3-1b",
+        "claim_semantic_sbert": 0.37
+      },
+      {
+        "perceiver": "google/gemma-3-4b",
+        "claim_semantic_sbert": 0.3474
+      },
+      {
+        "perceiver": "qwen/qwen3-4b-2507",
+        "claim_semantic_sbert": 0.3734
+      }
+    ],
+    "mean": 0.3636
+  },
+  "same_perceiver_ceiling": 1.0,
+  "margin_over_floor": 0.4255,
+  "synthetic_reference": {
+    "note": "sbert_unify.py write-side headline for comparison",
+    "cross_perceiver_claim_semantic": "0.77-0.87",
+    "cross_persona_floor": 0.29
+  }
+}

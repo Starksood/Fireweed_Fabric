@@ -1,0 +1,1896 @@
+{
+  "fireweed_version": "16.0.0-alpha",
+  "snapshot_version": 2,
+  "nodes": [
+    {
+      "node_id": "node_45ba9ca2b417",
+      "node_type": "fact",
+      "claim": "I travel to work on the 38 bus every day.",
+      "normalized_claim": "i travel to work on the 38 bus every day.",
+      "entities": [],
+      "domains": [
+        "commute",
+        "work"
+      ],
+      "facets": [
+        "recurring"
+      ],
+      "predicate": {
+        "lemma": "unknown",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:41.593661+00:00",
+        "stored_at": "2026-06-29T00:59:41.593661+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": "2026-06-29T01:01:02.071301+00:00",
+        "superseded_by": "node_5f9ff558051d"
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000001_t000",
+        "source_span": "There's a transfer at Van Ness \u2014 the platform has no shelter \u2014 and the full journey takes about fifty minutes each way.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.9
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.27359999999999995
+      },
+      "status": {
+        "memory_state": "superseded",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_ec667bb2b0ad",
+      "node_type": "fact",
+      "claim": "The full journey takes about fifty minutes each way.",
+      "normalized_claim": "the full journey takes about fifty minutes each way.",
+      "entities": [],
+      "domains": [
+        "other"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "tak",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:41.595177+00:00",
+        "stored_at": "2026-06-29T00:59:41.595177+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000001_t002",
+        "source_span": "the full journey takes about fifty minutes each way.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.7
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.27359999999999995
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_62ccf2cf6c13",
+      "node_type": "state",
+      "claim": "The Van Ness transfer is the unreliable part.",
+      "normalized_claim": "the van ness transfer is the unreliable part.",
+      "entities": [
+        {
+          "entity_id": "ent_van_ness",
+          "role": "actor"
+        }
+      ],
+      "domains": [
+        "commute"
+      ],
+      "facets": [
+        "disruption"
+      ],
+      "predicate": {
+        "lemma": "nes",
+        "polarity": "positive",
+        "object": "transfer"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:43.453708+00:00",
+        "stored_at": "2026-06-29T00:59:43.453708+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000002_t000",
+        "source_span": "If the connecting bus is delayed I can lose another fifteen or twenty minutes standing on that exposed platform.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_a5775d04932b",
+      "node_type": "state",
+      "claim": "My IT band has flared up again.",
+      "normalized_claim": "my it band has flared up again.",
+      "entities": [],
+      "domains": [
+        "body",
+        "hobby"
+      ],
+      "facets": [
+        "recurring"
+      ],
+      "predicate": {
+        "lemma": "flar",
+        "polarity": "positive",
+        "object": "up"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:45.720830+00:00",
+        "stored_at": "2026-06-29T00:59:45.720830+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000003_t000",
+        "source_span": "I've had this problem before \u2014 it's a sharp pain on the outside of my knee that gets worse when I try to run or climb stairs quickly.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.29279999999999995
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_2c7a72cacaf6",
+      "node_type": "fact",
+      "claim": "In the meantime I've had to stop running completely",
+      "normalized_claim": "in the meantime i've had to stop running completely",
+      "entities": [],
+      "domains": [
+        "body"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "runn",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:49.566438+00:00",
+        "stored_at": "2026-06-29T00:59:49.566438+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000004_t000",
+        "source_span": "In the meantime I've had to stop running completely",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_f5713d979658",
+          "relation_type": "motivates",
+          "target_node_id": "node_26bc8a1a12e0"
+        }
+      ]
+    },
+    {
+      "node_id": "node_26bc8a1a12e0",
+      "node_type": "fact",
+      "claim": "I was doing three runs a week before this flared up",
+      "normalized_claim": "i was doing three runs a week before this flared up",
+      "entities": [],
+      "domains": [
+        "body"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "doing",
+        "polarity": "positive",
+        "object": "three"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:49.566910+00:00",
+        "stored_at": "2026-06-29T00:59:49.566910+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000004_t001",
+        "source_span": "I was doing three runs a week before this flared up",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.6
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_8b1438b423c6",
+      "node_type": "state",
+      "claim": "I got a letter from my landlord yesterday \u2014 rent is going up by eighty pounds a month from the first of next month.",
+      "normalized_claim": "i got a letter from my landlord yesterday \u2014 rent is going up by eighty pounds a month from the first of next month.",
+      "entities": [],
+      "domains": [
+        "housing"
+      ],
+      "facets": [
+        "financial_strain"
+      ],
+      "predicate": {
+        "lemma": "going",
+        "polarity": "positive",
+        "object": "up"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:53.017365+00:00",
+        "stored_at": "2026-06-29T00:59:53.017365+00:00",
+        "event_time": "2025-12-31",
+        "valid_from": "2025-12-31",
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000005_t000",
+        "source_span": "I got a letter from my landlord yesterday \u2014 rent is going up by eighty pounds a month from the first of next month.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.312
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_3f265f1e5a46",
+      "node_type": "fact",
+      "claim": "I wasn't expecting it to be that much.",
+      "normalized_claim": "i wasn't expecting it to be that much.",
+      "entities": [],
+      "domains": [
+        "other"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "expect",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:53.017680+00:00",
+        "stored_at": "2026-06-29T00:59:53.017680+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000005_t001",
+        "source_span": "I wasn't expecting it to be that much.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.6
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.312
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_c31d44acfa9a",
+      "node_type": "state",
+      "claim": "I've been in this flat for three years and this is the second increase.",
+      "normalized_claim": "i've been in this flat for three years and this is the second increase.",
+      "entities": [],
+      "domains": [
+        "housing"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "thi",
+        "polarity": "positive",
+        "object": "flat"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:56.461224+00:00",
+        "stored_at": "2026-06-29T00:59:56.461224+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": "2026-06-29T01:00:24.811812+00:00",
+        "superseded_by": "node_4783a869f482"
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000006_t000",
+        "source_span": "I've been in this flat for three years and this is the second increase.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "superseded",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_166715add738",
+      "node_type": "fact",
+      "claim": "I need to find savings somewhere or look at whether I can negotiate with the landlord.",
+      "normalized_claim": "i need to find savings somewhere or look at whether i can negotiate with the landlord.",
+      "entities": [],
+      "domains": [
+        "budget",
+        "housing"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "need",
+        "polarity": "positive",
+        "object": "to"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T00:59:56.461828+00:00",
+        "stored_at": "2026-06-29T00:59:56.461828+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": "2026-06-29T01:00:00.906385+00:00",
+        "superseded_by": "node_398ed645f93e"
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000006_t001",
+        "source_span": "I need to find savings somewhere or look at whether I can negotiate with the landlord.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.6
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.3216
+      },
+      "status": {
+        "memory_state": "superseded",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_398ed645f93e",
+      "node_type": "fact",
+      "claim": "I started a spending diary this week to track every purchase.",
+      "normalized_claim": "i started a spending diary this week to track every purchase.",
+      "entities": [],
+      "domains": [
+        "budget"
+      ],
+      "facets": [
+        "budget_pressure"
+      ],
+      "predicate": {
+        "lemma": "start",
+        "polarity": "positive",
+        "object": "a"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:00.906219+00:00",
+        "stored_at": "2026-06-29T01:00:00.906219+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000007_t000",
+        "source_span": "Looking at the food column \u2014 pastries at the station, sandwiches at lunch, drinks on the way back \u2014 it's thirty to forty pounds a week.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_503cd5c9ca6d",
+          "relation_type": "supersedes",
+          "target_node_id": "node_166715add738"
+        }
+      ]
+    },
+    {
+      "node_id": "node_fda59483ee0d",
+      "node_type": "fact",
+      "claim": "I've thought about batch cooking on Sundays but I haven't actually done it yet.",
+      "normalized_claim": "i've thought about batch cooking on sundays but i haven't actually done it yet.",
+      "entities": [],
+      "domains": [
+        "food"
+      ],
+      "facets": [
+        "budget_pressure"
+      ],
+      "predicate": {
+        "lemma": "cook",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:03.418062+00:00",
+        "stored_at": "2026-06-29T01:00:03.418062+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000008_t000",
+        "source_span": "I've thought about batch cooking on Sundays but I haven't actually done it yet.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.3408
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_35e2263498a6",
+      "node_type": "event",
+      "claim": "It rained heavily on Tuesday.",
+      "normalized_claim": "it rained heavily on tuesday.",
+      "entities": [],
+      "domains": [
+        "weather"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "rain",
+        "polarity": "positive",
+        "object": "heavily"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:08.066583+00:00",
+        "stored_at": "2026-06-29T01:00:08.066583+00:00",
+        "event_time": "2025-12-30",
+        "valid_from": "2025-12-30",
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000009_t000",
+        "source_span": "It rained heavily on Tuesday and I got completely soaked \u2014 my jacket was wet through and I had to change when I arrived.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.3504
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_493ab112daea",
+      "node_type": "fact",
+      "claim": "The forecast says more rain on Thursday and Friday.",
+      "normalized_claim": "the forecast says more rain on thursday and friday.",
+      "entities": [],
+      "domains": [
+        "weather"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "say",
+        "polarity": "positive",
+        "object": "more"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:12.996950+00:00",
+        "stored_at": "2026-06-29T01:00:12.996950+00:00",
+        "event_time": "2025-12-25",
+        "valid_from": "2025-12-25",
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000010_t000",
+        "source_span": "It's been overcast all week and I find it harder to feel alert when there's no sunlight at all.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_ba0253b4e6a5",
+      "node_type": "fact",
+      "claim": "By the time I get back to the flat I have zero interest in standing at the cooker.",
+      "normalized_claim": "by the time i get back to the flat i have zero interest in standing at the cooker.",
+      "entities": [],
+      "domains": [
+        "body",
+        "food",
+        "housing"
+      ],
+      "facets": [
+        "after_work",
+        "health_management",
+        "physical_exposure"
+      ],
+      "predicate": {
+        "lemma": "stand",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:16.654926+00:00",
+        "stored_at": "2026-06-29T01:00:16.654926+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000011_t000",
+        "source_span": "By the time I get back to the flat I have zero interest in standing at the cooker.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.9
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_82278f890052",
+      "node_type": "fact",
+      "claim": "I've been on closing shifts three nights this week \u2014 finishing at ten, sometimes quarter past.",
+      "normalized_claim": "i've been on closing shifts three nights this week \u2014 finishing at ten, sometimes quarter past.",
+      "entities": [],
+      "domains": [
+        "schedule"
+      ],
+      "facets": [
+        "recurring"
+      ],
+      "predicate": {
+        "lemma": "clos",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:16.655288+00:00",
+        "stored_at": "2026-06-29T01:00:16.655288+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000011_t001",
+        "source_span": "I've been on closing shifts three nights this week \u2014 finishing at ten, sometimes quarter past.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.3696
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_059c3904f41b",
+      "node_type": "state",
+      "claim": "I stop at the corner shop on the way home \u2014 chips, a ready meal, whatever needs no preparation. It's happening two or three nights a week and the cost is adding up.",
+      "normalized_claim": "i stop at the corner shop on the way home \u2014 chips, a ready meal, whatever needs no preparation. it's happening two or three nights a week and the cost is adding up.",
+      "entities": [],
+      "domains": [
+        "budget",
+        "food"
+      ],
+      "facets": [
+        "convenience",
+        "after_work",
+        "recurring",
+        "financial_strain"
+      ],
+      "predicate": {
+        "lemma": "chip",
+        "polarity": "negative",
+        "object": "a"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:19.790746+00:00",
+        "stored_at": "2026-06-29T01:00:19.790746+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000012_t000",
+        "source_span": "I stop at the corner shop on the way home \u2014 chips, a ready meal, whatever needs no preparation. It's happening two or three nights a week and the cost is adding up.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_448257f50457",
+      "node_type": "state",
+      "claim": "The connecting bus at Van Ness has been delayed repeatedly this week \u2014 twice it was over fifteen minutes late.",
+      "normalized_claim": "the connecting bus at van ness has been delayed repeatedly this week \u2014 twice it was over fifteen minutes late.",
+      "entities": [
+        {
+          "entity_id": "ent_van_ness",
+          "role": "location"
+        }
+      ],
+      "domains": [
+        "commute"
+      ],
+      "facets": [
+        "disruption",
+        "recurring",
+        "health_management",
+        "physical_exposure"
+      ],
+      "predicate": {
+        "lemma": "connect",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:22.367489+00:00",
+        "stored_at": "2026-06-29T01:00:22.367489+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000013_t000",
+        "source_span": "The connecting bus at Van Ness has been delayed repeatedly this week \u2014 twice it was over fifteen minutes late.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_4783a869f482",
+      "node_type": "fact",
+      "claim": "I've started leaving the flat ten minutes earlier on opening shift days to build in a buffer.",
+      "normalized_claim": "i've started leaving the flat ten minutes earlier on opening shift days to build in a buffer.",
+      "entities": [],
+      "domains": [
+        "housing",
+        "schedule"
+      ],
+      "facets": [
+        "morning"
+      ],
+      "predicate": {
+        "lemma": "start",
+        "polarity": "positive",
+        "object": "leaving"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:24.811660+00:00",
+        "stored_at": "2026-06-29T01:00:24.811660+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000014_t000",
+        "source_span": "I've started leaving the flat ten minutes earlier on opening shift days to build in a buffer.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_f994938170a1",
+          "relation_type": "supersedes",
+          "target_node_id": "node_c31d44acfa9a"
+        }
+      ]
+    },
+    {
+      "node_id": "node_9639f892df15",
+      "node_type": "fact",
+      "claim": "I'm down to roughly forty minutes each way",
+      "normalized_claim": "i'm down to roughly forty minutes each way",
+      "entities": [],
+      "domains": [
+        "other"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "minut",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:30.310975+00:00",
+        "stored_at": "2026-06-29T01:00:30.310975+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000015_t001",
+        "source_span": "Update: the 38 route got rerouted this month, so now I switch to the 5 at Civic Center instead of transferring at Van Ness. It actually shaves about ten minutes off, so I'm down to roughly forty minutes each way.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.9
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.40800000000000003
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_469be510add0",
+          "relation_type": "causes",
+          "target_node_id": "node_1d794091a38e"
+        }
+      ]
+    },
+    {
+      "node_id": "node_1d794091a38e",
+      "node_type": "fact",
+      "claim": "the 38 route got rerouted this month",
+      "normalized_claim": "the 38 route got rerouted this month",
+      "entities": [],
+      "domains": [
+        "commute"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "rerout",
+        "polarity": "positive",
+        "object": "this"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:30.311514+00:00",
+        "stored_at": "2026-06-29T01:00:30.311514+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000015_t002",
+        "source_span": "Update: the 38 route got rerouted this month, so now I switch to the 5 at Civic Center instead of transferring at Van Ness. It actually shaves about ten minutes off, so I'm down to roughly forty minutes each way.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_3310770edc31",
+      "node_type": "fact",
+      "claim": "My manager moved our standup to 9:15, which means I can catch the earlier bus and still make it with time to spare.",
+      "normalized_claim": "my manager moved our standup to 9:15, which means i can catch the earlier bus and still make it with time to spare.",
+      "entities": [],
+      "domains": [
+        "commute",
+        "housing"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "mov",
+        "polarity": "positive",
+        "object": "our"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:32.751461+00:00",
+        "stored_at": "2026-06-29T01:00:32.751461+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000016_t000",
+        "source_span": "My manager moved our standup to 9:15, which means I can catch the earlier bus and still make it with time to spare.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.5
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_4272a519150f",
+      "node_type": "fact",
+      "claim": "Mornings feel a lot less rushed now.",
+      "normalized_claim": "mornings feel a lot less rushed now.",
+      "entities": [],
+      "domains": [
+        "other"
+      ],
+      "facets": [
+        "morning"
+      ],
+      "predicate": {
+        "lemma": "morning",
+        "polarity": "positive",
+        "object": "feel"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:32.751790+00:00",
+        "stored_at": "2026-06-29T01:00:32.751790+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000016_t001",
+        "source_span": "My manager moved our standup to 9:15, which means I can catch the earlier bus and still make it with time to spare.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.5
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.41759999999999997
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_cab982e9a4a2",
+      "node_type": "fact",
+      "claim": "I tried the foam roller routine she recommended before bed and my knee was noticeably less stiff the next morning.",
+      "normalized_claim": "i tried the foam roller routine she recommended before bed and my knee was noticeably less stiff the next morning.",
+      "entities": [
+        {
+          "entity_id": "ent_van_ness",
+          "role": "actor"
+        }
+      ],
+      "domains": [
+        "body",
+        "planning"
+      ],
+      "facets": [
+        "after_work",
+        "morning",
+        "health_management"
+      ],
+      "predicate": {
+        "lemma": "tri",
+        "polarity": "positive",
+        "object": "the"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:38.468796+00:00",
+        "stored_at": "2026-06-29T01:00:38.468796+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000017_t000",
+        "source_span": "I tried the foam roller routine she recommended before bed and my knee was noticeably less stiff the next morning.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.4272
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_9310a21cbf60",
+      "node_type": "fact",
+      "claim": "I've been meal-prepping lentils and rice on Sundays.",
+      "normalized_claim": "i've been meal-prepping lentils and rice on sundays.",
+      "entities": [],
+      "domains": [
+        "food"
+      ],
+      "facets": [
+        "health_management"
+      ],
+      "predicate": {
+        "lemma": "meal-prepp",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:40.997934+00:00",
+        "stored_at": "2026-06-29T01:00:40.997934+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000018_t000",
+        "source_span": "It's brought my weekly grocery spend down to about sixty dollars, which is a big drop from before.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_a0aa72aea5e5",
+      "node_type": "fact",
+      "claim": "Splurged on a decent chef's knife this week.",
+      "normalized_claim": "splurged on a decent chef's knife this week.",
+      "entities": [],
+      "domains": [
+        "other"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "splurg",
+        "polarity": "positive",
+        "object": "on"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:43.360969+00:00",
+        "stored_at": "2026-06-29T01:00:43.360969+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000019_t000",
+        "source_span": "It was forty dollars but honestly it's already made cooking feel less like a chore.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.4464
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_aa56ff782ade",
+      "node_type": "fact",
+      "claim": "With the cold snap this week that's made a real difference at night.",
+      "normalized_claim": "with the cold snap this week that's made a real difference at night.",
+      "entities": [],
+      "domains": [
+        "fatigue"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "thi",
+        "polarity": "positive",
+        "object": "week"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:47.841570+00:00",
+        "stored_at": "2026-06-29T01:00:47.841570+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000020_t000",
+        "source_span": "The landlord finally fixed the radiator",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.9
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.456
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_4b8bb6702546",
+      "node_type": "fact",
+      "claim": "The landlord finally fixed the radiator, so the apartment actually holds heat now.",
+      "normalized_claim": "the landlord finally fixed the radiator, so the apartment actually holds heat now.",
+      "entities": [],
+      "domains": [
+        "housing"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "fix",
+        "polarity": "positive",
+        "object": "the"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:47.842213+00:00",
+        "stored_at": "2026-06-29T01:00:47.842213+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000020_t001",
+        "source_span": "With the cold snap this week that's made a real difference at night.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_3b3f79809a99",
+          "relation_type": "motivates",
+          "target_node_id": "node_aa56ff782ade"
+        }
+      ]
+    },
+    {
+      "node_id": "node_ca86607f8333",
+      "node_type": "fact",
+      "claim": "I've stayed dry waiting for the transfer.",
+      "normalized_claim": "i've stayed dry waiting for the transfer.",
+      "entities": [],
+      "domains": [
+        "commute"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "stay",
+        "polarity": "positive",
+        "object": "dry"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:52.443044+00:00",
+        "stored_at": "2026-06-29T01:00:52.443044+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000021_t000",
+        "source_span": "I've stayed dry waiting for the transfer.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.6
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.25
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_f7d2632cdc66",
+      "node_type": "fact",
+      "claim": "I joined a Tuesday-evening pottery class at the community center.",
+      "normalized_claim": "i joined a tuesday-evening pottery class at the community center.",
+      "entities": [],
+      "domains": [
+        "other"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "join",
+        "polarity": "positive",
+        "object": "a"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:54.771046+00:00",
+        "stored_at": "2026-06-29T01:00:54.771046+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000022_t000",
+        "source_span": "It's two hours and it's become the thing I most look forward to in the week.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.504
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_78f23f52d6c8",
+      "node_type": "state",
+      "claim": "My sister is visiting next month and staying for a long weekend.",
+      "normalized_claim": "my sister is visiting next month and staying for a long weekend.",
+      "entities": [],
+      "domains": [
+        "family",
+        "hobby"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "visit",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:57.001309+00:00",
+        "stored_at": "2026-06-29T01:00:57.001309+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000023_t000",
+        "source_span": "so I've been clearing out the spare room to set up an air mattress for her.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.48864
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": []
+    },
+    {
+      "node_id": "node_f2a21a94f9f7",
+      "node_type": "state",
+      "claim": "I adopted a cat from the shelter - her name is Pekoe and she's about two years old.",
+      "normalized_claim": "i adopted a cat from the shelter - her name is pekoe and she's about two years old.",
+      "entities": [
+        {
+          "entity_id": "ent_pekoe",
+          "role": "actor"
+        },
+        {
+          "entity_id": "ent_van_ness",
+          "role": "actor"
+        }
+      ],
+      "domains": [
+        "other"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "adopt",
+        "polarity": "positive",
+        "object": "a"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:00:58.896702+00:00",
+        "stored_at": "2026-06-29T01:00:58.896702+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000024_t000",
+        "source_span": "The adoption fee was eighty-five dollars and included her shots.",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.5
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.72,
+        "overall": 0.49632
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_94a8782ca673",
+          "relation_type": "co_occurs",
+          "target_node_id": "ent_van_ness"
+        }
+      ]
+    },
+    {
+      "node_id": "node_8067e2b5abc1",
+      "node_type": "state",
+      "claim": "Pekoe has decided the windowsill by my desk is hers",
+      "normalized_claim": "pekoe has decided the windowsill by my desk is hers",
+      "entities": [
+        {
+          "entity_id": "ent_pekoe",
+          "role": "actor"
+        }
+      ],
+      "domains": [
+        "work"
+      ],
+      "facets": [
+        "weather_disruption",
+        "physical_exposure"
+      ],
+      "predicate": {
+        "lemma": "decid",
+        "polarity": "positive",
+        "object": "the"
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:01:02.070759+00:00",
+        "stored_at": "2026-06-29T01:01:02.070759+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000025_t000",
+        "source_span": "Pekoe has decided the windowsill by my desk is hers",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.8
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_10ff0bf4a758",
+          "relation_type": "motivates",
+          "target_node_id": "node_5f9ff558051d"
+        }
+      ]
+    },
+    {
+      "node_id": "node_5f9ff558051d",
+      "node_type": "fact",
+      "claim": "I now have a small audience during every work call",
+      "normalized_claim": "i now have a small audience during every work call",
+      "entities": [],
+      "domains": [
+        "work"
+      ],
+      "facets": [],
+      "predicate": {
+        "lemma": "dur",
+        "polarity": "positive",
+        "object": null
+      },
+      "temporal": {
+        "asserted_at": "2026-06-29T01:01:02.071194+00:00",
+        "stored_at": "2026-06-29T01:01:02.071194+00:00",
+        "event_time": null,
+        "valid_from": null,
+        "valid_to": null,
+        "superseded_by": null
+      },
+      "provenance": {
+        "source_turn_id": "consolidate_turn_000025_t001",
+        "source_span": "Pekoe has decided the windowsill by my desk is hers",
+        "extraction_method": "llm_candidate_plus_firewall",
+        "confidence": 0.6
+      },
+      "reinforcement": {
+        "local_frequency": 0.0,
+        "cross_session_recurrence": 0.0,
+        "overall": 0.0
+      },
+      "status": {
+        "memory_state": "active",
+        "firewall_decision": "ACCEPT",
+        "validation_state": "provisional"
+      },
+      "motivation": null,
+      "context": null,
+      "relations": [
+        {
+          "relation_id": "rel_af08c9862cf7",
+          "relation_type": "supersedes",
+          "target_node_id": "node_45ba9ca2b417"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "ent_van_ness",
+      "canonical_name": "Van Ness",
+      "entity_type": "place",
+      "aliases": [],
+      "scopes": [],
+      "attributes": {},
+      "confidence": 0.8,
+      "provenance": [
+        {
+          "source_turn_id": "consolidate_turn_000002_t000",
+          "source_span": "If the connecting bus is delayed I can lose another fifteen or twenty minutes standing on that exposed platform."
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_pekoe",
+      "canonical_name": "Pekoe",
+      "entity_type": "person",
+      "aliases": [],
+      "scopes": [],
+      "attributes": {},
+      "confidence": 0.8,
+      "provenance": [
+        {
+          "source_turn_id": "consolidate_turn_000024_t000",
+          "source_span": "The adoption fee was eighty-five dollars and included her shots."
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "rel_f5713d979658",
+      "source_id": "node_26bc8a1a12e0",
+      "target_id": "node_2c7a72cacaf6",
+      "relation_type": "motivates",
+      "polarity": "positive",
+      "claim": "I was doing three runs a week before this flared up -> In the meantime I've had to stop running completely",
+      "confidence": 0.889,
+      "evidence": {
+        "source_node_ids": [
+          "node_26bc8a1a12e0",
+          "node_2c7a72cacaf6"
+        ],
+        "source_spans": [
+          "because I was doing three runs a week before this flared up."
+        ]
+      },
+      "status": "validated"
+    },
+    {
+      "relation_id": "rel_503cd5c9ca6d",
+      "source_id": "node_398ed645f93e",
+      "target_id": "node_166715add738",
+      "relation_type": "supersedes",
+      "polarity": "positive",
+      "claim": "node_398ed645f93e supersedes node_166715add738",
+      "confidence": 1.0,
+      "evidence": {
+        "source_node_ids": [
+          "node_398ed645f93e",
+          "node_166715add738"
+        ],
+        "source_spans": []
+      },
+      "status": "validated"
+    },
+    {
+      "relation_id": "rel_f994938170a1",
+      "source_id": "node_4783a869f482",
+      "target_id": "node_c31d44acfa9a",
+      "relation_type": "supersedes",
+      "polarity": "positive",
+      "claim": "node_4783a869f482 supersedes node_c31d44acfa9a",
+      "confidence": 1.0,
+      "evidence": {
+        "source_node_ids": [
+          "node_4783a869f482",
+          "node_c31d44acfa9a"
+        ],
+        "source_spans": []
+      },
+      "status": "validated"
+    },
+    {
+      "relation_id": "rel_469be510add0",
+      "source_id": "node_1d794091a38e",
+      "target_id": "node_9639f892df15",
+      "relation_type": "causes",
+      "polarity": "positive",
+      "claim": "the 38 route got rerouted this month -> I'm down to roughly forty minutes each way",
+      "confidence": 1.0,
+      "evidence": {
+        "source_node_ids": [
+          "node_1d794091a38e",
+          "node_9639f892df15"
+        ],
+        "source_spans": [
+          "the 38 route got rerouted this month"
+        ]
+      },
+      "status": "validated"
+    },
+    {
+      "relation_id": "rel_3b3f79809a99",
+      "source_id": "node_aa56ff782ade",
+      "target_id": "node_4b8bb6702546",
+      "relation_type": "motivates",
+      "polarity": "positive",
+      "claim": "With the cold snap this week that's made a real difference at night. -> The landlord finally fixed the radiator, so the apartment actually holds heat now.",
+      "confidence": 0.75,
+      "evidence": {
+        "source_node_ids": [
+          "node_aa56ff782ade",
+          "node_4b8bb6702546"
+        ],
+        "source_spans": [
+          "Because the cold snap this week made a real difference at night."
+        ]
+      },
+      "status": "validated"
+    },
+    {
+      "relation_id": "rel_94a8782ca673",
+      "source_id": "ent_pekoe",
+      "target_id": "ent_van_ness",
+      "relation_type": "co_occurs",
+      "polarity": "positive",
+      "claim": "ent_pekoe co_occurs with ent_van_ness",
+      "confidence": 0.9,
+      "evidence": {
+        "source_node_ids": [
+          "node_f2a21a94f9f7"
+        ],
+        "source_spans": []
+      },
+      "status": "validated"
+    },
+    {
+      "relation_id": "rel_af08c9862cf7",
+      "source_id": "node_5f9ff558051d",
+      "target_id": "node_45ba9ca2b417",
+      "relation_type": "supersedes",
+      "polarity": "positive",
+      "claim": "node_5f9ff558051d supersedes node_45ba9ca2b417",
+      "confidence": 1.0,
+      "evidence": {
+        "source_node_ids": [
+          "node_5f9ff558051d",
+          "node_45ba9ca2b417"
+        ],
+        "source_spans": []
+      },
+      "status": "validated"
+    },
+    {
+      "relation_id": "rel_10ff0bf4a758",
+      "source_id": "node_5f9ff558051d",
+      "target_id": "node_8067e2b5abc1",
+      "relation_type": "motivates",
+      "polarity": "positive",
+      "claim": "I now have a small audience during every work call -> Pekoe has decided the windowsill by my desk is hers",
+      "confidence": 0.571,
+      "evidence": {
+        "source_node_ids": [
+          "node_5f9ff558051d",
+          "node_8067e2b5abc1"
+        ],
+        "source_spans": [
+          "Because Pekoe decided the windowsill is hers, I now have a small audience during every work call."
+        ]
+      },
+      "status": "validated"
+    }
+  ],
+  "sessions_seen": {
+    "node_45ba9ca2b417": [
+      "consolidate_turn_000001"
+    ],
+    "node_ec667bb2b0ad": [
+      "consolidate_turn_000001"
+    ],
+    "node_62ccf2cf6c13": [
+      "consolidate_turn_000002"
+    ],
+    "node_a5775d04932b": [
+      "consolidate_turn_000003"
+    ],
+    "node_2c7a72cacaf6": [
+      "consolidate_turn_000004"
+    ],
+    "node_26bc8a1a12e0": [
+      "consolidate_turn_000004"
+    ],
+    "node_8b1438b423c6": [
+      "consolidate_turn_000005"
+    ],
+    "node_3f265f1e5a46": [
+      "consolidate_turn_000005"
+    ],
+    "node_c31d44acfa9a": [
+      "consolidate_turn_000006"
+    ],
+    "node_166715add738": [
+      "consolidate_turn_000006"
+    ],
+    "node_398ed645f93e": [
+      "consolidate_turn_000007"
+    ],
+    "node_fda59483ee0d": [
+      "consolidate_turn_000008"
+    ],
+    "node_35e2263498a6": [
+      "consolidate_turn_000009"
+    ],
+    "node_493ab112daea": [
+      "consolidate_turn_000010"
+    ],
+    "node_ba0253b4e6a5": [
+      "consolidate_turn_000011"
+    ],
+    "node_82278f890052": [
+      "consolidate_turn_000011"
+    ],
+    "node_059c3904f41b": [
+      "consolidate_turn_000012"
+    ],
+    "node_448257f50457": [
+      "consolidate_turn_000013"
+    ],
+    "node_4783a869f482": [
+      "consolidate_turn_000014"
+    ],
+    "node_9639f892df15": [
+      "consolidate_turn_000015"
+    ],
+    "node_1d794091a38e": [
+      "consolidate_turn_000015"
+    ],
+    "node_3310770edc31": [
+      "consolidate_turn_000016"
+    ],
+    "node_4272a519150f": [
+      "consolidate_turn_000016"
+    ],
+    "node_cab982e9a4a2": [
+      "consolidate_turn_000017"
+    ],
+    "node_9310a21cbf60": [
+      "consolidate_turn_000018"
+    ],
+    "node_a0aa72aea5e5": [
+      "consolidate_turn_000019"
+    ],
+    "node_aa56ff782ade": [
+      "consolidate_turn_000020"
+    ],
+    "node_4b8bb6702546": [
+      "consolidate_turn_000020"
+    ],
+    "node_ca86607f8333": [
+      "consolidate_turn_000021"
+    ],
+    "node_f7d2632cdc66": [
+      "consolidate_turn_000022"
+    ],
+    "node_78f23f52d6c8": [
+      "consolidate_turn_000023"
+    ],
+    "node_f2a21a94f9f7": [
+      "consolidate_turn_000024"
+    ],
+    "node_8067e2b5abc1": [
+      "consolidate_turn_000025"
+    ],
+    "node_5f9ff558051d": [
+      "consolidate_turn_000025"
+    ]
+  },
+  "total_sessions": 25,
+  "seen_domains": [
+    "body",
+    "budget",
+    "commute",
+    "family",
+    "fatigue",
+    "food",
+    "hobby",
+    "housing",
+    "other",
+    "planning",
+    "schedule",
+    "weather",
+    "work"
+  ],
+  "session_timestamp": "2026-01-01T00:00:00Z",
+  "session_anchor": "ent_van_ness",
+  "ingested_session_ids": []
+}

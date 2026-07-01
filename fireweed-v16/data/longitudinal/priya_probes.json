@@ -1,0 +1,22 @@
+{
+  "persona": "priya", "core_entity": "priya",
+  "anchors": [
+    {"id": "advisor",  "origin": "early", "keywords": ["Okafor"]},
+    {"id": "boat",     "origin": "early", "keywords": ["Nereid"]},
+    {"id": "fieldsite", "origin": "early", "keywords": ["Elkhorn Slough"]},
+    {"id": "bay",      "origin": "early", "keywords": ["Monterey Bay"]},
+    {"id": "labmate",  "origin": "early", "keywords": ["Sam"]}
+  ],
+  "probes": [
+    {"id": "boat",     "kind": "updated",   "query": "What boat does Priya survey from?",     "gold_keywords": ["Kelpie"], "stale_keywords": ["Nereid"]},
+    {"id": "advisor",  "kind": "early",     "query": "Who is Priya's advisor?",               "gold_keywords": ["Okafor"]},
+    {"id": "fieldsite","kind": "early",     "query": "Where is Priya's field site?",          "gold_keywords": ["Elkhorn", "Slough"]},
+    {"id": "funding",  "kind": "mid",       "query": "What is Priya worried about with money?","gold_keywords": ["funding", "grant", "stipend"]},
+    {"id": "brother",  "kind": "synthesis", "query": "Who wants Priya to leave science?",      "gold_keywords": ["Arjun"]}
+  ],
+  "update": {
+    "session_id": "priya_update",
+    "turn_text": "The Nereid was finally retired this season. I now take a newer research boat called the Kelpie out into the bay instead.",
+    "new_keywords": ["Kelpie"], "stale_keywords": ["the Nereid"]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "persona": "marcus", "core_entity": "marcus",
+  "anchors": [
+    {"id": "band",     "origin": "early", "keywords": ["Foxglove"]},
+    {"id": "grandad",  "origin": "early", "keywords": ["Walter"]},
+    {"id": "student",  "origin": "early", "keywords": ["Aisha"]},
+    {"id": "guitar",   "origin": "early", "keywords": ["Gibson"]},
+    {"id": "bandmate", "origin": "early", "keywords": ["Dev"]}
+  ],
+  "probes": [
+    {"id": "band",     "kind": "updated",   "query": "What band is Marcus in now?",          "gold_keywords": ["Marigold"], "stale_keywords": ["Foxglove"]},
+    {"id": "grandad",  "kind": "early",     "query": "Who gave Marcus his first guitar?",     "gold_keywords": ["Walter"]},
+    {"id": "student",  "kind": "early",     "query": "Who is Marcus's youngest student?",     "gold_keywords": ["Aisha"]},
+    {"id": "partner",  "kind": "mid",       "query": "Who does Marcus live with?",            "gold_keywords": ["Lena"]},
+    {"id": "guitar",   "kind": "synthesis", "query": "What guitar does Marcus play?",         "gold_keywords": ["Gibson"]}
+  ],
+  "update": {
+    "session_id": "marcus_update",
+    "turn_text": "Foxglove broke up last month after six years. I have started a new band called Marigold with Dev instead.",
+    "new_keywords": ["Marigold"], "stale_keywords": ["Foxglove broke up"]
+  }
+}

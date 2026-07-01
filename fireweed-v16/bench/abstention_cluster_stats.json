@@ -1,0 +1,40 @@
+{
+  "per_reader": {
+    "google/gemma-3-1b": {
+      "rag": 6,
+      "fw": 4,
+      "reduced": true
+    },
+    "google/gemma-3-4b": {
+      "rag": 4,
+      "fw": 3,
+      "reduced": true
+    },
+    "liquid/lfm2.5-1.2b": {
+      "rag": 3,
+      "fw": 1,
+      "reduced": true
+    },
+    "qwen/qwen3-1.7b": {
+      "rag": 4,
+      "fw": 1,
+      "reduced": true
+    },
+    "qwen/qwen3-4b-2507": {
+      "rag": 1,
+      "fw": 0,
+      "reduced": true
+    }
+  },
+  "n_readers_reduced": "5/5",
+  "reader_sign_test_p_two_sided": 0.0625,
+  "question_cluster_bootstrap_reduction_ci95": [
+    -0.0536,
+    0.375
+  ],
+  "twoway_cluster_bootstrap_reduction_ci95": [
+    -0.0702,
+    0.3962
+  ],
+  "note": "McNemar over pooled items assumes independence, VIOLATED (5 readers x 12 shared questions). Effect directional across all readers, modest, not significant under cluster resampling."
+}

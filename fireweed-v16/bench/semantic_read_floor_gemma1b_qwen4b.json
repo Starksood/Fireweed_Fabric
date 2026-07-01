@@ -1,0 +1,15 @@
+{
+  "source": "bench/cross_model_gemma1b_qwen4b.json",
+  "embedding_model": "text-embedding-nomic-embed-text-v1.5",
+  "n_pairs": 37,
+  "model_a": "google/gemma-3-1b",
+  "model_b": "qwen/qwen3-4b-2507",
+  "matched_cosine": 0.7978072150417621,
+  "shuffled_floor": 0.6127508870592805,
+  "shuffled_floor_sd": 0.012498200692518186,
+  "within_a_floor": 0.6738512164773244,
+  "within_b_floor": 0.5981921363625244,
+  "lift_over_floor": 0.18505632798248162,
+  "sigma_over_floor": 14.806637574099936,
+  "verdict": "\u2713 SUPPORTED \u2014 matched clearly above topical floor: readers agree BECAUSE of the query, not the corpus"
+}

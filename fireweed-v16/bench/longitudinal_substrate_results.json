@@ -1,0 +1,713 @@
+{
+  "persona": "maya",
+  "n_sessions": 14,
+  "early_sessions": 5,
+  "session_size": 2,
+  "models": {
+    "A": "google/gemma-3-1b",
+    "B": "qwen/qwen3-4b-2507"
+  },
+  "semantic": true,
+  "conditions": {
+    "primary": {
+      "condition": "primary",
+      "growth_curve": [
+        {
+          "session_id": "maya_L01",
+          "n_nodes": 3,
+          "n_entities": 1,
+          "n_domains": 3
+        },
+        {
+          "session_id": "maya_L02",
+          "n_nodes": 6,
+          "n_entities": 1,
+          "n_domains": 5
+        },
+        {
+          "session_id": "maya_L03",
+          "n_nodes": 10,
+          "n_entities": 1,
+          "n_domains": 7
+        },
+        {
+          "session_id": "maya_L04",
+          "n_nodes": 12,
+          "n_entities": 1,
+          "n_domains": 8
+        },
+        {
+          "session_id": "maya_L05",
+          "n_nodes": 14,
+          "n_entities": 1,
+          "n_domains": 9
+        },
+        {
+          "session_id": "maya_L06",
+          "n_nodes": 17,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L07",
+          "n_nodes": 19,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L08",
+          "n_nodes": 23,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L09",
+          "n_nodes": 24,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L10",
+          "n_nodes": 26,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L11",
+          "n_nodes": 29,
+          "n_entities": 1,
+          "n_domains": 12
+        },
+        {
+          "session_id": "maya_L12",
+          "n_nodes": 31,
+          "n_entities": 1,
+          "n_domains": 13
+        },
+        {
+          "session_id": "maya_L13",
+          "n_nodes": 34,
+          "n_entities": 2,
+          "n_domains": 13
+        },
+        {
+          "session_id": "maya_update",
+          "n_nodes": 36,
+          "n_entities": 2,
+          "n_domains": 13
+        }
+      ],
+      "final_nodes": 36,
+      "proposed_total": 53,
+      "dedup_ratio": 0.679,
+      "canonical_integrity": {
+        "core_entity_nodes": 0,
+        "core_names": [],
+        "n_entities": 2,
+        "n_supersedes": 4
+      },
+      "persistence_at_early": {
+        "recall": 0.8,
+        "present": [
+          "injury",
+          "running",
+          "rent",
+          "vanness"
+        ],
+        "missing": [
+          "physio"
+        ]
+      },
+      "queryability_coverage": {
+        "coverage_rate": 1.0,
+        "rows": [
+          {
+            "id": "commute",
+            "kind": "updated",
+            "covered": true
+          },
+          {
+            "id": "injury",
+            "kind": "early",
+            "covered": true
+          },
+          {
+            "id": "rent",
+            "kind": "mid",
+            "covered": true
+          },
+          {
+            "id": "evenings",
+            "kind": "late",
+            "covered": true
+          },
+          {
+            "id": "finances",
+            "kind": "synthesis",
+            "covered": true
+          }
+        ]
+      },
+      "query_graph_answered": {
+        "answered_rate": 0.0
+      },
+      "contradiction": {
+        "new_fact_active": true,
+        "stale_still_active": false,
+        "stale_superseded": true,
+        "resolved": true,
+        "supersedes_relations": 4
+      }
+    },
+    "determinism": {
+      "condition": "determinism",
+      "growth_curve": [
+        {
+          "session_id": "maya_L01",
+          "n_nodes": 3,
+          "n_entities": 1,
+          "n_domains": 3
+        },
+        {
+          "session_id": "maya_L02",
+          "n_nodes": 6,
+          "n_entities": 1,
+          "n_domains": 5
+        },
+        {
+          "session_id": "maya_L03",
+          "n_nodes": 10,
+          "n_entities": 1,
+          "n_domains": 7
+        },
+        {
+          "session_id": "maya_L04",
+          "n_nodes": 12,
+          "n_entities": 1,
+          "n_domains": 8
+        },
+        {
+          "session_id": "maya_L05",
+          "n_nodes": 14,
+          "n_entities": 1,
+          "n_domains": 9
+        },
+        {
+          "session_id": "maya_L06",
+          "n_nodes": 17,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L07",
+          "n_nodes": 19,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L08",
+          "n_nodes": 23,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L09",
+          "n_nodes": 24,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L10",
+          "n_nodes": 26,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L11",
+          "n_nodes": 29,
+          "n_entities": 1,
+          "n_domains": 12
+        },
+        {
+          "session_id": "maya_L12",
+          "n_nodes": 31,
+          "n_entities": 1,
+          "n_domains": 13
+        },
+        {
+          "session_id": "maya_L13",
+          "n_nodes": 34,
+          "n_entities": 2,
+          "n_domains": 13
+        },
+        {
+          "session_id": "maya_update",
+          "n_nodes": 36,
+          "n_entities": 2,
+          "n_domains": 13
+        }
+      ],
+      "final_nodes": 36,
+      "proposed_total": 53,
+      "dedup_ratio": 0.679,
+      "canonical_integrity": {
+        "core_entity_nodes": 0,
+        "core_names": [],
+        "n_entities": 2,
+        "n_supersedes": 4
+      },
+      "persistence_at_early": {
+        "recall": 0.8,
+        "present": [
+          "injury",
+          "running",
+          "rent",
+          "vanness"
+        ],
+        "missing": [
+          "physio"
+        ]
+      },
+      "queryability_coverage": {
+        "coverage_rate": 1.0,
+        "rows": [
+          {
+            "id": "commute",
+            "kind": "updated",
+            "covered": true
+          },
+          {
+            "id": "injury",
+            "kind": "early",
+            "covered": true
+          },
+          {
+            "id": "rent",
+            "kind": "mid",
+            "covered": true
+          },
+          {
+            "id": "evenings",
+            "kind": "late",
+            "covered": true
+          },
+          {
+            "id": "finances",
+            "kind": "synthesis",
+            "covered": true
+          }
+        ]
+      },
+      "query_graph_answered": {
+        "answered_rate": 0.0
+      },
+      "contradiction": {
+        "new_fact_active": true,
+        "stale_still_active": false,
+        "stale_superseded": true,
+        "resolved": true,
+        "supersedes_relations": 4
+      }
+    },
+    "order_shuffled": {
+      "condition": "order_shuffled",
+      "growth_curve": [
+        {
+          "session_id": "maya_L09",
+          "n_nodes": 1,
+          "n_entities": 0,
+          "n_domains": 2
+        },
+        {
+          "session_id": "maya_L08",
+          "n_nodes": 5,
+          "n_entities": 0,
+          "n_domains": 5
+        },
+        {
+          "session_id": "maya_L01",
+          "n_nodes": 8,
+          "n_entities": 1,
+          "n_domains": 6
+        },
+        {
+          "session_id": "maya_L12",
+          "n_nodes": 10,
+          "n_entities": 1,
+          "n_domains": 8
+        },
+        {
+          "session_id": "maya_L06",
+          "n_nodes": 13,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L02",
+          "n_nodes": 16,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L07",
+          "n_nodes": 18,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L10",
+          "n_nodes": 20,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L04",
+          "n_nodes": 22,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L03",
+          "n_nodes": 26,
+          "n_entities": 1,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L11",
+          "n_nodes": 29,
+          "n_entities": 1,
+          "n_domains": 12
+        },
+        {
+          "session_id": "maya_L13",
+          "n_nodes": 32,
+          "n_entities": 2,
+          "n_domains": 12
+        },
+        {
+          "session_id": "maya_L05",
+          "n_nodes": 34,
+          "n_entities": 2,
+          "n_domains": 13
+        },
+        {
+          "session_id": "maya_update",
+          "n_nodes": 36,
+          "n_entities": 2,
+          "n_domains": 13
+        }
+      ],
+      "final_nodes": 36,
+      "proposed_total": 53,
+      "dedup_ratio": 0.679,
+      "canonical_integrity": {
+        "core_entity_nodes": 0,
+        "core_names": [],
+        "n_entities": 2,
+        "n_supersedes": 4
+      },
+      "persistence_at_early": {
+        "recall": 0.8,
+        "present": [
+          "injury",
+          "running",
+          "rent",
+          "vanness"
+        ],
+        "missing": [
+          "physio"
+        ]
+      },
+      "queryability_coverage": {
+        "coverage_rate": 1.0,
+        "rows": [
+          {
+            "id": "commute",
+            "kind": "updated",
+            "covered": true
+          },
+          {
+            "id": "injury",
+            "kind": "early",
+            "covered": true
+          },
+          {
+            "id": "rent",
+            "kind": "mid",
+            "covered": true
+          },
+          {
+            "id": "evenings",
+            "kind": "late",
+            "covered": true
+          },
+          {
+            "id": "finances",
+            "kind": "synthesis",
+            "covered": true
+          }
+        ]
+      },
+      "query_graph_answered": {
+        "answered_rate": 0.0
+      },
+      "contradiction": {
+        "new_fact_active": true,
+        "stale_still_active": false,
+        "stale_superseded": true,
+        "resolved": true,
+        "supersedes_relations": 4
+      }
+    },
+    "crossmodel": {
+      "condition": "crossmodel",
+      "growth_curve": [
+        {
+          "session_id": "maya_L01",
+          "n_nodes": 4,
+          "n_entities": 1,
+          "n_domains": 2
+        },
+        {
+          "session_id": "maya_L02",
+          "n_nodes": 10,
+          "n_entities": 1,
+          "n_domains": 5
+        },
+        {
+          "session_id": "maya_L03",
+          "n_nodes": 14,
+          "n_entities": 1,
+          "n_domains": 7
+        },
+        {
+          "session_id": "maya_L04",
+          "n_nodes": 18,
+          "n_entities": 1,
+          "n_domains": 8
+        },
+        {
+          "session_id": "maya_L05",
+          "n_nodes": 24,
+          "n_entities": 1,
+          "n_domains": 9
+        },
+        {
+          "session_id": "maya_L06",
+          "n_nodes": 30,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L07",
+          "n_nodes": 36,
+          "n_entities": 1,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L08",
+          "n_nodes": 42,
+          "n_entities": 2,
+          "n_domains": 10
+        },
+        {
+          "session_id": "maya_L09",
+          "n_nodes": 45,
+          "n_entities": 2,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L10",
+          "n_nodes": 48,
+          "n_entities": 2,
+          "n_domains": 11
+        },
+        {
+          "session_id": "maya_L11",
+          "n_nodes": 55,
+          "n_entities": 2,
+          "n_domains": 12
+        },
+        {
+          "session_id": "maya_L12",
+          "n_nodes": 59,
+          "n_entities": 2,
+          "n_domains": 13
+        },
+        {
+          "session_id": "maya_L13",
+          "n_nodes": 64,
+          "n_entities": 3,
+          "n_domains": 13
+        },
+        {
+          "session_id": "maya_update",
+          "n_nodes": 66,
+          "n_entities": 3,
+          "n_domains": 13
+        }
+      ],
+      "final_nodes": 66,
+      "proposed_total": 84,
+      "dedup_ratio": 0.786,
+      "canonical_integrity": {
+        "core_entity_nodes": 0,
+        "core_names": [],
+        "n_entities": 3,
+        "n_supersedes": 4
+      },
+      "persistence_at_early": {
+        "recall": 1.0,
+        "present": [
+          "injury",
+          "physio",
+          "running",
+          "rent",
+          "vanness"
+        ],
+        "missing": []
+      },
+      "queryability_coverage": {
+        "coverage_rate": 0.8,
+        "rows": [
+          {
+            "id": "commute",
+            "kind": "updated",
+            "covered": false
+          },
+          {
+            "id": "injury",
+            "kind": "early",
+            "covered": true
+          },
+          {
+            "id": "rent",
+            "kind": "mid",
+            "covered": true
+          },
+          {
+            "id": "evenings",
+            "kind": "late",
+            "covered": true
+          },
+          {
+            "id": "finances",
+            "kind": "synthesis",
+            "covered": true
+          }
+        ]
+      },
+      "query_graph_answered": {
+        "answered_rate": 0.2
+      },
+      "contradiction": {
+        "new_fact_active": false,
+        "stale_still_active": true,
+        "stale_superseded": true,
+        "resolved": false,
+        "supersedes_relations": 4
+      }
+    },
+    "swap": {
+      "condition": "swap",
+      "first_half_model": "google/gemma-3-1b",
+      "second_half_model": "qwen/qwen3-4b-2507",
+      "final_nodes": 49,
+      "canonical_integrity": {
+        "core_entity_nodes": 0,
+        "core_names": [],
+        "n_entities": 3,
+        "n_supersedes": 4
+      },
+      "persistence_at_early": {
+        "recall": 1.0,
+        "present": [
+          "injury",
+          "physio",
+          "running",
+          "rent",
+          "vanness"
+        ],
+        "missing": []
+      },
+      "queryability_coverage": {
+        "coverage_rate": 0.8,
+        "rows": [
+          {
+            "id": "commute",
+            "kind": "updated",
+            "covered": false
+          },
+          {
+            "id": "injury",
+            "kind": "early",
+            "covered": true
+          },
+          {
+            "id": "rent",
+            "kind": "mid",
+            "covered": true
+          },
+          {
+            "id": "evenings",
+            "kind": "late",
+            "covered": true
+          },
+          {
+            "id": "finances",
+            "kind": "synthesis",
+            "covered": true
+          }
+        ]
+      },
+      "query_graph_answered": {
+        "answered_rate": 0.2
+      },
+      "contradiction": {
+        "new_fact_active": false,
+        "stale_still_active": true,
+        "stale_superseded": true,
+        "resolved": false,
+        "supersedes_relations": 4
+      }
+    },
+    "append_baseline": {
+      "n_items": 27,
+      "dedup_ratio": 1.0,
+      "queryability": {
+        "answered_rate": 0.8,
+        "correct_rate": 0.4
+      },
+      "persistence_recall": 1.0,
+      "core_entity_nodes": 0,
+      "note": "no canonical entity, no contradiction resolution"
+    }
+  },
+  "agreements": {
+    "determinism_floor": {
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 1.0,
+      "claim_lexical": 1.0,
+      "claim_semantic": 1.0
+    },
+    "cross_model": {
+      "entity_jaccard": 0.6667,
+      "domain_jaccard": 1.0,
+      "claim_lexical": 0.7304,
+      "claim_semantic": 0.8233
+    },
+    "order_invariance": {
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 1.0,
+      "claim_lexical": 1.0,
+      "claim_semantic": 1.0
+    },
+    "swap_vs_single": {
+      "entity_jaccard": 0.6667,
+      "domain_jaccard": 1.0,
+      "claim_lexical": 0.8545,
+      "claim_semantic": 0.9117
+    }
+  },
+  "verdict": "\u26a0 PARTIAL (persist 0.8, core_ok=True, contradiction=True)"
+}

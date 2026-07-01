@@ -1,0 +1,526 @@
+{
+  "stage": 4,
+  "status": "executed",
+  "mode": "union",
+  "note": "Hardware-fitting closed-loop run on 8GB Mac; canonical 3B run in run_stage_4_kaggle.py. Hat (adapter saved unmerged); eval = dual-eval harness (in-domain + OOD + general).",
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "device": "mps",
+  "trace_batches": [
+    "data/traces/maya_v16_sft.jsonl",
+    "data/traces/maya_v16_sft_b2.jsonl"
+  ],
+  "held_out": 4,
+  "mix_retention": null,
+  "mix_ratio": 0.0,
+  "epochs": 5,
+  "before": {
+    "in_domain": {
+      "n": 4,
+      "json_valid": "0/4",
+      "fields_complete": "0/4",
+      "claim_exact": "0/4",
+      "claim_f1_mean": 0.0,
+      "evidence_grounded": "0/4",
+      "domains_jaccard_mean": 0.0,
+      "confidence_ok": "0/4",
+      "completion_loss_mean": 1.1393,
+      "samples": [
+        {
+          "sid": "maya_s03",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The normalized memory claim for the text provided is:\n\n\"Rent is going up by 80 pounds per month.\""
+        },
+        {
+          "sid": "maya_s05",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "It rained heavily on Tuesday, causing me to get completely soaked. My jacket was wet through, and I had to change when I arrived. The umbrel"
+        },
+        {
+          "sid": "maya_s06",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The normalized memory claim for this session is:\n- Chips\n- Ready meal\n- Two or three nights a week\n- The cost of these items is increasing o"
+        },
+        {
+          "sid": "maya_s07",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The connecting bus at Van Ness has been delayed repeatedly this week, with the second instance being over fifteen minutes late on opening sh"
+        }
+      ]
+    },
+    "ood": {
+      "n": 12,
+      "json_valid": "0/12",
+      "fields_complete": "0/12",
+      "claim_exact": "0/12",
+      "claim_f1_mean": 0.0,
+      "evidence_grounded": "0/12",
+      "domains_jaccard_mean": 0.0,
+      "confidence_ok": "0/12",
+      "completion_loss_mean": 1.1749,
+      "samples": [
+        {
+          "sid": "dev_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Raj maintains the billing service at work, which is a Django monolith, and the test suite takes about forty minutes to run, which kills his "
+        },
+        {
+          "sid": "cook_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "I'm trying to get into sourdough, and my starter is collapsing before I bake. The kitchen is too cold overnight."
+        },
+        {
+          "sid": "pet_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The normalized memory claim for the session \"pet_s01\" is:\n\n\"We adopted a rescue greyhound last weekend. She is terrified of the stairs and w"
+        },
+        {
+          "sid": "fin_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The normalized memory claim is that the emergency fund has been invested in a high-yield savings account with an annual interest rate of 4%."
+        },
+        {
+          "sid": "travel_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "I'm traveling to Lisbon by plane in March, and I still need to find accommodation nearby the venue. The hotels near the venue have all been "
+        },
+        {
+          "sid": "study_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The user mentions they are halfway through a part-time data analytics course and spend most of their evenings working on problem sets."
+        },
+        {
+          "sid": "car_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The car's front brake pads failed, and the worn-out tyre was also identified as faulty by the garage. The total cost of the vehicle is estim"
+        },
+        {
+          "sid": "health_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "My doctor has increased my thyroid medication dosage by 25% after the last blood test, and I need to return for a follow-up in eight weeks t"
+        },
+        {
+          "sid": "family_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "My sister and I have a falling out over Christmas plans, which is weighing on me."
+        },
+        {
+          "sid": "career_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "The normalized memory claim is: \"I am considering taking the team lead role, but it will mean less hands-on coding.\""
+        },
+        {
+          "sid": "partner_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "My partner Tom started a new job at a logistics firm in Leeds and commutes by train instead of driving."
+        },
+        {
+          "sid": "move_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "New flat, two bedrooms, rent is 1450 a month, and it's for the move-in on the 15th."
+        }
+      ]
+    },
+    "general": {
+      "n": 12,
+      "hit_rate": "11/12",
+      "json_leak_rate": "0/12",
+      "samples": [
+        {
+          "topic": "geography",
+          "hit": true,
+          "json_leak": false,
+          "got": "The capital of France is Paris."
+        },
+        {
+          "topic": "arithmetic",
+          "hit": true,
+          "json_leak": false,
+          "got": "7 times 8 equals 56."
+        },
+        {
+          "topic": "literature",
+          "hit": true,
+          "json_leak": false,
+          "got": "The play \"Romeo and Juliet\" was written by William Shakespeare. He lived from 1564 to 1616 and is co"
+        },
+        {
+          "topic": "common-sense",
+          "hit": false,
+          "json_leak": false,
+          "got": "When you mix blue and yellow paint, the resulting color is a bright, vibrant shade of orange or red."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The largest planet in our solar system is Jupiter. It is known as the \"Jupiter\" because it has been "
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "The opposite of the word \"hot\" in English would be \"cold\"."
+        },
+        {
+          "topic": "common-sense",
+          "hit": true,
+          "json_leak": false,
+          "got": "There are 7 days in a week."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The chemical formula for water is H\u2082O. This represents two hydrogen atoms bonded to one oxygen atom "
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "\"Hello\" in Spanish is \"Hola\"."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The boiling point of water at sea level is 100 degrees Celsius (212 degrees Fahrenheit). This temper"
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "\"Orange Purrfect\""
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "A good morning routine helps set the tone for the day and prepares the body and mind for productivit"
+        }
+      ]
+    }
+  },
+  "after": {
+    "in_domain": {
+      "n": 4,
+      "json_valid": "4/4",
+      "fields_complete": "4/4",
+      "claim_exact": "2/4",
+      "claim_f1_mean": 0.9846,
+      "evidence_grounded": "3/4",
+      "domains_jaccard_mean": 0.3333,
+      "confidence_ok": "4/4",
+      "completion_loss_mean": 0.1508,
+      "samples": [
+        {
+          "sid": "maya_s03",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.969,
+          "domains_jaccard": 0.5,
+          "grounded": false,
+          "got": "{\"claim\": \"I got a letter from my landlord yesterday \\u2014 rent is going up by eighty pound a month from the first of next month. I wasn't "
+        },
+        {
+          "sid": "maya_s05",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.5,
+          "grounded": true,
+          "got": "{\"claim\": \"It rained heavily on Tuesday and I got completely soaked \\u2014 my jacket was wet through and I had to change when I arrived. The"
+        },
+        {
+          "sid": "maya_s06",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.97,
+          "domains_jaccard": 0.333,
+          "grounded": true,
+          "got": "{\"claim\": \"I stop at the corner shop on the way home \\u2014 chips, a ready meal, whatever needs no preparation. It\\u2017s happening two or t"
+        },
+        {
+          "sid": "maya_s07",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\"claim\": \"The connecting bus at Van Ness has been delayed repeatedly this week \\u2014 twice it was over fifteen minutes late. On opening sh"
+        }
+      ]
+    },
+    "ood": {
+      "n": 12,
+      "json_valid": "12/12",
+      "fields_complete": "12/12",
+      "claim_exact": "12/12",
+      "claim_f1_mean": 1.0,
+      "evidence_grounded": "10/12",
+      "domains_jaccard_mean": 0.3333,
+      "confidence_ok": "12/12",
+      "completion_loss_mean": 0.1625,
+      "samples": [
+        {
+          "sid": "dev_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.333,
+          "grounded": false,
+          "got": "{\"claim\": \"I'm Raj. I maintain the billing service at work \\u2014 it's a Django monolith and the test suite takes about forty minutes to run"
+        },
+        {
+          "sid": "cook_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"I'm trying to get into sourdough. My starter keeps collapsing before I bake \\u2014 I think the kitchen is too cold overnight.\", \""
+        },
+        {
+          "sid": "pet_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\"claim\": \"We adopted a rescue greyhound last weekend. She is terrified of the stairs and will not go up to the bedroom yet.\", \"evidence_spa"
+        },
+        {
+          "sid": "fin_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\"claim\": \"I moved my emergency fund into a high-yield savings account paying four percent. It was sitting in a current account earning noth"
+        },
+        {
+          "sid": "travel_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.333,
+          "grounded": true,
+          "got": "{\"claim\": \"I'm flying to Lisbon in March for a friend's wedding. I still need to sort out the accommodation \\u2014 the hotels near the venue"
+        },
+        {
+          "sid": "study_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.333,
+          "grounded": true,
+          "got": "{\"claim\": \"I'm halfway through a part-time data analytics course. The statistics module is brutal \\u2014 I'm spending most of my evenings on"
+        },
+        {
+          "sid": "car_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.333,
+          "grounded": true,
+          "got": "{\"claim\": \"The car failed its MOT on the front brake pads and a worn tyre. The garage quoted me three hundred for the lot.\", \"evidence_span\""
+        },
+        {
+          "sid": "health_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 1.0,
+          "grounded": true,
+          "got": "{\"claim\": \"My doctor put me on a higher dose of my thyroid medication after the last blood test. I have to go back in eight weeks to check t"
+        },
+        {
+          "sid": "family_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.333,
+          "grounded": true,
+          "got": "{\"claim\": \"My sister and I had a falling out over Christmas plans. We haven't really spoken in two weeks and it's weighing on me.\", \"evidenc"
+        },
+        {
+          "sid": "career_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 1.0,
+          "grounded": true,
+          "got": "{\"claim\": \"I got offered a team lead role but it means less hands-on coding. I'm genuinely torn about whether to take it.\", \"evidence_span\":"
+        },
+        {
+          "sid": "partner_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.333,
+          "grounded": true,
+          "got": "{\"claim\": \"My partner Tom started a new job at a logistics firm in Leeds. He commutes by train now instead of driving.\", \"evidence_span\": \"M"
+        },
+        {
+          "sid": "move_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\"claim\": \"New flat. Two bedrooms. Rent is 1450 a month. Move-in date is the 15th.\", \"evidence_span\": \"New flat. Two bedrooms. Rent is 1450 "
+        }
+      ]
+    },
+    "general": {
+      "n": 12,
+      "hit_rate": "11/12",
+      "json_leak_rate": "0/12",
+      "samples": [
+        {
+          "topic": "geography",
+          "hit": true,
+          "json_leak": false,
+          "got": "The capital of France is Paris. It's located on the left bank of the Seine River in the northwestern"
+        },
+        {
+          "topic": "arithmetic",
+          "hit": false,
+          "json_leak": false,
+          "got": "To find the product of \\(7 \\times 8\\), we can break it down into simpler steps:\n\n1. Recognize that m"
+        },
+        {
+          "topic": "literature",
+          "hit": true,
+          "json_leak": false,
+          "got": "Romeo and Juliet was written by William Shakespeare. It is one of his most famous plays and has been"
+        },
+        {
+          "topic": "common-sense",
+          "hit": true,
+          "json_leak": false,
+          "got": "When you mix blue and yellow paint, the resulting color is a light shade of greenish-blue. This mixt"
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The largest planet in our solar system is Jupiter. It has a diameter of about 142,093 kilometers and"
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "The opposite of the word \"hot\" is \"cold\"."
+        },
+        {
+          "topic": "common-sense",
+          "hit": true,
+          "json_leak": false,
+          "got": "There are 7 days in a week."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The chemical formula for water is H\u2082O."
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "\"Hello\" in Spanish is \"hola\"."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The boiling point of water at sea level is 100\u00b0C (212\u00b0F)."
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "Luna."
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "A well-prepared morning routine can set the tone for the day and prepare the body and mind for the c"
+        }
+      ]
+    }
+  },
+  "iterations": [],
+  "verdicts": {
+    "learned_signal": true,
+    "ood_skill_retained": true,
+    "general_retained": true,
+    "no_json_leak": true
+  },
+  "adapter": "data/adapters/maya_v16_iter2_union_qwen05b"
+}

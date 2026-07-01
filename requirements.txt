@@ -1,0 +1,6 @@
+# Verification bundle — runs on CPU, offline, no LM Studio, no GPU, no `fireweed`.
+# sentence-transformers pulls in a CPU build of torch transitively; that is the only heavy
+# dependency and it is required to recompute embedding cosines on the public sbert encoder.
+sentence-transformers>=2.2,<4
+numpy>=1.23
+pytest>=7.0

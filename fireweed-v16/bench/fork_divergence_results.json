@@ -1,0 +1,52 @@
+{
+  "experiment": "fork_divergence",
+  "model": "google/gemma-3-1b",
+  "fork_nodes": 10,
+  "fork_point_persist": 0.667,
+  "shared_persist": {
+    "A": 0.667,
+    "B": 0.667,
+    "A_hits": [
+      "injury",
+      "rent"
+    ],
+    "B_hits": [
+      "injury",
+      "rent"
+    ],
+    "fork_point": 0.667
+  },
+  "divergent_fork_agreement": {
+    "entity_jaccard": 0.5,
+    "domain_jaccard": 0.7,
+    "claim_lexical": 0.786,
+    "claim_semantic": 0.819
+  },
+  "null_fork_agreement": {
+    "entity_jaccard": 1.0,
+    "domain_jaccard": 1.0,
+    "claim_lexical": 1.0,
+    "claim_semantic": 1.0
+  },
+  "X_entities_in_A": {
+    "print shop": true,
+    "Civic Center": false
+  },
+  "X_entities_in_B": {
+    "print shop": false,
+    "Civic Center": false
+  },
+  "Y_entities_in_B": {
+    "Frome": true,
+    "Dana": false,
+    "Biscuit": false
+  },
+  "Y_entities_in_A": {
+    "Frome": false,
+    "Dana": false,
+    "Biscuit": false
+  },
+  "divergence_detected": true,
+  "branch_specific": true,
+  "verdict": "\u2713\u2713 STRONG (continuity + experience-driven divergence + branch-specific entities)"
+}

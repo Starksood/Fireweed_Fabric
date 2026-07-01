@@ -1,0 +1,6 @@
+{
+  "cross_persona_floor_claim_semantic": 0.5832,
+  "cross_persona_pairs": 6,
+  "same_perceiver_ceiling_claim_semantic": 1.0,
+  "note": "floor = claim-semantic between accounts of DIFFERENT personas; ceiling = single perceiver re-run at temp 0"
+}

@@ -1,0 +1,1034 @@
+{
+  "stage": 4,
+  "status": "executed",
+  "backend": "kaggle-qlora-4bit",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "mode": "iterative",
+  "trace_batches": [
+    "/kaggle/input/datasets/sanyamsood1/v16-neo/kaggle_handoff/data/traces/maya_v16_sft.jsonl",
+    "/kaggle/input/datasets/sanyamsood1/v16-neo/kaggle_handoff/data/traces/maya_v16_sft_b2.jsonl"
+  ],
+  "held_out": 4,
+  "mix_retention": null,
+  "mix_ratio": 0.0,
+  "lora": {
+    "r": 16,
+    "alpha": 32
+  },
+  "epochs": 8,
+  "before": {
+    "in_domain": {
+      "n": 4,
+      "json_valid": "1/4",
+      "fields_complete": "0/4",
+      "claim_exact": "0/4",
+      "claim_f1_mean": 0.0,
+      "evidence_grounded": "0/4",
+      "domains_jaccard_mean": 0.0,
+      "confidence_ok": "0/4",
+      "completion_loss_mean": 1.4991,
+      "samples": [
+        {
+          "sid": "maya_s03",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory claim: \n- Entity: Landlord\n- Action: Sent a letter\n- Content: Letter informing the tenant about an increase in rent by 80 pounds per "
+        },
+        {
+          "sid": "maya_s05",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim:\n{\n  \"entity\": \"maya_s05\",\n  \"event\": \"got_wet\",\n  \"timestamp\": \"Tuesday\",\n  \"details\": \"completely soaked, jacket wet through,"
+        },
+        {
+          "sid": "maya_s06",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: \n- **Resource Type**: Food Items (chips, ready meal)\n- **Frequency**: 2-3 times per week\n- **Cost Impact**: Increasing expense"
+        },
+        {
+          "sid": "maya_s07",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: \n- Location: Van Ness (Connecting Bus)\n- Issue: Repeated delays, with an instance of over 15 minutes delay\n- Frequency: Openin"
+        }
+      ]
+    },
+    "ood": {
+      "n": 12,
+      "json_valid": "1/12",
+      "fields_complete": "0/12",
+      "claim_exact": "0/12",
+      "claim_f1_mean": 0.0,
+      "evidence_grounded": "0/12",
+      "domains_jaccard_mean": 0.0,
+      "confidence_ok": "0/12",
+      "completion_loss_mean": 1.5346,
+      "samples": [
+        {
+          "sid": "dev_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory claim: \n- Service Type: Billing Service\n- Technology: Django Monolith\n- Test Suite Runtime: 40 minutes"
+        },
+        {
+          "sid": "cook_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory claim: \n- Subject: \"I\"\n- Action: \"trying to get into sourdough\"\n- Context: \"kitchen is too cold overnight\""
+        },
+        {
+          "sid": "pet_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: pet_s01 adopted a rescue greyhound who is afraid of the stairs and has not yet gone up to the bedroom."
+        },
+        {
+          "sid": "fin_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory claim: \n- **Resource**: Emergency Fund\n- **Action**: Moved\n- **Destination**: High-yield Savings Account\n- **Attributes**:\n  - **Amou"
+        },
+        {
+          "sid": "travel_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: \n- **Context**: travel_s01\n- **Resource**: Accommodation\n- **Claim**: Need to find alternative accommodation as hotels near th"
+        },
+        {
+          "sid": "study_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory claim: \n- Entity: \"data analytics course\"\n- Attribute: \"progress\"\n- Value: \"halfway through\""
+        },
+        {
+          "sid": "car_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: \n- **Entity**: car_s01\n- **Claim**: The car needs repair costing 300 units (e.g., currency, time, effort) due to issues with f"
+        },
+        {
+          "sid": "health_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: \n- **Subject**: health_s01\n- **Claim**: health_s01 is receiving a higher dose of thyroid medication from their doctor, as it w"
+        },
+        {
+          "sid": "family_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "A normalized memory claim from the given text could be:\n\n- **Memory Claim**: \"There was a conflict between the speaker and their sister over"
+        },
+        {
+          "sid": "career_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: \n- **Entity**: Career Decision\n- **Aspect**: Role Acceptance\n- **Value**: The decision to accept a team lead role that involve"
+        },
+        {
+          "sid": "partner_s01",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Normalized memory claim: \n- Person: Tom\n- Change: Started a new job at a logistics firm in Leeds\n- Additional Information: Commutes by train"
+        },
+        {
+          "sid": "move_s01",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "Memory Claim: \n{\n  \"location\": \"flat\",\n  \"bedrooms\": 2,\n  \"monthly_rent\": 1450,\n  \"move_in_date\": \"the 15th\"\n}"
+        }
+      ]
+    },
+    "general": {
+      "n": 12,
+      "hit_rate": "12/12",
+      "json_leak_rate": "0/12",
+      "samples": [
+        {
+          "topic": "geography",
+          "hit": true,
+          "json_leak": false,
+          "got": "The capital of France is Paris."
+        },
+        {
+          "topic": "arithmetic",
+          "hit": true,
+          "json_leak": false,
+          "got": "7 times 8 equals 56."
+        },
+        {
+          "topic": "literature",
+          "hit": true,
+          "json_leak": false,
+          "got": "The play \"Romeo and Juliet\" was written by William Shakespeare. It is one of his most famous works, "
+        },
+        {
+          "topic": "common-sense",
+          "hit": true,
+          "json_leak": false,
+          "got": "When you mix blue and yellow paint, you typically get green."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The largest planet in our solar system is Jupiter. It is a gas giant with a diameter of about 139,82"
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "The opposite of the word 'hot' is 'cold'."
+        },
+        {
+          "topic": "common-sense",
+          "hit": true,
+          "json_leak": false,
+          "got": "There are 7 days in a week."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The chemical formula for water is H\u2082O. This means that each molecule of water consists of two hydrog"
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "In Spanish, 'hello' is said as 'hola'."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The boiling point of water in degrees Celsius at sea level is 100 degrees Celsius."
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "How about \"Sunshine Orange\"? It's both cute and fitting for an orange cat!"
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "A good morning routine is one that sets a positive tone for the day, enhances productivity and well-"
+        }
+      ]
+    }
+  },
+  "after": {
+    "in_domain": {
+      "n": 4,
+      "json_valid": "3/4",
+      "fields_complete": "0/4",
+      "claim_exact": "2/4",
+      "claim_f1_mean": 0.7,
+      "evidence_grounded": "2/4",
+      "domains_jaccard_mean": 0.0,
+      "confidence_ok": "0/4",
+      "completion_loss_mean": 0.5043,
+      "samples": [
+        {
+          "sid": "maya_s03",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\n  \"claim\": \"I got a letter from my landlord yesterday \u2014 rent is going up by eighty pounds a month from the first of next month. I wasn't e"
+        },
+        {
+          "sid": "maya_s05",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\n  \"claim\": \"It rained heavily on Tuesday and I got completely soaked \u2014 my jacket was wet through and I had to change when I arrived. The u"
+        },
+        {
+          "sid": "maya_s06",
+          "json_valid": false,
+          "claim_exact": false,
+          "claim_f1": 0.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\n  \"claim\": \"I stop at the corner shop on the way home \u2014 chips, a ready meal, whatever needs no preparation. It's happening two or three ni"
+        },
+        {
+          "sid": "maya_s07",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.8,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\"claim\": \"The connecting bus at Van Ness has been delayed repeatedly this week \u2014 twice it was over fifteen minutes late.\", \"evidence_span\":"
+        }
+      ]
+    },
+    "ood": {
+      "n": 12,
+      "json_valid": "12/12",
+      "fields_complete": "0/12",
+      "claim_exact": "7/12",
+      "claim_f1_mean": 0.9015,
+      "evidence_grounded": "3/12",
+      "domains_jaccard_mean": 0.0,
+      "confidence_ok": "3/12",
+      "completion_loss_mean": 0.4145,
+      "samples": [
+        {
+          "sid": "dev_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\n  \"claim\": \"I'm Raj. I maintain the billing service at work \u2014 it's a Django monolith and the test suite takes about forty minutes to run, "
+        },
+        {
+          "sid": "cook_s01",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.842,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"My starter keeps collapsing before I bake \u2014 I think the kitchen is too cold overnight.\", \"source\": \"cook_s01\"}"
+        },
+        {
+          "sid": "pet_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\n  \"claim\": \"We adopted a rescue greyhound last weekend. She is terrified of the stairs and will not go up to the bedroom yet.\",\n  \"evidenc"
+        },
+        {
+          "sid": "fin_s01",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.743,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"I moved my emergency fund into a high-yield savings account paying four percent.\", \"evidentiality\": \"0.95\", \"supporting_facts\": ["
+        },
+        {
+          "sid": "travel_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\n  \"claim\": \"I'm flying to Lisbon in March for a friend's wedding. I still need to sort out the accommodation \u2014 the hotels near the venue a"
+        },
+        {
+          "sid": "study_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"I'm halfway through a part-time data analytics course. The statistics module is brutal \u2014 I'm spending most of my evenings on prob"
+        },
+        {
+          "sid": "car_s01",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.757,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"The car failed its MOT on the front brake pads and a worn tyre.\", \"evidentiality\": 0.95, \"confidence\": 0.87}"
+        },
+        {
+          "sid": "health_s01",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.739,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\"claim\": \"My doctor put me on a higher dose of my thyroid medication after the last blood test.\", \"evidence_span\": \"My doctor put me on a h"
+        },
+        {
+          "sid": "family_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"My sister and I had a falling out over Christmas plans. We haven't really spoken in two weeks and it's weighing on me.\", \"evident"
+        },
+        {
+          "sid": "career_s01",
+          "json_valid": true,
+          "claim_exact": false,
+          "claim_f1": 0.737,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"I am genuinely torn about whether to take the team lead role that means less hands-on coding.\", \"evidentiary_bodies\": [], \"qualif"
+        },
+        {
+          "sid": "partner_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": false,
+          "got": "{\"claim\": \"My partner Tom started a new job at a logistics firm in Leeds. He commutes by train now instead of driving.\", \"evidentiality\": 1,"
+        },
+        {
+          "sid": "move_s01",
+          "json_valid": true,
+          "claim_exact": true,
+          "claim_f1": 1.0,
+          "domains_jaccard": 0.0,
+          "grounded": true,
+          "got": "{\"claim\": \"New flat. Two bedrooms. Rent is 1450 a month. Move-in date is the 15th.\", \"evidence_span\": \"New flat. Two bedrooms. Rent is 1450 "
+        }
+      ]
+    },
+    "general": {
+      "n": 12,
+      "hit_rate": "12/12",
+      "json_leak_rate": "0/12",
+      "samples": [
+        {
+          "topic": "geography",
+          "hit": true,
+          "json_leak": false,
+          "got": "The capital of France is Paris."
+        },
+        {
+          "topic": "arithmetic",
+          "hit": true,
+          "json_leak": false,
+          "got": "7 times 8 equals 56."
+        },
+        {
+          "topic": "literature",
+          "hit": true,
+          "json_leak": false,
+          "got": "The play \"Romeo and Juliet\" was written by William Shakespeare."
+        },
+        {
+          "topic": "common-sense",
+          "hit": true,
+          "json_leak": false,
+          "got": "When you mix blue and yellow paint, you typically get green."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The largest planet in our solar system is Jupiter. It is a gas giant with a diameter of about 139,82"
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "The opposite of the word 'hot' is 'cold'."
+        },
+        {
+          "topic": "common-sense",
+          "hit": true,
+          "json_leak": false,
+          "got": "There are 7 days in a week."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The chemical formula for water is H2O."
+        },
+        {
+          "topic": "language",
+          "hit": true,
+          "json_leak": false,
+          "got": "In Spanish, 'hello' is said as 'hola'."
+        },
+        {
+          "topic": "science",
+          "hit": true,
+          "json_leak": false,
+          "got": "The boiling point of water in degrees Celsius at sea level is 100\u00b0C."
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "How about \"Sunshine Orange\"? It's a cute and affectionate nickname that fits perfectly with the chee"
+        },
+        {
+          "topic": "open-chat",
+          "hit": true,
+          "json_leak": false,
+          "got": "A good morning routine is one that sets a positive tone for the day, helps you start your day with f"
+        }
+      ]
+    }
+  },
+  "iterations": [
+    {
+      "batch": 1,
+      "n_train": 10,
+      "report": {
+        "in_domain": {
+          "n": 4,
+          "json_valid": "0/4",
+          "fields_complete": "0/4",
+          "claim_exact": "0/4",
+          "claim_f1_mean": 0.0,
+          "evidence_grounded": "0/4",
+          "domains_jaccard_mean": 0.0,
+          "confidence_ok": "0/4",
+          "completion_loss_mean": 0.9143,
+          "samples": [
+            {
+              "sid": "maya_s03",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can abstract the key information into a simple "
+            },
+            {
+              "sid": "maya_s05",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to focus on normalized memory claims without emitting graph operations, we can extract a normalized memory claim as fo"
+            },
+            {
+              "sid": "maya_s06",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim from the provided text without emitting graph operations, we can focus on extract"
+            },
+            {
+              "sid": "maya_s07",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can abstract the provided text into a normalize"
+            }
+          ]
+        },
+        "ood": {
+          "n": 12,
+          "json_valid": "5/12",
+          "fields_complete": "0/12",
+          "claim_exact": "0/12",
+          "claim_f1_mean": 0.0,
+          "evidence_grounded": "0/12",
+          "domains_jaccard_mean": 0.0,
+          "confidence_ok": "0/12",
+          "completion_loss_mean": 0.9137,
+          "samples": [
+            {
+              "sid": "dev_s01",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can focus on extracting a relevant piece of inf"
+            },
+            {
+              "sid": "cook_s01",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to focus on normalized memory claims and not emitting graph operations, here's a normalized memory claim extracted fro"
+            },
+            {
+              "sid": "pet_s01",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim, we can transform the provided text into a structured format that represents a no"
+            },
+            {
+              "sid": "fin_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can represent the provided text as a normalized"
+            },
+            {
+              "sid": "travel_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can abstract the information into a simple norm"
+            },
+            {
+              "sid": "study_s01",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit any graph operations, we can focus on extracting a normalized memory"
+            },
+            {
+              "sid": "car_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim, we can interpret this as extracting a structured data representation of the prov"
+            },
+            {
+              "sid": "health_s01",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can abstract the key information into a normali"
+            },
+            {
+              "sid": "family_s01",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim from the provided text without emitting any graph operations, here is a normalize"
+            },
+            {
+              "sid": "career_s01",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can simplify the provided text into a normalize"
+            },
+            {
+              "sid": "partner_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can represent the information in a structured f"
+            },
+            {
+              "sid": "move_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "Given the instruction to extract a normalized memory claim and not emit graph operations, we can represent the information in a structured f"
+            }
+          ]
+        },
+        "general": {
+          "n": 12,
+          "hit_rate": "12/12",
+          "json_leak_rate": "0/12",
+          "samples": [
+            {
+              "topic": "geography",
+              "hit": true,
+              "json_leak": false,
+              "got": "The capital of France is Paris."
+            },
+            {
+              "topic": "arithmetic",
+              "hit": true,
+              "json_leak": false,
+              "got": "7 times 8 equals 56."
+            },
+            {
+              "topic": "literature",
+              "hit": true,
+              "json_leak": false,
+              "got": "The play \"Romeo and Juliet\" was written by William Shakespeare. It is one of his most famous works, "
+            },
+            {
+              "topic": "common-sense",
+              "hit": true,
+              "json_leak": false,
+              "got": "When you mix blue and yellow paint, you typically get green."
+            },
+            {
+              "topic": "science",
+              "hit": true,
+              "json_leak": false,
+              "got": "The largest planet in our solar system is Jupiter. It is a gas giant with a diameter of about 139,82"
+            },
+            {
+              "topic": "language",
+              "hit": true,
+              "json_leak": false,
+              "got": "The opposite of the word 'hot' is 'cold'."
+            },
+            {
+              "topic": "common-sense",
+              "hit": true,
+              "json_leak": false,
+              "got": "There are 7 days in a week."
+            },
+            {
+              "topic": "science",
+              "hit": true,
+              "json_leak": false,
+              "got": "The chemical formula for water is H\u2082O. This means that each molecule of water consists of two hydrog"
+            },
+            {
+              "topic": "language",
+              "hit": true,
+              "json_leak": false,
+              "got": "In Spanish, 'hello' is said as 'hola'."
+            },
+            {
+              "topic": "science",
+              "hit": true,
+              "json_leak": false,
+              "got": "The boiling point of water in degrees Celsius at sea level is 100\u00b0C."
+            },
+            {
+              "topic": "open-chat",
+              "hit": true,
+              "json_leak": false,
+              "got": "How about \"Sunshine Orange\"? It's a cute and cheerful name that fits perfectly with the vibrant colo"
+            },
+            {
+              "topic": "open-chat",
+              "hit": true,
+              "json_leak": false,
+              "got": "A good morning routine is one that sets a positive tone for the day, enhances productivity and well-"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "batch": 2,
+      "n_train": 12,
+      "report": {
+        "in_domain": {
+          "n": 4,
+          "json_valid": "3/4",
+          "fields_complete": "0/4",
+          "claim_exact": "2/4",
+          "claim_f1_mean": 0.7,
+          "evidence_grounded": "2/4",
+          "domains_jaccard_mean": 0.0,
+          "confidence_ok": "0/4",
+          "completion_loss_mean": 0.5043,
+          "samples": [
+            {
+              "sid": "maya_s03",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\n  \"claim\": \"I got a letter from my landlord yesterday \u2014 rent is going up by eighty pounds a month from the first of next month. I wasn't e"
+            },
+            {
+              "sid": "maya_s05",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": true,
+              "got": "{\n  \"claim\": \"It rained heavily on Tuesday and I got completely soaked \u2014 my jacket was wet through and I had to change when I arrived. The u"
+            },
+            {
+              "sid": "maya_s06",
+              "json_valid": false,
+              "claim_exact": false,
+              "claim_f1": 0.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\n  \"claim\": \"I stop at the corner shop on the way home \u2014 chips, a ready meal, whatever needs no preparation. It's happening two or three ni"
+            },
+            {
+              "sid": "maya_s07",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.8,
+              "domains_jaccard": 0.0,
+              "grounded": true,
+              "got": "{\"claim\": \"The connecting bus at Van Ness has been delayed repeatedly this week \u2014 twice it was over fifteen minutes late.\", \"evidence_span\":"
+            }
+          ]
+        },
+        "ood": {
+          "n": 12,
+          "json_valid": "12/12",
+          "fields_complete": "0/12",
+          "claim_exact": "7/12",
+          "claim_f1_mean": 0.9015,
+          "evidence_grounded": "3/12",
+          "domains_jaccard_mean": 0.0,
+          "confidence_ok": "3/12",
+          "completion_loss_mean": 0.4145,
+          "samples": [
+            {
+              "sid": "dev_s01",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\n  \"claim\": \"I'm Raj. I maintain the billing service at work \u2014 it's a Django monolith and the test suite takes about forty minutes to run, "
+            },
+            {
+              "sid": "cook_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.842,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\"claim\": \"My starter keeps collapsing before I bake \u2014 I think the kitchen is too cold overnight.\", \"source\": \"cook_s01\"}"
+            },
+            {
+              "sid": "pet_s01",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": true,
+              "got": "{\n  \"claim\": \"We adopted a rescue greyhound last weekend. She is terrified of the stairs and will not go up to the bedroom yet.\",\n  \"evidenc"
+            },
+            {
+              "sid": "fin_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.743,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\"claim\": \"I moved my emergency fund into a high-yield savings account paying four percent.\", \"evidentiality\": \"0.95\", \"supporting_facts\": ["
+            },
+            {
+              "sid": "travel_s01",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\n  \"claim\": \"I'm flying to Lisbon in March for a friend's wedding. I still need to sort out the accommodation \u2014 the hotels near the venue a"
+            },
+            {
+              "sid": "study_s01",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\"claim\": \"I'm halfway through a part-time data analytics course. The statistics module is brutal \u2014 I'm spending most of my evenings on prob"
+            },
+            {
+              "sid": "car_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.757,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\"claim\": \"The car failed its MOT on the front brake pads and a worn tyre.\", \"evidentiality\": 0.95, \"confidence\": 0.87}"
+            },
+            {
+              "sid": "health_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.739,
+              "domains_jaccard": 0.0,
+              "grounded": true,
+              "got": "{\"claim\": \"My doctor put me on a higher dose of my thyroid medication after the last blood test.\", \"evidence_span\": \"My doctor put me on a h"
+            },
+            {
+              "sid": "family_s01",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\"claim\": \"My sister and I had a falling out over Christmas plans. We haven't really spoken in two weeks and it's weighing on me.\", \"evident"
+            },
+            {
+              "sid": "career_s01",
+              "json_valid": true,
+              "claim_exact": false,
+              "claim_f1": 0.737,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\"claim\": \"I am genuinely torn about whether to take the team lead role that means less hands-on coding.\", \"evidentiary_bodies\": [], \"qualif"
+            },
+            {
+              "sid": "partner_s01",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": false,
+              "got": "{\"claim\": \"My partner Tom started a new job at a logistics firm in Leeds. He commutes by train now instead of driving.\", \"evidentiality\": 1,"
+            },
+            {
+              "sid": "move_s01",
+              "json_valid": true,
+              "claim_exact": true,
+              "claim_f1": 1.0,
+              "domains_jaccard": 0.0,
+              "grounded": true,
+              "got": "{\"claim\": \"New flat. Two bedrooms. Rent is 1450 a month. Move-in date is the 15th.\", \"evidence_span\": \"New flat. Two bedrooms. Rent is 1450 "
+            }
+          ]
+        },
+        "general": {
+          "n": 12,
+          "hit_rate": "12/12",
+          "json_leak_rate": "0/12",
+          "samples": [
+            {
+              "topic": "geography",
+              "hit": true,
+              "json_leak": false,
+              "got": "The capital of France is Paris."
+            },
+            {
+              "topic": "arithmetic",
+              "hit": true,
+              "json_leak": false,
+              "got": "7 times 8 equals 56."
+            },
+            {
+              "topic": "literature",
+              "hit": true,
+              "json_leak": false,
+              "got": "The play \"Romeo and Juliet\" was written by William Shakespeare."
+            },
+            {
+              "topic": "common-sense",
+              "hit": true,
+              "json_leak": false,
+              "got": "When you mix blue and yellow paint, you typically get green."
+            },
+            {
+              "topic": "science",
+              "hit": true,
+              "json_leak": false,
+              "got": "The largest planet in our solar system is Jupiter. It is a gas giant with a diameter of about 139,82"
+            },
+            {
+              "topic": "language",
+              "hit": true,
+              "json_leak": false,
+              "got": "The opposite of the word 'hot' is 'cold'."
+            },
+            {
+              "topic": "common-sense",
+              "hit": true,
+              "json_leak": false,
+              "got": "There are 7 days in a week."
+            },
+            {
+              "topic": "science",
+              "hit": true,
+              "json_leak": false,
+              "got": "The chemical formula for water is H2O."
+            },
+            {
+              "topic": "language",
+              "hit": true,
+              "json_leak": false,
+              "got": "In Spanish, 'hello' is said as 'hola'."
+            },
+            {
+              "topic": "science",
+              "hit": true,
+              "json_leak": false,
+              "got": "The boiling point of water in degrees Celsius at sea level is 100\u00b0C."
+            },
+            {
+              "topic": "open-chat",
+              "hit": true,
+              "json_leak": false,
+              "got": "How about \"Sunshine Orange\"? It's a cute and affectionate nickname that fits perfectly with the chee"
+            },
+            {
+              "topic": "open-chat",
+              "hit": true,
+              "json_leak": false,
+              "got": "A good morning routine is one that sets a positive tone for the day, helps you start your day with f"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "adapter": "/kaggle/working/stage4_3b_iter/adapter"
+}

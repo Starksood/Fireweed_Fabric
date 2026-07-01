@@ -1,0 +1,79 @@
+{
+  "stage": 4,
+  "step": "harvest_batch2",
+  "base": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": null,
+  "raw_source": "data/traces/maya_v16_b2_raw.jsonl",
+  "n_raw": 12,
+  "n_kept": 0,
+  "n_rejected": 12,
+  "pass_rate": 0.0,
+  "gate": {
+    "min_conf": 0.5,
+    "min_span_f1": 0.9,
+    "min_claim_f1": 0.5
+  },
+  "rejections": [
+    {
+      "session": "maya_s08",
+      "reason": "invalid_json",
+      "raw_out": "Update: The 38 route was rerouted this month, and now I switch to the 5 at Civic Center instead of transferring at Van Ness. This reduces my travel time by approximately ten minutes, resulting in an a"
+    },
+    {
+      "session": "maya_s08",
+      "reason": "invalid_json",
+      "raw_out": "My manager moved our standup to 9:15, which means I can catch the earlier bus and still make it with time to spare. Mornings feel a lot less rushed now."
+    },
+    {
+      "session": "maya_s09",
+      "reason": "invalid_json",
+      "raw_out": "The normalized memory claim is: \"Started physio for the IT band thing. The therapist gave me a set of glute exercises to do three times a week, and said I should hold off on running more than 5k until"
+    },
+    {
+      "session": "maya_s09",
+      "reason": "invalid_json",
+      "raw_out": "The normalized memory claim is that attempting the foam roller routine before bed caused the knee to be noticeably less stiff the following morning."
+    },
+    {
+      "session": "maya_s10",
+      "reason": "invalid_json",
+      "raw_out": "The normalized memory claim for the session \"maya_s10\" is that the user has been meal-prepping lentils and rice on Sundays, resulting in a weekly grocery spend of approximately $60, compared to their "
+    },
+    {
+      "session": "maya_s10",
+      "reason": "invalid_json",
+      "raw_out": "The normalized memory claim for the session \"maya_s10\" is that the user splurged on a decent chef's knife, which cost $40 and felt more like a chore compared to normal cooking experiences."
+    },
+    {
+      "session": "maya_s11",
+      "reason": "invalid_json",
+      "raw_out": "The landlord fixed the radiator and the apartment now holds heat, with the cold snap making it more noticeable at night."
+    },
+    {
+      "session": "maya_s11",
+      "reason": "invalid_json",
+      "raw_out": "It's been raining most of the week and the bus shelter at Civic Center actually has a roof, unlike the old Van Ness stop, so I've stayed dry waiting for the transfer."
+    },
+    {
+      "session": "maya_s12",
+      "reason": "invalid_json",
+      "raw_out": "The normalized memory claim for this session is that you have attended a Tuesday-evening pottery class at the community center, which has been your favorite activity of the week."
+    },
+    {
+      "session": "maya_s12",
+      "reason": "invalid_json",
+      "raw_out": "My sister will be visiting next month and staying for a long weekend, so I have been clearing out the spare room to set up an air mattress for her."
+    },
+    {
+      "session": "maya_s13",
+      "reason": "invalid_json",
+      "raw_out": "The normalized memory claim for adopting a cat from the shelter, with its adoption fee of $85 and including vaccinations, would be:\n\n- Adoption Fee: $85\n- Vaccinations Included: Yes\n\nThis claim captur"
+    },
+    {
+      "session": "maya_s13",
+      "reason": "invalid_json",
+      "raw_out": "Pekoe has decided that the window sill by my desk belongs to her, and as a result, I now have a smaller audience during each work call."
+    }
+  ],
+  "out": "/tmp/control2_base_b2.jsonl"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen/qwen3-4b-2507",
+  "ceiling_claim_semantic": 1.0,
+  "ceiling_entity_jaccard": 1.0,
+  "ceiling_domain_jaccard": 1.0,
+  "n_claims_run1": 64,
+  "n_claims_run2": 64
+}

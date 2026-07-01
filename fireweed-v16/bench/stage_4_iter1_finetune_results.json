@@ -1,0 +1,63 @@
+{
+  "stage": 4,
+  "iteration": 1,
+  "status": "executed",
+  "note": "Hardware-fitting closed-loop run on 8GB Mac; canonical 3B run deferred to a GPU box.",
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "device": "mps",
+  "dataset": "data/traces/maya_v16_sft.jsonl",
+  "n_train": 11,
+  "n_eval": 3,
+  "epochs": 5,
+  "before": {
+    "eval_loss": 3.2407,
+    "generation": {
+      "json_valid": "0/3",
+      "claim_exact_match": "0/3",
+      "samples": [
+        {
+          "valid_json": false,
+          "claim_exact": false,
+          "got": "The Van Ness transfer is the unreliable part, and if the connecting bus is delayed, I can lose another fifteen to twenty minutes standing on that exposed platfo"
+        },
+        {
+          "valid_json": false,
+          "claim_exact": false,
+          "got": "The forecast predicts more rain on Thursday and Friday, with the weather being mostly overcast throughout the week. This makes it challenging for me to stay ale"
+        },
+        {
+          "valid_json": false,
+          "claim_exact": false,
+          "got": "I've been on closing shifts for three nights this week, finishing at ten and sometimes around quarter past. By the time I return to the flat, I have no interest"
+        }
+      ]
+    }
+  },
+  "after": {
+    "eval_loss": 0.9244,
+    "generation": {
+      "json_valid": "3/3",
+      "claim_exact_match": "2/3",
+      "samples": [
+        {
+          "valid_json": true,
+          "claim_exact": false,
+          "got": "{\"claim\": \"The Van Ness transfer is the unreliable part. If the connecting bus is delayed i can lose another fifteen or twenty minutes standing on that exposed "
+        },
+        {
+          "valid_json": true,
+          "claim_exact": true,
+          "got": "{\"claim\": \"The forecast says more rain on Thursday and Friday. It's been overcast all week and I find it harder to feel alert when there's no sunlight at all.\","
+        },
+        {
+          "valid_json": true,
+          "claim_exact": true,
+          "got": "{\"claim\": \"I've been on closing shifts three nights this week \\u2014 finishing at ten, sometimes quarter past. By the time I get back to the flat I have zero in"
+        }
+      ]
+    }
+  },
+  "eval_loss_delta": -2.3163,
+  "learned_signal": true,
+  "adapter": "data/adapters/maya_v16_iter1_qwen05b"
+}

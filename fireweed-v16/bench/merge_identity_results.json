@@ -1,0 +1,44 @@
+{
+  "experiment": "merge_identity",
+  "model": "google/gemma-3-1b",
+  "same_person": {
+    "a_nodes": 15,
+    "b_nodes": 13,
+    "shared_nodes": 10,
+    "merged_nodes": 18,
+    "entity_name_collisions": 1,
+    "shared_past_dedup_ratio": 0.643,
+    "X_entities_in_merge": {
+      "print shop": true,
+      "Civic Center": false
+    },
+    "Y_entities_in_merge": {
+      "Frome": true,
+      "Dana": false,
+      "Biscuit": false
+    },
+    "both_branches_present": true,
+    "ok": true
+  },
+  "different_person": {
+    "a_nodes": 34,
+    "b_nodes": 32,
+    "shared_nodes": 0,
+    "merged_nodes": 66,
+    "entity_name_collisions": 0,
+    "chimera_nodes": 0,
+    "contamination_rate": 0.0,
+    "maya_present": {
+      "Van Ness": true,
+      "Pekoe": true,
+      "Civic Center": false
+    },
+    "theo_present": {
+      "Marrow": true,
+      "Hector": true,
+      "Lin": true
+    },
+    "separation_ok": true
+  },
+  "verdict": "\u2713\u2713 STRONG (same-person re-integrates with dedup; different-person stays separate)"
+}

@@ -1,0 +1,16 @@
+{
+  "experiment": "hot_swap_demo",
+  "model_a": "google/gemma-3-1b",
+  "model_b": "qwen/qwen3-4b-2507",
+  "turns": 26,
+  "swap_at": 13,
+  "nodes_before": 18,
+  "nodes_after": 49,
+  "active_before": 17,
+  "active_after": 45,
+  "continuity": 1.0,
+  "superseded_by_b": 4,
+  "added_by_b": 31,
+  "entity_continuity": true,
+  "verdict": "\u2713\u2713 identity carried across the swap"
+}

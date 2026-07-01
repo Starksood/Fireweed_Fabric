@@ -1,0 +1,834 @@
+{
+  "model_a": "google/gemma-3-1b",
+  "model_b": "qwen/qwen3-4b-2507",
+  "config": {
+    "n_entities": 5,
+    "n_domains": 5,
+    "n_queries": 50
+  },
+  "cross_model": {
+    "n_queries": 50,
+    "mean_content_consistency": 0.17712038438439173,
+    "median_content_consistency": 0.14724480578139115,
+    "stddev_content_consistency": 0.10969445582709347,
+    "mean_citation_overlap": 0.006666666666666666,
+    "n_citation_comparisons": 50,
+    "mean_abstention_agreement": 0.78,
+    "both_abstain": 2,
+    "both_answer": 37,
+    "disagree_abstain": 11
+  },
+  "per_query": [
+    {
+      "query_id": "q_Maya_commute",
+      "query_text": "How does Maya commute?",
+      "a_answer": "Maya commutes by public transit, likely every weekday. She prepares her meals at home on weekends and eats healthy food, which suggests she values financial stability.  She pays her rent monthly, so it's likely a recurring expense.",
+      "b_answer": "Maya commutes by public transit, specifically by taking the bus to work.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_e66f5922dbc3>",
+        "<node_155495502675>"
+      ],
+      "b_cited": [
+        "node_e66f5922dbc3",
+        "node_5bbc76684ed9"
+      ],
+      "jaccard": 0.1282051282051282
+    },
+    {
+      "query_id": "q_Dana_commute",
+      "query_text": "How does Dana commute?",
+      "a_answer": "Dana commutes by public transit every weekday.  She prepares meal preps on weekends, which suggests she\u2019s careful about her finances.",
+      "b_answer": "Dana commutes by public transit, specifically taking the bus to work.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_0ac31fa037c0>",
+        "node_1c92dd4b085a>"
+      ],
+      "b_cited": [
+        "node_abc1cf0b656a",
+        "node_1c92dd4b085a"
+      ],
+      "jaccard": 0.14814814814814814
+    },
+    {
+      "query_id": "q_Noor_commute",
+      "query_text": "How does Noor commute?",
+      "a_answer": "Noor commutes by public transit every weekday, specifically taking the bus to work. She\u2019s concerned about rent and meal prepping on weekends.",
+      "b_answer": "Noor commutes by public transit, specifically by taking the bus to work.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_8ddc5f62f9eb>",
+        "<node_1>"
+      ],
+      "b_cited": [
+        "node_70dc8b8c2440",
+        "node_8b9172a23692"
+      ],
+      "jaccard": 0.43478260869565216
+    },
+    {
+      "query_id": "q_Ilya_commute",
+      "query_text": "How does Ilya commute?",
+      "a_answer": "Ilya commutes by public transit every weekday.",
+      "b_answer": "Ilya commutes by public transit, specifically by taking the bus to work.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_8>"
+      ],
+      "b_cited": [
+        "node_18a7c11f1061",
+        "node_1155da9b5c7e"
+      ],
+      "jaccard": 0.2857142857142857
+    },
+    {
+      "query_id": "q_Priya_commute",
+      "query_text": "How does Priya commute?",
+      "a_answer": "Priya commutes by public transit, specifically by bus, every weekday. She's likely preparing her meals at home on weekends given the amount of money she spends on them.",
+      "b_answer": "Priya commutes by public transit, specifically by taking the bus to work.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_dd8457790b46>",
+        "node_626cad2ed2ab>"
+      ],
+      "b_cited": [
+        "node_42ec712279d9",
+        "node_b6e79a8d263e"
+      ],
+      "jaccard": 0.23333333333333334
+    },
+    {
+      "query_id": "q_Maya_commute",
+      "query_text": "What's Maya's transit method?",
+      "a_answer": "Maya commutes by public transit, likely every weekday.  She's concerned about rent, suggesting she's working hard to manage her finances.",
+      "b_answer": "Maya's transit method is the bus, as indicated by the evidence that she takes the bus to work.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_e66f5922dbc3>",
+        "<node_155495502675>"
+      ],
+      "b_cited": [
+        "node_5bbc76684ed9"
+      ],
+      "jaccard": 0.06060606060606061
+    },
+    {
+      "query_id": "q_Dana_commute",
+      "query_text": "What's Dana's transit method?",
+      "a_answer": "Dana's commute is by public transit, and she prepares carefully for her expenses.  She regularly takes the bus to work each weekday.",
+      "b_answer": "Dana's transit method is by bus, as indicated by the evidence that Dana takes the bus to work.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_1c92dd4b085a>"
+      ],
+      "b_cited": [
+        "node_11e105bea5a97"
+      ],
+      "jaccard": 0.23333333333333334
+    },
+    {
+      "query_id": "q_Noor_commute",
+      "query_text": "What's Noor's transit method?",
+      "a_answer": "Noor's commute is by public transit, and she needs rest after it. She lives in an apartment and rents monthly, which means she's worried about rent. She preps meals on weekends and pays rent every weekday.",
+      "b_answer": "Noor's transit method is by bus, as indicated by the evidence that Noor takes the bus to work.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_70dc8b8c2440>",
+        "<node_d6edc01f868d>"
+      ],
+      "b_cited": [
+        "node_8b9172a23692"
+      ],
+      "jaccard": 0.06666666666666667
+    },
+    {
+      "query_id": "q_Ilya_commute",
+      "query_text": "What's Ilya's transit method?",
+      "a_answer": "Ilya's commute is by public transit, and he needs rest after it. He lives in an apartment and worries about rent, suggesting a financial concern.",
+      "b_answer": "Ilya's transit method is by bus, as indicated by the evidence that he takes the bus to work.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_18a7c11f1061>",
+        "<node_2>"
+      ],
+      "b_cited": [
+        "node_3f425b4236e4"
+      ],
+      "jaccard": 0.11428571428571428
+    },
+    {
+      "query_id": "q_Priya_commute",
+      "query_text": "What's Priya's transit method?",
+      "a_answer": "Priya's commute is by public transit, likely involving a bus.",
+      "b_answer": "Priya's transit method is the bus, as indicated by node_11.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_dd8457790b46>",
+        "node_12"
+      ],
+      "b_cited": [
+        "node_11"
+      ],
+      "jaccard": 0.17647058823529413
+    },
+    {
+      "query_id": "q_Maya_food",
+      "query_text": "What does Maya eat or buy?",
+      "a_answer": "Maya eats healthy food, buys snacks from the store, and takes the bus to work. She is concerned about her rent and commute.",
+      "b_answer": "Maya buys snacks at the store.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_155495502675>",
+        "<node_3da5072637e3>"
+      ],
+      "b_cited": [
+        "node_07e6552c3724"
+      ],
+      "jaccard": 0.17391304347826086
+    },
+    {
+      "query_id": "q_Dana_food",
+      "query_text": "What does Dana eat or buy?",
+      "a_answer": "Dana eats snacks at the store and buys things like rent, bus fare, and groceries.  She's likely worried about managing her finances because she pays rent monthly.",
+      "b_answer": "Dana buys snacks at the store.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_1c92dd4b085a>",
+        "<node_9d2383c10f2d>"
+      ],
+      "b_cited": [
+        "node_9d2383c10f2d"
+      ],
+      "jaccard": 0.18518518518518517
+    },
+    {
+      "query_id": "q_Noor_food",
+      "query_text": "What does Noor eat or buy?",
+      "a_answer": "```json\n{\"prose\": \"Noor eats snacks at the store and buys them regularly. She pays rent, which means she needs to manage her money carefully.\", \"cited_node_ids\": [\"<node_id_1>\", <node_id_31b008fdd5a7>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": true}\n```",
+      "b_answer": "Noor buys snacks at the store.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_f0c2939343b6"
+      ],
+      "jaccard": 0.12121212121212122
+    },
+    {
+      "query_id": "q_Ilya_food",
+      "query_text": "What does Ilya eat or buy?",
+      "a_answer": "Ilya eats at the store and buys snacks regularly.",
+      "b_answer": "Ilya buys snacks at the store.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_12345678901>"
+      ],
+      "b_cited": [
+        "node_ae258a3d6377"
+      ],
+      "jaccard": 0.5
+    },
+    {
+      "query_id": "q_Priya_food",
+      "query_text": "What does Priya eat or buy?",
+      "a_answer": "```json\n{\"prose\": \"Priya eats snacks and buys them at the store, which she does regularly. She's also concerned about her rent, suggesting a need for careful budgeting.\", \"cited_node_ids\": [\"<node_id_1>\", <node_id_2>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": false}\n```",
+      "b_answer": "Priya buys snacks at the store.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_dd8457790b46"
+      ],
+      "jaccard": 0.10810810810810811
+    },
+    {
+      "query_id": "q_Maya_food",
+      "query_text": "What snacks does Maya have?",
+      "a_answer": "Maya has snacks at the store. She likely eats healthy food and spends her weekends preparing them, suggesting she cares about their quality.",
+      "b_answer": "The evidence does not specify what snacks Maya has.",
+      "a_abstained": false,
+      "b_abstained": true,
+      "a_cited": [
+        "<node_07e6552c3724>",
+        "node_155495502675>"
+      ],
+      "b_cited": [
+        "node_07e6552c3724"
+      ],
+      "jaccard": 0.10714285714285714
+    },
+    {
+      "query_id": "q_Dana_food",
+      "query_text": "What snacks does Dana have?",
+      "a_answer": "```json\n{\"prose\": \"Dana has snacks at the store, likely because she needs rest after commuting. She prepares meals on weekends and is worried about rent, suggesting a need for financial stability. Her commute involves the bus, which suggests she's financially conscious.\", \"cited_node_ids\": [\"<node_9d2383c10f2d>\", <node_e8387e899aa3>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": true}\n```",
+      "b_answer": "The evidence does not specify what snacks Dana has.",
+      "a_abstained": false,
+      "b_abstained": true,
+      "a_cited": [],
+      "b_cited": [
+        "node_9d2383c10f2d"
+      ],
+      "jaccard": 0.037037037037037035
+    },
+    {
+      "query_id": "q_Noor_food",
+      "query_text": "What snacks does Noor have?",
+      "a_answer": "Noor has snacks at the store, and she's preparing meal preps on weekends. She needs rest after commuting every weekday and pays rent monthly. She also needs to be mindful of her expenses.",
+      "b_answer": "The evidence does not specify what snacks Noor has.",
+      "a_abstained": true,
+      "b_abstained": true,
+      "a_cited": [
+        "<node_f0c2939343b6>",
+        "<node_d6edc01f868d>"
+      ],
+      "b_cited": [
+        "node_f0c2939343b6"
+      ],
+      "jaccard": 0.08333333333333333
+    },
+    {
+      "query_id": "q_Ilya_food",
+      "query_text": "What snacks does Ilya have?",
+      "a_answer": "Ilya has snacks at the store, and he's worried about rent. He tracks his expenses carefully and takes the bus to work each weekday. He might meal prep on weekends, suggesting he has a regular routine.",
+      "b_answer": "The evidence does not specify what snacks Ilya has.",
+      "a_abstained": false,
+      "b_abstained": true,
+      "a_cited": [
+        "<node_id_1>",
+        "<node_id_2>"
+      ],
+      "b_cited": [
+        "node_ec3814ae1dc3"
+      ],
+      "jaccard": 0.08108108108108109
+    },
+    {
+      "query_id": "q_Priya_food",
+      "query_text": "What snacks does Priya have?",
+      "a_answer": "Priya has snacks at the store. She needs rest after commuting, and she's worried about rent. Her commute is by public transit, and she tracks her expenses carefully.",
+      "b_answer": "The evidence does not specify what snacks Priya has.",
+      "a_abstained": true,
+      "b_abstained": true,
+      "a_cited": [
+        "<node_dd8457790b46>",
+        "<node_ee8135a81336>"
+      ],
+      "b_cited": [
+        "node_dd8457790b46"
+      ],
+      "jaccard": 0.0967741935483871
+    },
+    {
+      "query_id": "q_Maya_housing",
+      "query_text": "Where does Maya live?",
+      "a_answer": "Maya lives in a city and works as a waitress. She's likely to live in an apartment due to her limited income.",
+      "b_answer": "Maya lives in a city, as indicated by the evidence.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_155495502675>"
+      ],
+      "b_cited": [
+        "node_f9e50d90400a"
+      ],
+      "jaccard": 0.20833333333333334
+    },
+    {
+      "query_id": "q_Dana_housing",
+      "query_text": "Where does Dana live?",
+      "a_answer": "```json\n{\"prose\": \"Dana lives in an apartment and commutes by public transit every weekday.\", \"cited_node_ids\": [\"<node_1c92dd4b085a>\", <node_9d2383c10f2d>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": true}\n```",
+      "b_answer": "Dana lives in a city, as indicated by the evidence.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_0ac31fa037c0"
+      ],
+      "jaccard": 0.10344827586206896
+    },
+    {
+      "query_id": "q_Noor_housing",
+      "query_text": "Where does Noor live?",
+      "a_answer": "Noor lives in an apartment and pays rent monthly. She regularly prepares meals at home, likely on weekends, and takes the bus to work every weekday.",
+      "b_answer": "Noor lives in a city, as indicated by the evidence.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_70dc8b8c2440>",
+        "node_8ddc5f62f9eb"
+      ],
+      "b_cited": [
+        "node_d6edc01f868d"
+      ],
+      "jaccard": 0.12903225806451613
+    },
+    {
+      "query_id": "q_Ilya_housing",
+      "query_text": "Where does Ilya live?",
+      "a_answer": "Ilya lives in an apartment.",
+      "b_answer": "Ilya lives in a city, as indicated by the evidence.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_b6932704ba94>",
+        "<node_50c2f305d5e3>"
+      ],
+      "b_cited": [
+        "node_50c2f305d5e3"
+      ],
+      "jaccard": 0.25
+    },
+    {
+      "query_id": "q_Priya_housing",
+      "query_text": "Where does Priya live?",
+      "a_answer": "Priya lives in a city and works by commuting on public transit.",
+      "b_answer": "Priya lives in a city, as indicated by the evidence.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_4b9b66617eba>"
+      ],
+      "b_cited": [
+        "node_9977f2cfa187"
+      ],
+      "jaccard": 0.29411764705882354
+    },
+    {
+      "query_id": "q_Maya_housing",
+      "query_text": "What's Maya's location?",
+      "a_answer": "Maya lives in a city and commutes every weekday. She's concerned about rent and money, which suggests she likely lives in an apartment.",
+      "b_answer": "Maya lives in a city, as indicated by the evidence.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_155495502675>",
+        "node_bc8925df9872>"
+      ],
+      "b_cited": [
+        "node_f9e50d90400a"
+      ],
+      "jaccard": 0.15384615384615385
+    },
+    {
+      "query_id": "q_Dana_housing",
+      "query_text": "What's Dana's location?",
+      "a_answer": "Dana's location is primarily in an apartment, and she regularly prepares meals at home. She's concerned about her rent and commuting expenses, suggesting a need for careful planning.",
+      "b_answer": "Dana lives in a city and resides in an apartment.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_dd211b47e7f3>",
+        "<node_e8387e899aa3>"
+      ],
+      "b_cited": [
+        "node_0ac31fa037c0",
+        "node_dd211b47e7f3"
+      ],
+      "jaccard": 0.125
+    },
+    {
+      "query_id": "q_Noor_housing",
+      "query_text": "What's Noor's location?",
+      "a_answer": "Noor's location is a city, and she lives in an apartment. She needs rest after commuting, and her rent is a concern.  She makes meals at home on weekends, and she's paying rent monthly.",
+      "b_answer": "Noor lives in a city and resides in an apartment.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_d6edc01f868d>",
+        "<node_d5a73b7a8881>"
+      ],
+      "b_cited": [
+        "node_d6edc01f868d",
+        "node_d5a73b7a8881"
+      ],
+      "jaccard": 0.2
+    },
+    {
+      "query_id": "q_Ilya_housing",
+      "query_text": "What's Ilya's location?",
+      "a_answer": "```json\n{\"prose\": \"Ilya lives in a city and is likely to be at work every weekday.\", \"cited_node_ids\": [\"<node_1155da9b5c7e>\", <node_3f425b4236e4>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": true}\n```",
+      "b_answer": "Ilya lives in a city and resides in an apartment.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_50c2f305d5e3",
+        "node_69085725ae64"
+      ],
+      "jaccard": 0.17857142857142858
+    },
+    {
+      "query_id": "q_Priya_housing",
+      "query_text": "What's Priya's location?",
+      "a_answer": "```json\n{\"prose\": \"Priya lives in a city and regularly commutes by public transit, likely taking the bus to work. She needs to make rent each month and carefully tracks her expenses. Her apartment is where she lives, and she's concerned about money.\", \"cited_node_ids\": [\"<node_9977f2cfa187\", \"<node_626cad2ed2ab\">\"], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": true}\n```",
+      "b_answer": "Priya lives in a city, as indicated by the evidence that she resides in a city and commutes by public transit.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_9977f2cfa187",
+        "node_4b9b66617eba"
+      ],
+      "jaccard": 0.18867924528301888
+    },
+    {
+      "query_id": "q_Maya_fatigue",
+      "query_text": "What makes Maya tired?",
+      "a_answer": "Maya is feeling tired because she works long hours, regularly takes the bus to work, and has concerns about her finances. She also seems to be struggling with rent and the possibility of not being able to afford it.",
+      "b_answer": "Maya gets tired from work, as indicated by node_d137e0eeed11.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_d137e0eeed11>",
+        "<node_bc8925df9872>"
+      ],
+      "b_cited": [
+        "d137e0eeed11"
+      ],
+      "jaccard": 0.075
+    },
+    {
+      "query_id": "q_Dana_fatigue",
+      "query_text": "What makes Dana tired?",
+      "a_answer": "Dana is tired because she works, needs rest after commuting, and worries about the cost of her rent. She also prepares meals on weekends and gets them delivered by public transit.",
+      "b_answer": "Dana gets tired from work and needs rest after commuting, as indicated by the work-related fatigue and the commute burden.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_d7a36bb38e2a>",
+        "<node_e8387e899aa3>"
+      ],
+      "b_cited": [
+        "node_d7a36bb38e2a",
+        "node_e8387e899aa3"
+      ],
+      "jaccard": 0.2702702702702703
+    },
+    {
+      "query_id": "q_Noor_fatigue",
+      "query_text": "What makes Noor tired?",
+      "a_answer": "Noor is tired because she needs rest after commuting, and she's worried about rent. She also takes the bus to work every weekday and frequently buys snacks at the store, which contributes to her feeling fatigued in the evening.",
+      "b_answer": "Noor gets tired from work and needs rest after commuting.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_d6edc01f868d>",
+        "<node_70dc939343b6>"
+      ],
+      "b_cited": [
+        "node_cadd7ec8baa4",
+        "node_d9e174fcc317"
+      ],
+      "jaccard": 0.1891891891891892
+    },
+    {
+      "query_id": "q_Ilya_fatigue",
+      "query_text": "What makes Ilya tired?",
+      "a_answer": "```json\n{\"prose\": \"Ilya is tired because they need rest after commuting, and they are concerned about rent.  They also take the bus to work and eat snacks at the store, suggesting a lack of energy during the evening.\", \"cited_node_ids\": [\"<node_id_1>\", <node_id_2>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": false}\n```",
+      "b_answer": "Ilya gets tired from work and needs rest after commuting, as indicated by the work-related fatigue and the necessity of rest following daily transit.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_aff23678136f",
+        "node_b6932704ba94"
+      ],
+      "jaccard": 0.14814814814814814
+    },
+    {
+      "query_id": "q_Priya_fatigue",
+      "query_text": "What makes Priya tired?",
+      "a_answer": "Priya is tired because she needs rest after commuting, and she\u2019s worried about rent. She might be feeling fatigued in the evening due to her work schedule.",
+      "b_answer": "Priya gets tired from work and needs rest after commuting, as indicated by the evidence.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_cd93f7e20738>",
+        "<node_ee8135a81336>"
+      ],
+      "b_cited": [
+        "node_cd93f7e20738",
+        "node_ee8135a81336"
+      ],
+      "jaccard": 0.28125
+    },
+    {
+      "query_id": "q_Maya_fatigue",
+      "query_text": "When is Maya fatigued?",
+      "a_answer": "Maya is fatigued in the evening, likely because she's spending time preparing meals and taking the bus to work.  She also seems concerned about rent, which suggests a stressful financial situation.",
+      "b_answer": "Maya feels fatigued in the evening.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_b37236aaf2d3>",
+        "<node_155495502675>"
+      ],
+      "b_cited": [
+        "node_b37236aaf2d3"
+      ],
+      "jaccard": 0.125
+    },
+    {
+      "query_id": "q_Dana_fatigue",
+      "query_text": "When is Dana fatigued?",
+      "a_answer": "Dana is fatigued in the evening, likely because she needs rest after commuting. She also worries about rent and money, suggesting she's stressed about her financial situation.",
+      "b_answer": "Dana feels fatigued in the evening.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_de34101ef56f>",
+        "<node_dd211b47e7f3>"
+      ],
+      "b_cited": [
+        "node_de34101ef56f"
+      ],
+      "jaccard": 0.14814814814814814
+    },
+    {
+      "query_id": "q_Noor_fatigue",
+      "query_text": "When is Noor fatigued?",
+      "a_answer": "Noor is fatigued in the evening.  (r=0.00)",
+      "b_answer": "Noor feels fatigued in the evening.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_8d576773b821>",
+        "https://example.com/"
+      ],
+      "b_cited": [
+        "node_8d576773b821"
+      ],
+      "jaccard": 0.625
+    },
+    {
+      "query_id": "q_Ilya_fatigue",
+      "query_text": "When is Ilya fatigued?",
+      "a_answer": "Ilya is fatigued in the evening, likely due to the fact that he needs rest after commuting every weekday.  He also worries about rent, suggesting a concern for financial stability.  Furthermore, he tracks expenses carefully, which suggests he's meticulous about managing his money.",
+      "b_answer": "Ilya feels fatigued in the evening.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_69085725ae64>",
+        "<node_1155da9b5c7e>"
+      ],
+      "b_cited": [
+        "node_0cdc478e5b81"
+      ],
+      "jaccard": 0.0975609756097561
+    },
+    {
+      "query_id": "q_Priya_fatigue",
+      "query_text": "When is Priya fatigued?",
+      "a_answer": "```json\n{\"prose\": \"Priya is fatigued because she lives in a city, needs rest after commuting, and worries about rent. She also seems to be getting tired from work, suggesting she's experiencing a lack of energy.\", \"cited_node_ids\": [\"<node_0b7c9524420a>\", <node_626cad2ed2ab>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": true}\n```",
+      "b_answer": "Priya feels fatigued in the evening.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_0b7c9524420a"
+      ],
+      "jaccard": 0.044444444444444446
+    },
+    {
+      "query_id": "q_Maya_budget",
+      "query_text": "What worries Maya financially?",
+      "a_answer": "Maya worries about rent because she tracks expenses carefully, and she lives in a city. She's concerned about money, suggesting that she is worried about it financially.",
+      "b_answer": "Maya worries about rent, as indicated by her concern regarding rent payments and her careful tracking of expenses.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_e5fa832e4b3c>",
+        "node_155495502675"
+      ],
+      "b_cited": [
+        "node_e5fa832e4b3c",
+        "node_155495502675"
+      ],
+      "jaccard": 0.14285714285714285
+    },
+    {
+      "query_id": "q_Dana_budget",
+      "query_text": "What worries Dana financially?",
+      "a_answer": "Dana worries about rent because she needs rest after commuting, and her home is in an apartment. She also prepares meal ahead of time, which suggests she's carefully managing her finances.",
+      "b_answer": "Dana worries financially about rent, as she pays rent monthly and is concerned about money.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_e726b129b5d9>",
+        "node_0ac31fa037c0>"
+      ],
+      "b_cited": [
+        "node_e726b129b5d9",
+        "node_c08cfd405cca",
+        "node_b7f6203de6e7"
+      ],
+      "jaccard": 0.19444444444444445
+    },
+    {
+      "query_id": "q_Noor_budget",
+      "query_text": "What worries Noor financially?",
+      "a_answer": "```json\n{\"prose\": \"Noor worries about rent, suggesting that it is a significant financial concern for her.\", \"cited_node_ids\": [\"<node_025f6f03acba>\", <node_d9e174fcc317>], \"claim_status\": \"inferred\", \"is_evidence_sufficient\": true}\n```",
+      "b_answer": "Noor worries financially about rent, as Noor pays rent monthly and is concerned about money.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [],
+      "b_cited": [
+        "node_025f6f03acba",
+        "node_8ddc5f62f9eb",
+        "node_31b008fdd5a7"
+      ],
+      "jaccard": 0.12121212121212122
+    },
+    {
+      "query_id": "q_Ilya_budget",
+      "query_text": "What worries Ilya financially?",
+      "a_answer": "Ilya is worried about the financial stability of his life, specifically regarding his rent payments and the possibility of running out of money.",
+      "b_answer": "Ilya worries about rent, as he pays rent monthly and is concerned about money.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_442f13ccb234>",
+        "<node_50c2f305d5e3>"
+      ],
+      "b_cited": [
+        "node_442f13ccb234",
+        "node_3f425b4236e4",
+        "node_ddea51a3c95d"
+      ],
+      "jaccard": 0.23076923076923078
+    },
+    {
+      "query_id": "q_Priya_budget",
+      "query_text": "What worries Priya financially?",
+      "a_answer": "Priya worries about rent, likely because she lives in a city and needs to pay rent monthly.",
+      "b_answer": "Priya worries financially about rent, as she pays rent monthly and is concerned about money.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_2e93d22b7201>",
+        "<node_ee8135a81336>"
+      ],
+      "b_cited": [
+        "node_2e93d22b7201",
+        "node_89fd992fe74c",
+        "node_fa9fbf932ff1"
+      ],
+      "jaccard": 0.2916666666666667
+    },
+    {
+      "query_id": "q_Maya_budget",
+      "query_text": "Does Maya have money concerns?",
+      "a_answer": "Maya has money concerns, as evidenced by the fact that she tracks expenses carefully and worries about rent. She likely has some financial stability, as indicated by the fact that she buys snacks at the store and takes the bus to work.",
+      "b_answer": "Maya is concerned about money, as indicated by her concern about rent and careful tracking of expenses.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_bd672f2c6951>",
+        "<node_155495502675>"
+      ],
+      "b_cited": [
+        "node_bd672f2c6951",
+        "node_155495502675",
+        "node_e5fa832e4b3c"
+      ],
+      "jaccard": 0.14634146341463414
+    },
+    {
+      "query_id": "q_Dana_budget",
+      "query_text": "Does Dana have money concerns?",
+      "a_answer": "Dana has financial concerns because she needs rest after commuting, and she's worried about rent. She also carefully tracks her expenses.  It is likely that Dana has some financial concerns, despite not explicitly stating them.",
+      "b_answer": "Dana is concerned about money, as indicated by their worry about rent and tracking expenses carefully.",
+      "a_abstained": true,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_e8387e899aa3>",
+        "<node_0ac31fa037c0>"
+      ],
+      "b_cited": [
+        "node_b7f6203de6e7",
+        "node_e726b129b5d9",
+        "node_418c32767a2d"
+      ],
+      "jaccard": 0.09523809523809523
+    },
+    {
+      "query_id": "q_Noor_budget",
+      "query_text": "Does Noor have money concerns?",
+      "a_answer": "Noor's financial situation suggests she is concerned about money.  She needs rest after commuting, which implies she's likely burdened with expenses like rent, and her careful expense tracking suggests she's trying to manage her finances.",
+      "b_answer": "Noor is concerned about money, as evidenced by their worry about rent and careful tracking of expenses.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_31b008fdd5a7>",
+        "<node_d6edc01f868d>"
+      ],
+      "b_cited": [
+        "node_31b008fdd5a7",
+        "node_025f6f03acba",
+        "node_aeea670d84e5"
+      ],
+      "jaccard": 0.14634146341463414
+    },
+    {
+      "query_id": "q_Ilya_budget",
+      "query_text": "Does Ilya have money concerns?",
+      "a_answer": "Ilya likely has financial concerns because he's concerned about money, needs rest after commuting, and worries about rent. He tracks expenses carefully and pays rent monthly, suggesting he's financially stable but concerned about managing his money.",
+      "b_answer": "Ilya is concerned about money, as indicated by their worry about rent and careful tracking of expenses.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_ddea51a3c95d>",
+        "<node_b6932704ba94>"
+      ],
+      "b_cited": [
+        "node_ddea51a3c95d",
+        "node_442f13ccb234",
+        "node_1155da9b5c7e"
+      ],
+      "jaccard": 0.14634146341463414
+    },
+    {
+      "query_id": "q_Priya_budget",
+      "query_text": "Does Priya have money concerns?",
+      "a_answer": "Priya likely has financial concerns because she's concerned about her rent, needs to rest after commuting, and tracks her expenses carefully. She also prepares meals on weekends and commutes by public transit, which suggests a need to manage her money.",
+      "b_answer": "Priya is concerned about money, as indicated by her worry about rent and her careful tracking of expenses.",
+      "a_abstained": false,
+      "b_abstained": false,
+      "a_cited": [
+        "<node_98fd992fe74c>",
+        "<node_626cad2ed2ab>"
+      ],
+      "b_cited": [
+        "node_98fd992fe74c",
+        "node_2e93d22b7201",
+        "node_4b9b66617eba"
+      ],
+      "jaccard": 0.13043478260869565
+    }
+  ],
+  "model_a_unique_answers": 50,
+  "model_b_unique_answers": 49,
+  "model_a_hard_abstain_rate": 0.2,
+  "model_b_hard_abstain_rate": 0.1,
+  "within_model_determinism": {
+    "model_a": 0.28073986551692887,
+    "model_b": 0.9378049178203977
+  },
+  "warnings": [],
+  "verdict": "\u2717 WEAK \u2014 models diverge; memory does not fully carry identity",
+  "_note": "This is the TRUE interchangeability test: different LLMs, same snapshot, query-by-query comparison. Distinct from single-model determinism in v2."
+}

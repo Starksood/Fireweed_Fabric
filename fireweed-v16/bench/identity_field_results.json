@@ -1,0 +1,106 @@
+{
+  "experiment": "identity_field_shape",
+  "shapes": {
+    "primary": {
+      "n_active": 32,
+      "mass": 6.01,
+      "centroid": "Pekoe",
+      "centroid_share": 1.0,
+      "n_entities": 2,
+      "dispersion": 0.794,
+      "top_domain": "other",
+      "concentration": 0.389,
+      "layer_profile": {
+        "COLD": 0.969,
+        "WARM": 0.0,
+        "HOT": 0.031,
+        "CORE": 0.0
+      },
+      "rel_degree": 0.312
+    },
+    "determinism": {
+      "n_active": 32,
+      "mass": 6.01,
+      "centroid": "Pekoe",
+      "centroid_share": 1.0,
+      "n_entities": 2,
+      "dispersion": 0.794,
+      "top_domain": "other",
+      "concentration": 0.389,
+      "layer_profile": {
+        "COLD": 0.969,
+        "WARM": 0.0,
+        "HOT": 0.031,
+        "CORE": 0.0
+      },
+      "rel_degree": 0.312
+    },
+    "order_shuffled": {
+      "n_active": 32,
+      "mass": 5.54,
+      "centroid": "Pekoe",
+      "centroid_share": 1.0,
+      "n_entities": 2,
+      "dispersion": 0.739,
+      "top_domain": "other",
+      "concentration": 0.414,
+      "layer_profile": {
+        "COLD": 0.938,
+        "WARM": 0.0,
+        "HOT": 0.062,
+        "CORE": 0.0
+      },
+      "rel_degree": 0.312
+    },
+    "crossmodel": {
+      "n_active": 62,
+      "mass": 11.33,
+      "centroid": "Pekoe",
+      "centroid_share": 0.475,
+      "n_entities": 3,
+      "dispersion": 0.683,
+      "top_domain": "other",
+      "concentration": 0.536,
+      "layer_profile": {
+        "COLD": 1.0,
+        "WARM": 0.0,
+        "HOT": 0.0,
+        "CORE": 0.0
+      },
+      "rel_degree": 0.081
+    },
+    "swap": {
+      "n_active": 45,
+      "mass": 8.81,
+      "centroid": "Pekoe",
+      "centroid_share": 0.596,
+      "n_entities": 3,
+      "dispersion": 0.749,
+      "top_domain": "other",
+      "concentration": 0.481,
+      "layer_profile": {
+        "COLD": 1.0,
+        "WARM": 0.0,
+        "HOT": 0.0,
+        "CORE": 0.0
+      },
+      "rel_degree": 0.133
+    }
+  },
+  "field_interchange": {
+    "gemma_vs_qwen": {
+      "same_centroid": true,
+      "mass_ratio": 0.53,
+      "dispersion_delta": 0.111,
+      "concentration_delta": 0.147
+    },
+    "single_vs_swap": {
+      "same_centroid": true,
+      "mass_ratio": 0.68,
+      "dispersion_delta": 0.045,
+      "concentration_delta": 0.092
+    }
+  },
+  "significance_shapes": {},
+  "meaning_shift": {}
+}

@@ -1,0 +1,90 @@
+{
+  "experiment": "corrupt_resilience",
+  "base_nodes": 44,
+  "base_anchor_persist": 0.8,
+  "random_curve": [
+    {
+      "rate": 0.0,
+      "nodes": 44,
+      "anchor_persist": 0.8,
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 1.0,
+      "claim_semantic": 1.0
+    },
+    {
+      "rate": 0.1,
+      "nodes": 39.3,
+      "anchor_persist": 0.8,
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 1.0,
+      "claim_semantic": 0.974
+    },
+    {
+      "rate": 0.25,
+      "nodes": 34.3,
+      "anchor_persist": 0.8,
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 0.949,
+      "claim_semantic": 0.944
+    },
+    {
+      "rate": 0.5,
+      "nodes": 22.3,
+      "anchor_persist": 0.533,
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 0.872,
+      "claim_semantic": 0.86
+    },
+    {
+      "rate": 0.75,
+      "nodes": 13.3,
+      "anchor_persist": 0.267,
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 0.692,
+      "claim_semantic": 0.783
+    }
+  ],
+  "targeted": [
+    {
+      "mode": "targeted_entity",
+      "target": "van_ness",
+      "removed": 29,
+      "targeted_anchor": 0.4,
+      "random_same_count_anchor": 0.2,
+      "targeted_claim_sem": 0.789
+    },
+    {
+      "mode": "targeted_entity",
+      "target": "pekoe",
+      "removed": 2,
+      "targeted_anchor": 0.8,
+      "random_same_count_anchor": 0.8,
+      "targeted_claim_sem": 0.983
+    },
+    {
+      "mode": "targeted_domain",
+      "target": "body",
+      "removed": 6,
+      "targeted_anchor": 0.4,
+      "random_same_count_anchor": 0.8,
+      "targeted_claim_sem": 0.954
+    }
+  ],
+  "perturb_curve": [],
+  "recovery": {
+    "base_anchor": 0.8,
+    "damaged_anchor": 0.6,
+    "recovered_anchor": 0.8,
+    "lost": 0.2,
+    "regained": 0.2,
+    "recovery_fraction": 1.0,
+    "turns_applied": 26,
+    "id_collisions": 0,
+    "collision_note": null,
+    "nodes_after_recovery": 43
+  },
+  "verdict": {
+    "degradation": "\u2713\u2713 STRONG (graceful to 50% deletion, targeted>random sensitivity)",
+    "recovery": "\u2713\u2713 heals by re-exposure (recovery_fraction=1.0)"
+  }
+}
