@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fireweed-client"
+version = "0.1.0"
+description = "Official Python client for the Fireweed Memory API — durable, model-independent agent memory."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Fireweed" }]
+keywords = ["llm", "agent", "memory", "rag", "vector", "provenance"]
+dependencies = ["httpx>=0.24"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/Starksood/Fireweed_Fabric"
+
+[tool.setuptools.packages.find]
+include = ["fireweed_client*"]
