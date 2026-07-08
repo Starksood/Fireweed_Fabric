@@ -1,0 +1,932 @@
+{
+  "dataset": "longmemeval",
+  "n_episodes": 50,
+  "n_probes": 50,
+  "perceiver": "google/gemma-3-4b",
+  "reader": "qwen/qwen3-4b-2507",
+  "fireweed": {
+    "accuracy": 0.42,
+    "conflict_resolution": 0.0,
+    "latency": {
+      "mean_s": 6.7141,
+      "p50_s": 6.6241,
+      "max_s": 13.9202,
+      "n": 50
+    }
+  },
+  "rag": {
+    "accuracy": 0.48,
+    "conflict_resolution": 0.0,
+    "latency": {
+      "mean_s": 16.5347,
+      "p50_s": 11.5299,
+      "max_s": 241.391,
+      "n": 50
+    }
+  },
+  "note": "contains-match accuracy is approximate for free-form gold; the Engine-vs-RAG delta on one metric is the signal.",
+  "engine_rows": [
+    {
+      "episode_id": "gpt4_2655b836",
+      "question": "What was the first issue I had with my new car after its first service?",
+      "gold": "GPS system not functioning correctly",
+      "kind": "temporal",
+      "pred": "The first issue I had with my new car after its first service was the GPS system malfunctioning, which occurred on 3/22 and was reportedly due to a potential failure of the GPS antenna or receiver. The dealership replaced the GPS system as a result.",
+      "abstained": false,
+      "latency_s": 7.508775916998275
+    },
+    {
+      "episode_id": "gpt4_2487a7cb",
+      "question": "Which event did I attend first, the 'Effective Time Management' workshop or the 'Data Analysis using Python' webinar?",
+      "gold": "'Data Analysis using Python' webinar",
+      "kind": "temporal",
+      "pred": "The 'Data Analysis using Python' webinar was attended first, as it took place two months ago, while the 'Effective Time Management' workshop occurred last Saturday, which is more recent.",
+      "abstained": false,
+      "latency_s": 5.134620417000406
+    },
+    {
+      "episode_id": "gpt4_76048e76",
+      "question": "Which vehicle did I take care of first in February, the bike or the car?",
+      "gold": "bike",
+      "kind": "temporal",
+      "pred": "The bike was taken care of first in February, as evidenced by the recent repairs needed due to acting gears and the bike shop fixing it for you.",
+      "abstained": false,
+      "latency_s": 5.345532084000297
+    },
+    {
+      "episode_id": "gpt4_2312f94c",
+      "question": "Which device did I got first, the Samsung Galaxy S22 or the Dell XPS 13?",
+      "gold": "Samsung Galaxy S22",
+      "kind": "temporal",
+      "pred": "The evidence does not specify the order in which the Samsung Galaxy S22 or the Dell XPS 13 was obtained.",
+      "abstained": true,
+      "latency_s": 6.130419332999736
+    },
+    {
+      "episode_id": "0bb5a684",
+      "question": "How many days before the team meeting I was preparing for did I attend the workshop on 'Effective Communication in the Workplace'?",
+      "gold": "7 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "I attended the workshop on 'Effective Communication in the Workplace' on January 10th and the team meeting is scheduled for January 17th, meaning I attended the workshop 7 days before the team meeting.",
+      "abstained": false,
+      "latency_s": 5.3220027909992496
+    },
+    {
+      "episode_id": "08f4fc43",
+      "question": "How many days had passed between the Sunday mass at St. Mary's Church and the Ash Wednesday service at the cathedral?",
+      "gold": "30 days. 31 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The Sunday mass at St. Mary's Church was on January 2nd, and the Ash Wednesday service at the cathedral was on February 1st, meaning 30 days had passed between the two events.",
+      "abstained": false,
+      "latency_s": 6.866213458000857
+    },
+    {
+      "episode_id": "2c63a862",
+      "question": "How many days did it take for me to find a house I loved after starting to work with Rachel?",
+      "gold": "14 days. 15 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The evidence does not specify how many days it took to find a house I loved after starting to work with Rachel.",
+      "abstained": true,
+      "latency_s": 4.582451332997152
+    },
+    {
+      "episode_id": "gpt4_385a5000",
+      "question": "Which seeds were started first, the tomatoes or the marigolds?",
+      "gold": "Tomatoes",
+      "kind": "temporal",
+      "pred": "The marigolds were started first, as the ideal temperature for planting marigolds outside is when the soil reaches 50\u00b0F (10\u00b0C) to 55\u00b0F (13\u00b0C), which is cooler than the 55\u00b0F (13\u00b0C) to 60\u00b0F (16\u00b0C) required for tomatoes.",
+      "abstained": false,
+      "latency_s": 6.832338791999064
+    },
+    {
+      "episode_id": "2a1811e2",
+      "question": "How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church?",
+      "gold": "21 days. 22 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The date of the Hindu festival of Holi is not specified in the evidence, and the Sunday mass at St. Mary's Church was on March 19th, as noted in node_bd25b99865af. Since the date of Holi is not provided, the number of days between Holi and the Sunday mass cannot be determined.",
+      "abstained": true,
+      "latency_s": 7.012567375000799
+    },
+    {
+      "episode_id": "bbf86515",
+      "question": "How many days before the 'Rack Fest' did I participate in the 'Turbocharged Tuesdays' event?",
+      "gold": "4 days.",
+      "kind": "temporal",
+      "pred": "The evidence does not specify the number of days between the 'Rack Fest' and the 'Turbocharged Tuesdays' event.",
+      "abstained": true,
+      "latency_s": 6.622420583000348
+    },
+    {
+      "episode_id": "gpt4_5dcc0aab",
+      "question": "Which pair of shoes did I clean last month?",
+      "gold": "white Adidas sneakers",
+      "kind": "temporal",
+      "pred": "I cleaned my white Adidas sneakers last month.",
+      "abstained": false,
+      "latency_s": 5.327272667000216
+    },
+    {
+      "episode_id": "gpt4_0b2f1d21",
+      "question": "Which event happened first, the purchase of the coffee maker or the malfunction of the stand mixer?",
+      "gold": "The malfunction of the stand mixer",
+      "kind": "temporal",
+      "pred": "The purchase of the coffee maker is not directly mentioned in the evidence, and the malfunction of the stand mixer is referenced in context of preventing malfunctions after a recent experience, but there is no explicit timeline or sequence between the purchase of the coffee maker and the stand mixer malfunction. Thus, the order cannot be determined from the given nodes.",
+      "abstained": false,
+      "latency_s": 9.494963083001494
+    },
+    {
+      "episode_id": "f0853d11",
+      "question": "How many days had passed between the 'Walk for Hunger' event and the 'Coastal Cleanup' event?",
+      "gold": "14 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The 'Walk for Hunger' event occurred on February 21st and the 'Coastal Cleanup' event occurred on March 7th, indicating that 16 days had passed between the two events.",
+      "abstained": false,
+      "latency_s": 6.0150862080008665
+    },
+    {
+      "episode_id": "gpt4_6ed717ea",
+      "question": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+      "gold": "Training pads for Luna",
+      "kind": "temporal",
+      "pred": "The dog bed for Max was purchased 3 weeks ago, as stated in node_85ba467ee52f. There is no mention of when the training pads for Luna were purchased, so the timing of the training pads cannot be determined from the evidence.",
+      "abstained": false,
+      "latency_s": 7.1106057910001255
+    },
+    {
+      "episode_id": "gpt4_70e84552",
+      "question": "Which task did I complete first, fixing the fence or trimming the goats' hooves?",
+      "gold": "Fixing the fence",
+      "kind": "temporal",
+      "pred": "I don't have any information about that person or topic in memory.",
+      "abstained": true,
+      "latency_s": 0.008905582999432227
+    },
+    {
+      "episode_id": "a3838d2b",
+      "question": "How many charity events did I participate in before the 'Run for the Cure' event?",
+      "gold": "4",
+      "kind": "temporal",
+      "pred": "The provided evidence does not specify the number of charity events you participated in before the 'Run for the Cure' event.",
+      "abstained": true,
+      "latency_s": 5.063129707999906
+    },
+    {
+      "episode_id": "gpt4_93159ced",
+      "question": "How long have I been working before I started my current job at NovaTech?",
+      "gold": "4 years and 9 months",
+      "kind": "temporal",
+      "pred": "I have been working professionally for 9 years, and I have been working at NovaTech for about 4 years and 3 months. This suggests that before joining NovaTech, I had been working for approximately 4 years and 9 months.",
+      "abstained": false,
+      "latency_s": 5.789988458000153
+    },
+    {
+      "episode_id": "gpt4_2d58bcd6",
+      "question": "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+      "gold": "'The Hate U Give'",
+      "kind": "temporal",
+      "pred": "I finished reading 'The Hate U Give' before 'The Nightingale', as evidenced by the fact that 'The Hate U Give' was completed two weeks before a book club meeting, and I was the only one who hadn't finished it before that meeting, implying it was read earlier.",
+      "abstained": false,
+      "latency_s": 8.066862166997453
+    },
+    {
+      "episode_id": "gpt4_65aabe59",
+      "question": "Which device did I set up first, the smart thermostat or the mesh network system?",
+      "gold": "Smart thermostat",
+      "kind": "temporal",
+      "pred": "The evidence indicates that you recently upgraded to a mesh network system, but provides no information about the setup order of the smart thermostat or the mesh network system.",
+      "abstained": true,
+      "latency_s": 4.845236000001023
+    },
+    {
+      "episode_id": "982b5123",
+      "question": "How many months ago did I book the Airbnb in San Francisco?",
+      "gold": "Five months ago",
+      "kind": "temporal",
+      "pred": "The evidence does not specify when the Airbnb in San Francisco was booked.",
+      "abstained": true,
+      "latency_s": 13.920200458000181
+    },
+    {
+      "episode_id": "b9cfe692",
+      "question": "How long did I take to finish 'The Seven Husbands of Evelyn Hugo' and 'The Nightingale' combined?",
+      "gold": "5.5 weeks",
+      "kind": "temporal",
+      "pred": "I took two and a half weeks to finish 'The Seven Husbands of Evelyn Hugo' and three weeks to finish 'The Nightingale', so combined, it took five and a half weeks.",
+      "abstained": false,
+      "latency_s": 7.353498666001542
+    },
+    {
+      "episode_id": "gpt4_4edbafa2",
+      "question": "What was the date on which I attended the first BBQ event in June?",
+      "gold": "June 3rd",
+      "kind": "temporal",
+      "pred": "The date of the first BBQ event in June is not specified in the evidence. However, the usage of Sweet Baby Ray's BBQ sauce occurred on Saturday, which may be associated with the event.",
+      "abstained": true,
+      "latency_s": 7.265162625000812
+    },
+    {
+      "episode_id": "c8090214",
+      "question": "How many days before I bought the iPhone 13 Pro did I attend the Holiday Market?",
+      "gold": "7 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "I attended the Holiday Market a week before Black Friday, when I bought the iPhone 13 Pro, so I attended the Holiday Market 7 days before I bought the iPhone 13 Pro.",
+      "abstained": false,
+      "latency_s": 7.426454667001963
+    },
+    {
+      "episode_id": "gpt4_483dd43c",
+      "question": "Which show did I start watching first, 'The Crown' or 'Game of Thrones'?",
+      "gold": "'Game of Thrones'",
+      "kind": "temporal",
+      "pred": "The evidence shows that you finished the first four seasons of 'Game of Thrones' and later binge-watched the third season of 'The Crown', suggesting you started watching 'Game of Thrones' first.",
+      "abstained": false,
+      "latency_s": 8.539241665999725
+    },
+    {
+      "episode_id": "e4e14d04",
+      "question": "How long had I been a member of 'Book Lovers Unite' when I attended the meetup?",
+      "gold": "Two weeks",
+      "kind": "temporal",
+      "pred": "I had been a member of 'Book Lovers Unite' for three weeks when I attended the meetup.",
+      "abstained": false,
+      "latency_s": 10.337227124997298
+    },
+    {
+      "episode_id": "c9f37c46",
+      "question": "How long had I been watching stand-up comedy specials regularly when I attended the open mic night at the local comedy club?",
+      "gold": "2 months",
+      "kind": "temporal",
+      "pred": "I had been watching stand-up comedy specials regularly ever since I attended the open mic night last month, as indicated by the evidence that I started watching stand-ups regularly thereafter.",
+      "abstained": false,
+      "latency_s": 5.674452916999144
+    },
+    {
+      "episode_id": "gpt4_2c50253f",
+      "question": "What time do I wake up on Tuesdays and Thursdays?",
+      "gold": "6:45 AM",
+      "kind": "temporal",
+      "pred": "The evidence indicates that meditation occurs right after the morning walk on Tuesdays and Thursdays, but the specific time of waking is not mentioned.",
+      "abstained": false,
+      "latency_s": 6.9810902919998625
+    },
+    {
+      "episode_id": "dcfa8644",
+      "question": "How many days had passed since I bought my Adidas running shoes when I realized one of the shoelaces on my old Converse sneakers had broken?",
+      "gold": "14 days. 15 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The Converse shoelace broke on January 24th, and the Adidas running shoes were purchased on January 10th, indicating that 14 days had passed since the purchase.",
+      "abstained": false,
+      "latency_s": 6.649676666002051
+    },
+    {
+      "episode_id": "gpt4_b4a80587",
+      "question": "Which event happened first, the road trip to the coast or the arrival of the new prime lens?",
+      "gold": "The arrival of the new prime lens",
+      "kind": "temporal",
+      "pred": "The arrival of the new prime lens is mentioned as a recent event, while the coastal trip is described as having occurred and being 'amazing'\u2014however, the sequence between these events is not explicitly stated in the evidence.",
+      "abstained": false,
+      "latency_s": 5.743266541001503
+    },
+    {
+      "episode_id": "gpt4_9a159967",
+      "question": "Which airline did I fly with the most in March and April?",
+      "gold": "United Airlines",
+      "kind": "temporal",
+      "pred": "You flew with Southwest Airlines in March, as noted in node_8 and node_18, and had a good experience with them, as stated in node_13. There is no mention of flights with United or American Airlines during March and April beyond a business trip to Chicago with United in April (node_5), but no specific flight count or frequency is provided.",
+      "abstained": false,
+      "latency_s": 10.536158083999908
+    },
+    {
+      "episode_id": "cc6d1ec1",
+      "question": "How long had I been bird watching when I attended the bird watching workshop?",
+      "gold": "Two months",
+      "kind": "temporal",
+      "pred": "I have been bird watching for about three months prior to attending the bird watching workshop.",
+      "abstained": false,
+      "latency_s": 6.670743083999696
+    },
+    {
+      "episode_id": "gpt4_8c8961ae",
+      "question": "Which trip did I take first, the one to Europe with family or the solo trip to Thailand?",
+      "gold": "The solo trip to Thailand",
+      "kind": "temporal",
+      "pred": "The solo trip to Thailand occurred last year, as stated in node_339988e7facb. The trip to Europe with family is mentioned in nodes_f7a667ccb4b2, node_5c53c5ac0697, and node_980a61dbae72, but no specific timing is provided. Therefore, the Europe trip preceded the Thailand trip.",
+      "abstained": false,
+      "latency_s": 11.891182832998311
+    },
+    {
+      "episode_id": "gpt4_d9af6064",
+      "question": "Which device did I set up first, the smart thermostat or the new router?",
+      "gold": "new router",
+      "kind": "temporal",
+      "pred": "The evidence does not specify the order in which the smart thermostat or the new router was set up.",
+      "abstained": true,
+      "latency_s": 5.072187500001746
+    },
+    {
+      "episode_id": "gpt4_7de946e7",
+      "question": "Which health issue did I deal with first, the persistent cough or the skin tag removal?",
+      "gold": "Persistent cough",
+      "kind": "temporal",
+      "pred": "The persistent cough was dealt with first, as it is mentioned to have been ongoing for three weeks and linked to a bronchitis diagnosis by Dr. Smith. The skin tag removal occurred later, with the procedure noted to have taken place on February 22nd.",
+      "abstained": false,
+      "latency_s": 6.625854333000461
+    },
+    {
+      "episode_id": "d01c6aa8",
+      "question": "How old was I when I moved to the United States?",
+      "gold": "27",
+      "kind": "temporal",
+      "pred": "I have been living in the United States for the past five years, but the age at which I moved is not specified.",
+      "abstained": false,
+      "latency_s": 5.307883041998139
+    },
+    {
+      "episode_id": "993da5e2",
+      "question": "How long had I been using the new area rug when I rearranged my living room furniture?",
+      "gold": "One week. Answers ranging from 7 days to 10 days are also acceptable.",
+      "kind": "temporal",
+      "pred": "I recently rearranged the furniture three weeks ago, so I had been using the new area rug for at least three weeks.",
+      "abstained": false,
+      "latency_s": 5.9801082920021145
+    },
+    {
+      "episode_id": "a3045048",
+      "question": "How many days before my best friend's birthday party did I order her gift?",
+      "gold": "7 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The evidence does not specify when the gift was ordered relative to the best friend's birthday party.",
+      "abstained": true,
+      "latency_s": 9.708219666001241
+    },
+    {
+      "episode_id": "gpt4_d31cdae3",
+      "question": "Which trip did the narrator take first, the solo trip to Europe or the family road trip across the American Southwest?",
+      "gold": "The family road trip across the American Southwest",
+      "kind": "temporal",
+      "pred": "The narrator mentions a solo trip to Europe last summer, including a visit to Munich, which suggests that trip occurred after the family road trip across the American Southwest, as the family trip is explicitly stated to have taken place.",
+      "abstained": false,
+      "latency_s": 6.775674125001387
+    },
+    {
+      "episode_id": "gpt4_cd90e484",
+      "question": "How long did I use my new binoculars before I saw the American goldfinches returning to the area?",
+      "gold": "Two weeks",
+      "kind": "temporal",
+      "pred": "I got my new binoculars exactly three weeks ago, and the American goldfinches seem to be returning to the area, though there is no direct information on when or how long I used the binoculars before observing them.",
+      "abstained": false,
+      "latency_s": 5.958198291998997
+    },
+    {
+      "episode_id": "gpt4_88806d6e",
+      "question": "Who did I meet first, Mark and Sarah or Tom?",
+      "gold": "Tom",
+      "kind": "temporal",
+      "pred": "The evidence does not specify who was met first, Mark and Sarah or Tom.",
+      "abstained": true,
+      "latency_s": 5.404989582999406
+    },
+    {
+      "episode_id": "gpt4_4cd9eba1",
+      "question": "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+      "gold": "one week",
+      "kind": "temporal",
+      "pred": "You have been attending pre-departure orientation sessions every Friday since 3/27, and your application to the exchange program was submitted on February 10th. From February 10th to March 27th is 5 weeks and 17 days, which suggests you have been accepted into the exchange program for approximately 5 weeks.",
+      "abstained": false,
+      "latency_s": 6.16101400000116
+    },
+    {
+      "episode_id": "gpt4_93f6379c",
+      "question": "Which group did I join first, 'Page Turners' or 'Marketing Professionals'?",
+      "gold": "Page Turners",
+      "kind": "temporal",
+      "pred": "I joined the 'Marketing Professionals' group before 'Page Turners' because I joined LinkedIn yesterday and have been engaging with the 'Marketing Professionals' group on LinkedIn, while the 'Page Turners' book club was joined last week.",
+      "abstained": false,
+      "latency_s": 6.789466792000894
+    },
+    {
+      "episode_id": "b29f3365",
+      "question": "How long had I been taking guitar lessons when I bought the new guitar amp?",
+      "gold": "Four weeks",
+      "kind": "temporal",
+      "pred": "I had been taking weekly guitar lessons with Alex for six weeks when I bought the new guitar amp, and I invested in the amp two weeks ago. Therefore, I had been taking guitar lessons for four weeks prior to purchasing the amp.",
+      "abstained": false,
+      "latency_s": 5.97698091699931
+    },
+    {
+      "episode_id": "gpt4_2f56ae70",
+      "question": "Which streaming service did I start using most recently?",
+      "gold": "Disney+",
+      "kind": "temporal",
+      "pred": "I don't have any information about that person or topic in memory.",
+      "abstained": true,
+      "latency_s": 0.006887208000989631
+    },
+    {
+      "episode_id": "6613b389",
+      "question": "How many months before my anniversary did Rachel get engaged?",
+      "gold": "2",
+      "kind": "temporal",
+      "pred": "Rachel got engaged last month on May 15th. The anniversary month is not specified, so the number of months before the anniversary cannot be determined.",
+      "abstained": false,
+      "latency_s": 5.2167028750009194
+    },
+    {
+      "episode_id": "gpt4_78cf46a3",
+      "question": "Which event happened first, the narrator losing their phone charger or the narrator receiving their new phone case?",
+      "gold": "Receiving the new phone case",
+      "kind": "temporal",
+      "pred": "The narrator receiving their new phone case is mentioned to be about a month old, while the narrator is planning to buy a new phone charger, indicating the charger purchase comes after the phone case was received. Thus, the phone case event likely preceded the charger purchase.",
+      "abstained": false,
+      "latency_s": 6.132726959000138
+    },
+    {
+      "episode_id": "gpt4_0a05b494",
+      "question": "Who did I meet first, the woman selling jam at the farmer's market or the tourist from Australia?",
+      "gold": "the woman selling jam at the farmer's market",
+      "kind": "temporal",
+      "pred": "The evidence does not specify who was met first, the woman selling jam at the farmer's market or the tourist from Australia.",
+      "abstained": true,
+      "latency_s": 12.755550208003115
+    },
+    {
+      "episode_id": "gpt4_1a1dc16d",
+      "question": "Which event happened first, the meeting with Rachel or the pride parade?",
+      "gold": "The meeting with Rachel",
+      "kind": "temporal",
+      "pred": "The pride parade on May 1st is mentioned as an event that was recently attended, while discussions with Rachel are referenced as future intentions for seeking advice. Based on the evidence, the pride parade occurred first.",
+      "abstained": false,
+      "latency_s": 6.945929416997387
+    },
+    {
+      "episode_id": "gpt4_2f584639",
+      "question": "Which gift did I buy first, the necklace for my sister or the photo album for my mom?",
+      "gold": "the photo album for my mom",
+      "kind": "temporal",
+      "pred": "The photo album was purchased two weeks ago, while the necklace is mentioned in the context of a gift at Tiffany's but without a specific purchase timeline, so the order of acquisition cannot be determined from the evidence.",
+      "abstained": false,
+      "latency_s": 7.079090582999925
+    },
+    {
+      "episode_id": "gpt4_213fd887",
+      "question": "Which event did I participate in first, the volleyball league or the charity 5K run to raise money for a local children's hospital?",
+      "gold": "volleyball league",
+      "kind": "temporal",
+      "pred": "The charity 5K run is mentioned as completed and described as a great experience, while no information is provided about participating in a volleyball league. Therefore, the 5K run is the only event explicitly referenced as having occurred.",
+      "abstained": false,
+      "latency_s": 5.737750416999916
+    }
+  ],
+  "rag_rows": [
+    {
+      "episode_id": "gpt4_2655b836",
+      "question": "What was the first issue I had with my new car after its first service?",
+      "gold": "GPS system not functioning correctly",
+      "kind": "temporal",
+      "pred": "The first issue you had with your new car after its first service was a problem with the GPS system on March 22. You had to take it back to the dealership to get it fixed, and they replaced the entire GPS system, after which it started working flawlessly.",
+      "abstained": false,
+      "latency_s": 241.39102724999975
+    },
+    {
+      "episode_id": "gpt4_2487a7cb",
+      "question": "Which event did I attend first, the 'Effective Time Management' workshop or the 'Data Analysis using Python' webinar?",
+      "gold": "'Data Analysis using Python' webinar",
+      "kind": "temporal",
+      "pred": "The event you attended first was the **'Data Analysis using Python' webinar**.\n\nThis is evident from the context, which states: *\"I participated in a webinar on 'Data Analysis using Python' two months ago...\"* \u2014 indicating that this event took place two months prior to the time of the question. There is no mention of the 'Effective Time Management' workshop in the provided text, so it cannot be confirmed as having been attended. Therefore, based on the information given, the only event referenced is the 'Data Analysis using Python' webinar.",
+      "abstained": false,
+      "latency_s": 8.01641383400056
+    },
+    {
+      "episode_id": "gpt4_76048e76",
+      "question": "Which vehicle did I take care of first in February, the bike or the car?",
+      "gold": "bike",
+      "kind": "temporal",
+      "pred": "The context indicates that you took care of the **bike** first in February. You mentioned that you had to take your bike in for repairs in mid-February because the gears were acting up and you couldn't shift properly. There is no mention of car repairs or issues during that time. Therefore, the bike was the first vehicle you addressed. \n\nAnswer: **the bike**.",
+      "abstained": false,
+      "latency_s": 4.92439849999937
+    },
+    {
+      "episode_id": "gpt4_2312f94c",
+      "question": "Which device did I got first, the Samsung Galaxy S22 or the Dell XPS 13?",
+      "gold": "Samsung Galaxy S22",
+      "kind": "temporal",
+      "pred": "You got the Samsung Galaxy S22 first.\n\nEvidence from the context:\n- You mention that you \"pre-ordered the laptop on January 28th, and it finally arrived on February 25th after a delay from the original expected arrival date of February 11th.\"\n- You also state that you \"got a new Samsung Galaxy S22 from the Best Buy store at the mall on February 20th.\"\n- Since February 20th comes before February 25th, and the laptop arrived on February 25th, the Galaxy S22 was received earlier.\n\nTherefore, the Samsung Galaxy S22 was obtained before the Dell XPS 13.",
+      "abstained": false,
+      "latency_s": 7.937224833000073
+    },
+    {
+      "episode_id": "0bb5a684",
+      "question": "How many days before the team meeting I was preparing for did I attend the workshop on 'Effective Communication in the Workplace'?",
+      "gold": "7 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "You attended the workshop on \"Effective Communication in the Workplace\" on January 10th, and the team meeting was on January 17th.\n\nTo find the number of days before the meeting:\n\n- January 17th - January 10th = 7 days\n\nSo, you attended the workshop **7 days** before the team meeting.\n\n**Answer: 7 days.**",
+      "abstained": false,
+      "latency_s": 5.531158792000497
+    },
+    {
+      "episode_id": "08f4fc43",
+      "question": "How many days had passed between the Sunday mass at St. Mary's Church and the Ash Wednesday service at the cathedral?",
+      "gold": "30 days. 31 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "To determine how many days had passed between the Sunday mass at St. Mary's Church on January 2nd and the Ash Wednesday service at the cathedral on February 1st, let's break it down:\n\n- January has 31 days.\n- January 2nd to January 31st = 29 days (from Jan 2 to Jan 31, inclusive of Jan 2, so that's 29 days after Jan 2).\n- From January 31 to February 1 is 1 day (February 1 is the next day after January 31).\n\nBut we need the number of **days between** the two events, not including the start day or the end day.\n\nSo:\n\n- From **January 2 to January 31** = 29 days (Jan 2 to Jan 31 is 29 days later)\n- Then from **January 31 to February 1** = 1 day (the next day)\n\nBut actually, the number of **days between** January 2 and February 1 is:\n\n- January 2 to January 31 = 29 days (since Jan 2 to Jan 31 is 29 days after Jan 2)\n- Then from Jan 31 to Feb 1 is the next day, so total days between = 29 + 1 = 30 days?\n\nWait \u2014 let's clarify: **\"How many days had passed\"** means the number of days from January 2 to February 1.\n\nSo:\n\n- January 2 to January 31 = 29 days (Jan 3 is 2 days after Jan 2, ..., Jan 31 is 29 days after Jan 2)\n- Then January 31 to February 1 = 1 day\n\nSo total days passed = 29 (Jan 2 to Jan 31) + 1 (Jan 31 to Feb 1) = **30 days**\n\n\u2705 Therefore, **30 days** had passed between the Sunday mass at St. Mary's Church on January 2nd and the Ash Wednesday service at the cathedral on February 1st.\n\n**Answer: 30 days**.",
+      "abstained": false,
+      "latency_s": 16.366514458000893
+    },
+    {
+      "episode_id": "2c63a862",
+      "question": "How many days did it take for me to find a house I loved after starting to work with Rachel?",
+      "gold": "14 days. 15 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The context provided does not contain any information about how many days it took to find a house I loved after starting to work with Rachel. Therefore, the question cannot be answered based on the given information.",
+      "abstained": false,
+      "latency_s": 4.875576040998567
+    },
+    {
+      "episode_id": "gpt4_385a5000",
+      "question": "Which seeds were started first, the tomatoes or the marigolds?",
+      "gold": "Tomatoes",
+      "kind": "temporal",
+      "pred": "The marigolds were started first.\n\nThe user mentioned that they \"just started some marigold seeds that arrived on March 3rd,\" and that the marigolds are already germinating. There is no mention of when the tomatoes were started, only that they are being considered for planting outside. Since the marigolds were started on March 3rd, and no earlier date for the tomatoes is provided, we can conclude that the marigolds were started first.",
+      "abstained": false,
+      "latency_s": 7.914433667003323
+    },
+    {
+      "episode_id": "2a1811e2",
+      "question": "How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church?",
+      "gold": "21 days. 22 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The question asks for the number of days passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church.\n\nHowever, the provided context does not mention **any information about the Sunday mass at St. Mary's Church** or the date of that event. There is no date given for the Sunday mass, nor is there any information linking Holi on February 26th to a specific Sunday mass in terms of days passed.\n\nTherefore, **based on the information provided**, it is **not possible to determine how many days had passed** between Holi and the Sunday mass.\n\n**Answer: Insufficient information to determine the number of days passed.**",
+      "abstained": false,
+      "latency_s": 10.574794416999794
+    },
+    {
+      "episode_id": "bbf86515",
+      "question": "How many days before the 'Rack Fest' did I participate in the 'Turbocharged Tuesdays' event?",
+      "gold": "4 days.",
+      "kind": "temporal",
+      "pred": "The provided context does not contain enough information to determine how many days before the 'Rack Fest' the 'Turbocharged Tuesdays' event took place.\n\nWe know:\n- The user attended the \"Rack Fest\" on June 18th.\n- The user received a free can of NitroFuel's premium fuel additive at the \"Turbocharged Tuesdays\" event.\n\nHowever, there is **no specific date** mentioned for the \"Turbocharged Tuesdays\" event, and no information is given about the day of the week or the exact date of that event.\n\nTherefore, **based on the information provided, we cannot calculate the number of days between the two events.**\n\nAnswer: **Cannot be determined from the given context.**",
+      "abstained": false,
+      "latency_s": 10.911999292002292
+    },
+    {
+      "episode_id": "gpt4_5dcc0aab",
+      "question": "Which pair of shoes did I clean last month?",
+      "gold": "white Adidas sneakers",
+      "kind": "temporal",
+      "pred": "The pair of shoes you cleaned last month were your white Adidas sneakers.",
+      "abstained": false,
+      "latency_s": 6.797705249999126
+    },
+    {
+      "episode_id": "gpt4_0b2f1d21",
+      "question": "Which event happened first, the purchase of the coffee maker or the malfunction of the stand mixer?",
+      "gold": "The malfunction of the stand mixer",
+      "kind": "temporal",
+      "pred": "The purchase of the coffee maker happened first.\n\nHere's the reasoning:\n\n- The user mentions: *\"I bought it about three weeks ago, it's a black and stainless steel machine...\"* \u2014 This refers to the **coffee maker**, indicating the purchase occurred three weeks prior to the time of the query.\n- The user also mentions: *\"I'm glad you got your stand mixer back in working order!\"* \u2014 This implies the **stand mixer had malfunctioned at some point before being fixed**, and the user is now referring to it being restored.\n- The conversation includes a discussion about the coffee maker (purchased 3 weeks ago), and then later shifts to the stand mixer, with a note that it was out of order and then fixed.\n\nSince the coffee maker was purchased **three weeks ago** and the stand mixer malfunctioned **before** being fixed (as implied by the phrase \"got it back in working order\"), the **purchase of the coffee maker** happened first.\n\n\u2705 Answer: The purchase of the coffee maker happened first.",
+      "abstained": false,
+      "latency_s": 12.59022079100032
+    },
+    {
+      "episode_id": "f0853d11",
+      "question": "How many days had passed between the 'Walk for Hunger' event and the 'Coastal Cleanup' event?",
+      "gold": "14 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The 'Walk for Hunger' event took place on **February 21st**, and the 'Coastal Cleanup' event took place on **March 7th**.\n\nTo find the number of days between these two dates:\n\n- From **February 21 to February 28** = 7 days (since February has 29 days in a leap year, but assuming a regular year, February has 28 days, so from Feb 21 to Feb 28 is 7 days)\n- From **February 28 to March 7** = 8 days (March 1 to March 7 is 7 days, but since Feb 28 is the last day, we count March 1 to March 7 as 7 days, so total days = 7 + 7 = 14)\n\nWait \u2014 let's calculate this more accurately:\n\n- February 21 to March 7:\n  - Days in February after Feb 21: 28 - 21 = 7 days (Feb 22 to Feb 28)\n  - Days in March: 7 days (March 1 to March 7)\n  - Total = 7 + 7 = **14 days**\n\nSo, **14 days** had passed between the 'Walk for Hunger' event and the 'Coastal Cleanup' event.\n\n\u2705 Answer: **14 days**.",
+      "abstained": false,
+      "latency_s": 14.088267708000785
+    },
+    {
+      "episode_id": "gpt4_6ed717ea",
+      "question": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+      "gold": "Training pads for Luna",
+      "kind": "temporal",
+      "pred": "The item you purchased first was the training pads for Luna. \n\nThe context states: \"I got a set of 10 for $25 about a month ago, and they've been a lifesaver\" \u2014 referring to the eco-friendly training pads for Luna. This purchase happened about a month ago. \n\nThere is no mention of the dog bed being purchased before that, and since the dog bed was mentioned later in the context (in the section about Max's arthritis), it was purchased after the training pads. \n\nTherefore, the training pads for Luna were purchased first.",
+      "abstained": false,
+      "latency_s": 16.187999540998135
+    },
+    {
+      "episode_id": "gpt4_70e84552",
+      "question": "Which task did I complete first, fixing the fence or trimming the goats' hooves?",
+      "gold": "Fixing the fence",
+      "kind": "temporal",
+      "pred": "Based on the information provided, you completed **trimming the goats' hooves** first.\n\nThe text states: \"I've been doing a great job of keeping up with the goat's hoove trimming, I did it two weeks ago and it was a success, no mess at all!\" This clearly indicates the hoof trimming happened two weeks prior to the mention of fixing the fence.\n\nLater, the context says: \"Congratulations on fixing that broken fence! It's great to hear that your goats are now safe and secure.\" This confirms the fence was fixed after the hooves were trimmed.\n\nTherefore, the trimming of the goats' hooves occurred first.",
+      "abstained": false,
+      "latency_s": 12.831842292001966
+    },
+    {
+      "episode_id": "a3838d2b",
+      "question": "How many charity events did I participate in before the 'Run for the Cure' event?",
+      "gold": "4",
+      "kind": "temporal",
+      "pred": "Based on the context provided, you participated in **one** charity event before the \"Run for the Cure\" event.\n\nThis is confirmed by the statement: *\"I just participated in the 'Dance for a Cause' event on May 1st, which was a blast.\"* This is the only charity event mentioned as having occurred prior to the \"Run for the Cure\" event on October 15th.",
+      "abstained": false,
+      "latency_s": 12.954103833999397
+    },
+    {
+      "episode_id": "gpt4_93159ced",
+      "question": "How long have I been working before I started my current job at NovaTech?",
+      "gold": "4 years and 9 months",
+      "kind": "temporal",
+      "pred": "Based on the context provided, you have been working in the software engineering field since you graduated with a degree in Computer Science from the University of California, Berkeley. You've been working at NovaTech for about 4 years and 3 months.\n\nThe text does not specify how long you worked before joining NovaTech. It only states that you've been in the field since graduation and that you've been working at NovaTech for 4 years and 3 months.\n\nTherefore, the exact duration before NovaTech is not given in the context. However, since you graduated from UC Berkeley and have been working since then, and you've been at NovaTech for 4 years and 3 months, **you have been working for approximately 4 years and 3 months before starting your current job at NovaTech** \u2014 which is not accurate.\n\nCorrection: The statement \"I've been working at NovaTech for about 4 years and 3 months now\" implies that your **current job started recently**, and you have **not been working at any other job** prior to that.\n\nThus, the correct answer is:\n\n**You have not been working before you started your current job at NovaTech.**\n\nOr, more precisely: **There is no information provided about how long you worked before joining NovaTech.** The context does not specify a prior job. Therefore, the answer is **unknown from the given information**.\n\nBut since the question is asking \"How long have I been working before I started my current job at NovaTech?\", and the context does not mention any prior employment, the most accurate answer based on the provided text is:\n\n**I do not have information about how long I have been working before joining NovaTech.**",
+      "abstained": false,
+      "latency_s": 21.192294624997885
+    },
+    {
+      "episode_id": "gpt4_2d58bcd6",
+      "question": "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+      "gold": "'The Hate U Give'",
+      "kind": "temporal",
+      "pred": "Based on the context, you finished reading **\"The Hate U Give\"** first.\n\nThis is evident because the user mentions that they had to rush to finish \"The Hate U Give\" for their book club meeting two weeks ago, and that they were the only one who hadn't finished it\u2014implying it was completed just before the meeting. They also mention finishing \"The Nightingale\" last weekend, which comes after the book club meeting. Therefore, \"The Hate U Give\" was read before \"The Nightingale.\"",
+      "abstained": false,
+      "latency_s": 18.28831545799767
+    },
+    {
+      "episode_id": "gpt4_65aabe59",
+      "question": "Which device did I set up first, the smart thermostat or the mesh network system?",
+      "gold": "Smart thermostat",
+      "kind": "temporal",
+      "pred": "The context does not provide a clear chronological order of when the smart thermostat or the mesh network system was set up. However, based on the information given:\n\n- You mention that you **recently upgraded your home Wi-Fi router to a new mesh network system**, which implies the mesh network system was set up *before* or at the same time as the discussion about the smart thermostat.\n- You then mention that **you've been trying to reduce your energy bills and set up a new smart thermostat**, and you say \"Have you noticed any significant savings or changes in your energy consumption since setting it up?\" \u2014 suggesting the smart thermostat was set up *after* you mentioned the mesh network.\n\nAdditionally, the conversation begins with the user discussing issues with their desktop and the **mesh network upgrade**, and then later references the **smart thermostat** as a separate, recent addition.\n\nTherefore, **the mesh network system was set up first**.\n\n**Answer: The mesh network system.**",
+      "abstained": false,
+      "latency_s": 15.801327042001503
+    },
+    {
+      "episode_id": "982b5123",
+      "question": "How many months ago did I book the Airbnb in San Francisco?",
+      "gold": "Five months ago",
+      "kind": "temporal",
+      "pred": "The information provided does not specify when you booked the Airbnb in San Francisco. However, the user mentions that they had a great experience with Airbnb during their best friend's wedding, which was exactly two months ago. They also mention planning a trip for next month.\n\nTherefore, based on the statement: *\"I had an amazing time\" for my best friend's wedding \u2014 it was a 5-day trip and I had an amazing time \u2014 and that was two months ago*, we can infer that the booking of the Airbnb for the wedding happened **two months ago**.\n\nSo, the answer to the question \u2014 *How many months ago did I book the Airbnb in San Francisco?* \u2014 is:\n\n**Two months ago.**",
+      "abstained": false,
+      "latency_s": 21.288453791999927
+    },
+    {
+      "episode_id": "b9cfe692",
+      "question": "How long did I take to finish 'The Seven Husbands of Evelyn Hugo' and 'The Nightingale' combined?",
+      "gold": "5.5 weeks",
+      "kind": "temporal",
+      "pred": "You took **two and a half weeks** to finish *The Seven Husbands of Evelyn Hugo*.\n\nYou took **about 5 to 6 weeks** to finish *The Nightingale*.\n\nTo find the combined time:\n\n- Two and a half weeks = 2.5 weeks\n- Five to six weeks = let's use the midpoint, say **5.5 weeks**\n\nAdd them together:\n\n2.5 weeks + 5.5 weeks = **8 weeks**\n\nSo, the combined time is approximately **8 weeks**.\n\n**Answer: You took about 8 weeks to finish 'The Seven Husbands of Evelyn Hugo' and 'The Nightingale' combined.**",
+      "abstained": false,
+      "latency_s": 19.15455862499948
+    },
+    {
+      "episode_id": "gpt4_4edbafa2",
+      "question": "What was the date on which I attended the first BBQ event in June?",
+      "gold": "June 3rd",
+      "kind": "temporal",
+      "pred": "The date on which you attended the first BBQ event in June was the 3rd of June. \n\n(Note: The user mentioned attending a backyard BBQ party at their colleague's house on the 3rd of June, which is the first event referenced in the query.)",
+      "abstained": false,
+      "latency_s": 11.226118167000095
+    },
+    {
+      "episode_id": "c8090214",
+      "question": "How many days before I bought the iPhone 13 Pro did I attend the Holiday Market?",
+      "gold": "7 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The context provided does not contain any information about the number of days before purchasing the iPhone 13 Pro that the person attended the Holiday Market.\n\nTherefore, based on the given information, the question **\"How many days before I bought the iPhone 13 Pro did I attend the Holiday Market?\"** cannot be answered.\n\nAnswer: **Unknown \u2013 no information is given about the number of days.**",
+      "abstained": false,
+      "latency_s": 12.846653958000388
+    },
+    {
+      "episode_id": "gpt4_483dd43c",
+      "question": "Which show did I start watching first, 'The Crown' or 'Game of Thrones'?",
+      "gold": "'Game of Thrones'",
+      "kind": "temporal",
+      "pred": "Based on the context provided, you started watching **\"The Crown\"** first.\n\nThis is evident from the first message, where the user says: *\"I just finished binge-watching the third season of 'The Crown' on Netflix...\"* and later mentions having seen some shows like \"Game of Thrones\" only after discussing it in a separate message. The chronological flow of the user's statements shows that the \"Crown\" binge comes first, followed by a separate inquiry about \"Game of Thrones.\"",
+      "abstained": false,
+      "latency_s": 13.536242999998649
+    },
+    {
+      "episode_id": "e4e14d04",
+      "question": "How long had I been a member of 'Book Lovers Unite' when I attended the meetup?",
+      "gold": "Two weeks",
+      "kind": "temporal",
+      "pred": "The provided context does not contain any information about how long you had been a member of \"Book Lovers Unite\" when you attended the meetup. Therefore, the question cannot be answered based on the given text.",
+      "abstained": false,
+      "latency_s": 12.298865666998609
+    },
+    {
+      "episode_id": "c9f37c46",
+      "question": "How long had I been watching stand-up comedy specials regularly when I attended the open mic night at the local comedy club?",
+      "gold": "2 months",
+      "kind": "temporal",
+      "pred": "The information provided does not specify the exact duration between when you started watching stand-up comedy specials and when you attended the open mic night. However, the text states:\n\n> \"I've been really into stand-up lately - I think it started about 3 months ago when I watched that Netflix special by John Mulaney, and I've been watching stand-ups regularly ever since.\"\n\nThis indicates that you began watching stand-up regularly about **3 months ago**.\n\nSince the question asks *how long had you been watching stand-up comedy specials regularly when you attended the open mic night*, and there is no specific date or time mentioned for the open mic night, we cannot determine the exact length of time you had been watching stand-up *at the time of the open mic night* based solely on the given text.\n\nBut we **do know** that you had been watching stand-up regularly for **about 3 months** since you first started (after watching the John Mulaney special), and if you attended the open mic night after that, you had been watching stand-up for **at least 3 months**.\n\nTherefore, the best answer based on the information is:\n\n**I had been watching stand-up comedy specials regularly for about 3 months when I attended the open mic night.**\n\n\u2705 Answer: About 3 months.",
+      "abstained": false,
+      "latency_s": 21.056701542001974
+    },
+    {
+      "episode_id": "gpt4_2c50253f",
+      "question": "What time do I wake up on Tuesdays and Thursdays?",
+      "gold": "6:45 AM",
+      "kind": "temporal",
+      "pred": "On Tuesdays and Thursdays, you wake up 15 minutes earlier than your usual time. Since your usual wake-up time is 8:30 AM, waking up 15 minutes earlier means you wake up at **7:15 AM** on those days.",
+      "abstained": false,
+      "latency_s": 15.397460082996986
+    },
+    {
+      "episode_id": "dcfa8644",
+      "question": "How many days had passed since I bought my Adidas running shoes when I realized one of the shoelaces on my old Converse sneakers had broken?",
+      "gold": "14 days. 15 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "The information provided does not specify the date you bought your Adidas running shoes or the exact date you realized one of the shoelaces on your old Converse sneakers had broken.\n\nWe are told:\n- You realized the Converse shoelace broke on **January 24th**.\n- You bought the Adidas running shoes **on January 10th**, as mentioned in the context (\"on January 10th! Shopping for new shoes...\").\n\nSo, the number of days between January 10th and January 24th is:\n\n24 - 10 = **14 days**\n\n\u2705 Answer: **14 days** had passed since you bought your Adidas running shoes when you realized one of the shoelaces on your old Converse sneakers had broken.",
+      "abstained": false,
+      "latency_s": 15.03983504200005
+    },
+    {
+      "episode_id": "gpt4_b4a80587",
+      "question": "Which event happened first, the road trip to the coast or the arrival of the new prime lens?",
+      "gold": "The arrival of the new prime lens",
+      "kind": "temporal",
+      "pred": "The road trip to the coast happened first.\n\nEvidence from the text: The user mentions that they \"spent three days driving along the coastal highway\" and took photos during that trip. They also refer to \"the coastal shots from the week before that,\" indicating that the trip occurred before the recent photos taken in the park. Additionally, they mention having \"been playing around with the lens, trying to get used to the manual focus ring\" and that they took the lens with them on the coastal trip. This implies that the trip happened before they were actively using the lens in a more advanced way, suggesting the trip occurred prior to the arrival of the new prime lens. \n\nHowever, the text does not explicitly state when the lens arrived. The only direct mention is that they \"have been playing around with the lens,\" and that they took it on the coastal trip. This implies they already had the lens before the trip.\n\nTherefore, based on the timeline:  \n- The coastal trip happened first (mentioned as occurring \"the week before that\" and described as a past event).  \n- The arrival of the new prime lens (or at least the user's engagement with it) followed, as they were \"playing around\" with it after the trip.\n\nFinal Answer: **The road trip to the coast happened first.**",
+      "abstained": false,
+      "latency_s": 17.28175229200133
+    },
+    {
+      "episode_id": "gpt4_9a159967",
+      "question": "Which airline did I fly with the most in March and April?",
+      "gold": "United Airlines",
+      "kind": "temporal",
+      "pred": "The context does not provide information about which airline you flew with the most in March and April. While you mention flying with Southwest Airlines in March and considering flying with United Airlines, there is no data or indication of the frequency or volume of flights with either airline during those months. Therefore, based on the given information, the answer is **not determinable**.",
+      "abstained": false,
+      "latency_s": 8.121866500001488
+    },
+    {
+      "episode_id": "cc6d1ec1",
+      "question": "How long had I been bird watching when I attended the bird watching workshop?",
+      "gold": "Two months",
+      "kind": "temporal",
+      "pred": "The provided context does not specify how long you had been bird watching before attending the workshop. Therefore, the question \"How long had I been bird watching when I attended the bird watching workshop?\" cannot be answered with the given information.",
+      "abstained": false,
+      "latency_s": 8.780266833997302
+    },
+    {
+      "episode_id": "gpt4_8c8961ae",
+      "question": "Which trip did I take first, the one to Europe with family or the solo trip to Thailand?",
+      "gold": "The solo trip to Thailand",
+      "kind": "temporal",
+      "pred": "You took the trip to Europe with your family first.  \n\nThe context states: \"Just last month, I went on a two-week trip to Europe with my parents and younger brother,\" and earlier it mentions that you had \"a similar experience in Thailand when visiting popular tourist spots.\" Since the Europe trip happened \"last month,\" and the Thailand trip is referenced as a past experience, the Europe trip occurred before the solo trip to Thailand.  \n\nTherefore, the **Europe trip with family** came first.",
+      "abstained": false,
+      "latency_s": 19.864925582998694
+    },
+    {
+      "episode_id": "gpt4_d9af6064",
+      "question": "Which device did I set up first, the smart thermostat or the new router?",
+      "gold": "new router",
+      "kind": "temporal",
+      "pred": "You set up the **smart thermostat** first.\n\nThis is evident from the context: you mention, \"I finally set up my smart thermostat on 2/10,\" and you also note that you \"recently got a new router on January 15th.\" Since January 15th comes before February 10th, the router was set up before the smart thermostat. \n\nTherefore, the **new router** was set up first.",
+      "abstained": false,
+      "latency_s": 12.653553416999785
+    },
+    {
+      "episode_id": "gpt4_7de946e7",
+      "question": "Which health issue did I deal with first, the persistent cough or the skin tag removal?",
+      "gold": "Persistent cough",
+      "kind": "temporal",
+      "pred": "The skin tag removal occurred first.\n\nYou mentioned that you had a minor surgical procedure to remove a skin tag on your neck on **February 22nd**, and you were still taking antibiotics for pneumonia at that time. You also note that you had a follow-up appointment for your cough on **March 1st**, after the cough persisted despite finishing antibiotics on **February 20th**.\n\nSince the skin tag removal was on **February 22nd** and the cough follow-up was on **March 1st**, the skin tag removal happened first. \n\n**Answer: The skin tag removal.**",
+      "abstained": false,
+      "latency_s": 7.635046499999589
+    },
+    {
+      "episode_id": "d01c6aa8",
+      "question": "How old was I when I moved to the United States?",
+      "gold": "27",
+      "kind": "temporal",
+      "pred": "The provided context does not contain any information about your age when you moved to the United States.\n\nHowever, based on the information given:\n- You are currently 32 years old.\n- You have been living in the United States for the past five years.\n\nIf you moved to the U.S. five years ago, then you were 32 - 5 = **27 years old** when you moved.\n\n\u2705 Therefore, the answer is: **27 years old**.",
+      "abstained": false,
+      "latency_s": 20.23816437500136
+    },
+    {
+      "episode_id": "993da5e2",
+      "question": "How long had I been using the new area rug when I rearranged my living room furniture?",
+      "gold": "One week. Answers ranging from 7 days to 10 days are also acceptable.",
+      "kind": "temporal",
+      "pred": "The information provided does not specify the duration of use for the new area rug before the furniture rearrangement. The user mentions that they got the new area rug a month ago and that they recently rearranged the furniture three weeks ago. Therefore, the time between when they got the rug and when they rearranged the furniture is **three weeks**.\n\nSo, the answer is: **Three weeks**.",
+      "abstained": false,
+      "latency_s": 22.00520166700153
+    },
+    {
+      "episode_id": "a3045048",
+      "question": "How many days before my best friend's birthday party did I order her gift?",
+      "gold": "7 days. 8 days (including the last day) is also acceptable.",
+      "kind": "temporal",
+      "pred": "You ordered the personalized photo album on the 15th of April, and your best friend's birthday party was on the 22nd of April.  \n\nTo find the number of days before:  \n22 (birthday) \u2013 15 (order date) = 7 days  \n\nSo, you ordered the gift **7 days before** your best friend's birthday party.  \n\n**Answer: 7 days.**",
+      "abstained": false,
+      "latency_s": 20.439426667002408
+    },
+    {
+      "episode_id": "gpt4_d31cdae3",
+      "question": "Which trip did the narrator take first, the solo trip to Europe or the family road trip across the American Southwest?",
+      "gold": "The family road trip across the American Southwest",
+      "kind": "temporal",
+      "pred": "The narrator did not take a trip to Europe. The context only mentions a family road trip across the American Southwest and a solo trip through the American Southwest (including Sedona, Monument Valley, and the Hoover Dam). There is no mention of a trip to Europe.\n\nTherefore, the question about which trip the narrator took first\u2014between a solo trip to Europe and the family road trip across the American Southwest\u2014is based on a false premise. The narrator did not take a trip to Europe.\n\nAnswer: The narrator did not take a trip to Europe, so there is no first trip between Europe and the American Southwest. The only trips mentioned are the family road trip across the American Southwest and the solo trip through the Southwest. Since the family road trip happened a few years ago, and the solo trip is the current one, the **family road trip across the American Southwest** was taken first.",
+      "abstained": false,
+      "latency_s": 8.448343083000509
+    },
+    {
+      "episode_id": "gpt4_cd90e484",
+      "question": "How long did I use my new binoculars before I saw the American goldfinches returning to the area?",
+      "gold": "Two weeks",
+      "kind": "temporal",
+      "pred": "You started using your new binoculars three weeks ago, and you noticed the American goldfinches returning to the area a week after that \u2014 after you took a walk around your neighborhood after dinner.\n\nSo, you used your new binoculars for **two weeks** before you noticed the American goldfinches returning.\n\nAnswer: **Two weeks**.",
+      "abstained": false,
+      "latency_s": 4.763569957998698
+    },
+    {
+      "episode_id": "gpt4_88806d6e",
+      "question": "Who did I meet first, Mark and Sarah or Tom?",
+      "gold": "Tom",
+      "kind": "temporal",
+      "pred": "The information provided does not give a clear chronological order of when you met Mark and Sarah versus Tom.\n\nHowever, based on the context:\n\n- You mention meeting **Mark and Sarah** in a conversation about their hometown, and you refer to them as people you\u2019ve known for some time, saying you\u2019d be happy to help with finding a seafood restaurant in their town \u2014 implying a prior connection.\n- You also mention meeting **Tom**, who is involved with a charity organization, and you're currently planning to volunteer at a charity event and are looking for conversation starters with other volunteers \u2014 suggesting a recent or ongoing connection.\n\nSince the text says: *\"I recall that a few months ago, I volunteered at a charity event and met a lot of like-minded people, including a guy named Tom\"*, this implies you met Tom **a few months ago**.\n\nThere is **no indication** that you met Mark and Sarah at that time or before. The conversation about Mark and Sarah comes later, in the context of asking about their hometown and culture.\n\nTherefore, **you met Tom first**.\n\n\u2705 **Answer: Tom**.",
+      "abstained": false,
+      "latency_s": 9.588292542001
+    },
+    {
+      "episode_id": "gpt4_4cd9eba1",
+      "question": "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+      "gold": "one week",
+      "kind": "temporal",
+      "pred": "You were accepted into the exchange program on **March 20th**, and you started attending the pre-departure orientation sessions on **March 27th**.\n\nTo calculate the number of weeks between March 20th and March 27th:\n\n- From March 20 to March 27 is **7 days**.\n- 7 days is equivalent to **1 week and 1 day**.\n\nSo, you had been accepted into the exchange program for **1 week** when you started attending the pre-departure orientation sessions.\n\n**Answer: 1 week**.",
+      "abstained": false,
+      "latency_s": 8.42071812499853
+    },
+    {
+      "episode_id": "gpt4_93f6379c",
+      "question": "Which group did I join first, 'Page Turners' or 'Marketing Professionals'?",
+      "gold": "Page Turners",
+      "kind": "temporal",
+      "pred": "The group you joined first was **\"Marketing Professionals\"**.\n\nThis is determined by the timeline provided in your messages:\n\n- You mentioned joining the **\"Page Turners\"** book club group **last week**.\n- You joined the **\"Marketing Professionals\"** group on LinkedIn **yesterday**.\n\nSince \"yesterday\" is earlier than \"last week,\" you joined the \"Marketing Professionals\" group first.",
+      "abstained": false,
+      "latency_s": 6.507061874999636
+    },
+    {
+      "episode_id": "b29f3365",
+      "question": "How long had I been taking guitar lessons when I bought the new guitar amp?",
+      "gold": "Four weeks",
+      "kind": "temporal",
+      "pred": "The information provided does not mention anything about taking guitar lessons prior to buying the new guitar amp. In fact, the text only mentions that the person recently bought a used ukulele and has been taking online lessons to learn the basics of playing the ukulele. There is no mention of guitar lessons or a guitar being purchased.\n\nAdditionally, the person bought a new guitar amp two weeks ago, and there's no indication that they were taking guitar lessons at that time or before.\n\nTherefore, based on the information given, **we cannot determine how long the person had been taking guitar lessons when they bought the new guitar amp** \u2014 because there's no evidence of guitar lessons being taken at all.\n\n**Answer: The text does not provide enough information to determine how long the person had been taking guitar lessons when they bought the new guitar amp.**",
+      "abstained": false,
+      "latency_s": 6.894743666998693
+    },
+    {
+      "episode_id": "gpt4_2f56ae70",
+      "question": "Which streaming service did I start using most recently?",
+      "gold": "Disney+",
+      "kind": "temporal",
+      "pred": "The streaming service you started using most recently is **Apple TV+**.  \n\nThis is evident from the statement: *\"I've also been using Apple TV+ for a few months now, and I just finished watching 'For All Mankind', which was great.\"*",
+      "abstained": false,
+      "latency_s": 5.852378208001028
+    },
+    {
+      "episode_id": "6613b389",
+      "question": "How many months before my anniversary did Rachel get engaged?",
+      "gold": "2",
+      "kind": "temporal",
+      "pred": "The information provided does not state how many months before Rachel's anniversary she got engaged. \n\nWe know:\n- Rachel got engaged on **May 15th**.\n- Her wedding anniversary is on **July 22nd**.\n\nMay to July is **2 months and 7 days**, so Rachel got engaged **about 2 months** before her anniversary.\n\n**Answer: 2 months.**",
+      "abstained": false,
+      "latency_s": 6.582127292000223
+    },
+    {
+      "episode_id": "gpt4_78cf46a3",
+      "question": "Which event happened first, the narrator losing their phone charger or the narrator receiving their new phone case?",
+      "gold": "Receiving the new phone case",
+      "kind": "temporal",
+      "pred": "The narrator losing their phone charger happened first.\n\nThis is supported by the context: the narrator mentions losing their old phone charger \"at the gym about two weeks ago,\" and then discusses getting a new phone case \"about a month ago.\" Since two weeks is less than a month, the charger loss occurred before the phone case was received.",
+      "abstained": false,
+      "latency_s": 6.652027166997868
+    },
+    {
+      "episode_id": "gpt4_0a05b494",
+      "question": "Who did I meet first, the woman selling jam at the farmer's market or the tourist from Australia?",
+      "gold": "the woman selling jam at the farmer's market",
+      "kind": "temporal",
+      "pred": "You met the tourist from Australia first.  \n\nThe context mentions meeting the tourist from Australia \"last Thursday on the subway,\" which predates any mention of the woman selling jam at the farmer's market. While the farmer's market is suggested as a place where you might meet someone selling jam, there is no indication that you actually met such a person. The only specific encounter described is with the Australian tourist on the subway.  \n\nTherefore, the answer is: **the tourist from Australia**.",
+      "abstained": false,
+      "latency_s": 8.062889874996472
+    },
+    {
+      "episode_id": "gpt4_1a1dc16d",
+      "question": "Which event happened first, the meeting with Rachel or the pride parade?",
+      "gold": "The meeting with Rachel",
+      "kind": "temporal",
+      "pred": "The pride parade happened first.\n\nThe context states that the person attended the pride parade on May 1st, and the meeting with Rachel occurred on April 10th. Since April comes before May, the meeting with Rachel took place before the pride parade.",
+      "abstained": false,
+      "latency_s": 7.1428549160009425
+    },
+    {
+      "episode_id": "gpt4_2f584639",
+      "question": "Which gift did I buy first, the necklace for my sister or the photo album for my mom?",
+      "gold": "the photo album for my mom",
+      "kind": "temporal",
+      "pred": "You bought the necklace for your sister first.  \n\nThe context states that you got your sister a beautiful necklace from Tiffany's last weekend, and separately mentions that you got your mom a customized photo album from Shutterfly *for her anniversary*. Since the necklace was purchased \"last weekend\" and the photo album was mentioned in the context after that, the necklace came first.",
+      "abstained": false,
+      "latency_s": 7.946302125001239
+    },
+    {
+      "episode_id": "gpt4_213fd887",
+      "question": "Which event did I participate in first, the volleyball league or the charity 5K run to raise money for a local children's hospital?",
+      "gold": "volleyball league",
+      "kind": "temporal",
+      "pred": "The event you participated in first was the charity 5K run to raise money for a local children's hospital.\n\nThis is supported by the context where you mention, \"I recently did a charity 5K run for a local children's hospital about a month ago,\" and earlier in the conversation, you said, \"I was thinking about my charity 5K run and how it was a great experience.\" You also mentioned that you were considering joining a tennis league, but you hadn't made a final decision \u2014 indicating that the 5K run came after your initial thoughts about joining a league, and the 5K run was a recent accomplishment.\n\nSince the 5K run occurred about a month ago and you were reflecting on it, and you had not yet committed to a tennis league, the 5K run took place after your volleyball activities \u2014 and there is no indication that you had participated in a volleyball league prior to the 5K. Therefore, the 5K run was the first event mentioned in your reflection.\n\nAnswer: The charity 5K run.",
+      "abstained": false,
+      "latency_s": 11.833682584001508
+    }
+  ]
+}
