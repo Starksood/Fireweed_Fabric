@@ -177,3 +177,92 @@ def test_no_network_endpoints_in_scripts():
         src = py.read_text(encoding="utf-8")
         for bad in ("127.0.0.1", "localhost", "/v1/embeddings", "requests.post", "lmstudio"):
             assert bad not in src, f"{py.name} references {bad} — bundle must run offline"
+
+
+# ── V5 additions: true ceiling, junk filter, scaled abstention, LongMemEval ───────
+EVALS = Path(__file__).resolve().parent.parent / "fireweed-v16" / "tests" / "evaluations"
+
+
+def test_true_ceiling_same_family_temp07():
+    """Paper §4.1: the non-hollow ceiling — a same-family pair (gemma-1b vs gemma-4b) under
+    realistic sampling (temperature 0.7, MSC corpus) agrees at claim-semantic ~0.92; the
+    cross-family band (0.77–0.87) sits close beneath it."""
+    d = L("msc_true_ceiling_gemma_results.json")
+    pw = d["pairwise"]
+    assert len(pw) == 1 and "gemma-3-1b" in pw[0]["pair"] and "gemma-3-4b" in pw[0]["pair"]
+    assert pw[0]["claim_alignment"]["semantic"] == pytest.approx(0.92, abs=0.01)
+
+
+def test_locomo_junk_filter_recovers_entity_j():
+    """Paper §4.1/Table 2: the deterministic junk filter (Zipf>=5.0 lexicon + contraction/pronoun
+    exclusion) raises LoCoMo mean entity-J 0.43 -> 0.52 while leaving domain-J unchanged — the
+    gap was extraction noise, not account divergence."""
+    pre = L("write_side_locomo_caroline_results.json")
+    post = L("write_side_locomo_caroline_junkfilter_results.json")
+    pre_by = {p["pair"]: p for p in pre["pairwise"]}
+    post_by = {p["pair"]: p for p in post["pairwise"]}
+    assert set(pre_by) == set(post_by)
+    pre_mean = sum(p["entity_jaccard"] for p in pre_by.values()) / len(pre_by)
+    post_mean = sum(p["entity_jaccard"] for p in post_by.values()) / len(post_by)
+    assert pre_mean == pytest.approx(0.43, abs=0.01)
+    assert post_mean == pytest.approx(0.52, abs=0.01)
+    for pair in pre_by:
+        assert post_by[pair]["entity_jaccard"] >= pre_by[pair]["entity_jaccard"]
+        assert post_by[pair]["domain_jaccard"] == pytest.approx(pre_by[pair]["domain_jaccard"], abs=1e-6)
+
+
+def test_abstention_scaled_zero_vs_154():
+    """Paper §8 (the load-bearing scaled result): 1,200 adversarial items over 722 third-party MSC
+    personas, two readers spanning the pilot's capability range, 2,400 answer opportunities per
+    configuration — Fireweed 0 confident false assertions vs bare RAG 154. Recounted from the raw
+    judged rows, not read from a summary."""
+    d = L("abstention_v21/abstention_v21_full.json")
+    rows = d["rows"]
+    assert len(rows) == 2400
+    assert len({r["persona_id"] for r in rows}) == 722
+    assert len({r["id"] for r in rows}) == 1200
+    assert len({r["reader"] for r in rows}) == 2
+    fw_fab = sum(1 for r in rows if r["fw_label"] == "HALLUCINATION")
+    rag_fab = sum(1 for r in rows if r["rag_label"] == "HALLUCINATION")
+    assert fw_fab == 0, f"paper claims zero Fireweed fabrications; raw rows show {fw_fab}"
+    assert rag_fab == 154, f"paper claims 154 RAG fabrications; raw rows show {rag_fab}"
+    # summary artifact must agree with the recount
+    an = L("abstention_v21/abstention_v21_full_analysis.json")
+    assert an["pooled"]["fw_hallucination"] == fw_fab
+    assert an["pooled"]["rag_hallucination"] == rag_fab
+
+
+def test_abstention_scaled_capability_independence():
+    """Paper §8: the weak reader (gemma-1b) fabricates 117 as bare RAG, the capable reader
+    (qwen-4b) 37 — and BOTH go to zero inside the substrate. Trustworthiness is a substrate
+    property, independent of reader capability."""
+    an = L("abstention_v21/abstention_v21_full_analysis.json")
+    per = an["per_reader"]
+    rag_counts = sorted(v["rag_hallucination"] for v in per.values())
+    assert rag_counts == [37, 117]
+    assert all(v["fw_hallucination"] == 0 for v in per.values())
+
+
+def test_abstention_scaled_ensemble_judge_kappa():
+    """Paper §8: the scaled run's ensemble judge (3 local models, majority vote) agrees with the
+    human-labeled slice at Cohen's κ ≈ 0.88."""
+    ev = L("abstention_v21/ensemble_judge_validation.json")
+    assert len(ev["models"]) == 3
+    assert ev["cohens_kappa"] == pytest.approx(0.88, abs=0.01)
+    assert ev["agreement"] >= 0.9
+
+
+def test_longmemeval_50_parity_and_latency():
+    """Paper §11: on 50 LongMemEval episodes accuracy is at statistical parity (0.42 vs 0.48,
+    inside binomial noise at n=50) while mean latency is ~2.5x lower with no pathological tail
+    (max 13.9s vs 241s)."""
+    d = json.loads((EVALS / "results_longmemeval_50.json").read_text(encoding="utf-8"))
+    fw, rag = d["fireweed"], d["rag"]
+    assert d["n_episodes"] == 50
+    assert fw["accuracy"] == pytest.approx(0.42, abs=0.005)
+    assert rag["accuracy"] == pytest.approx(0.48, abs=0.005)
+    # parity claim: gap within ~2 binomial SEs at n=50
+    assert abs(fw["accuracy"] - rag["accuracy"]) <= 0.14
+    assert rag["latency"]["mean_s"] / fw["latency"]["mean_s"] >= 2.0
+    assert fw["latency"]["max_s"] < 20
+    assert rag["latency"]["max_s"] > 200

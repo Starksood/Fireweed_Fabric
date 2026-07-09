@@ -1,0 +1,22 @@
+{
+  "n": 24,
+  "cohens_kappa": 0.882,
+  "agreement": 0.958,
+  "models": [
+    "qwen/qwen3-4b-2507",
+    "google/gemma-3-4b",
+    "liquid/lfm2.5-1.2b"
+  ],
+  "passes_gate": true,
+  "disagreements": {
+    "18-FW": {
+      "human": "decline",
+      "judge": "assert",
+      "votes": {
+        "qwen/qwen3-4b-2507": "HALLUCINATION",
+        "google/gemma-3-4b": "STRUCTURAL_ABSTENTION",
+        "liquid/lfm2.5-1.2b": "HALLUCINATION"
+      }
+    }
+  }
+}

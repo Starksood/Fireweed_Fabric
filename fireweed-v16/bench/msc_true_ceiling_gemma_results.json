@@ -1,0 +1,82 @@
+{
+  "experiment": "write_side_interchangeability",
+  "persona": "msc_ceiling_gemma",
+  "core_entity": "msc",
+  "mode": "served",
+  "note": "Same raw corpus \u2192 different perceivers \u2192 compare the substrates. base = production percept prompt; served = real LM Studio models; hats = shimmed Stage-4 adapters (single-claim SFT schema translated to a 1-element percept array).",
+  "corpus_turns": 30,
+  "match_levels": {
+    "lexical": true,
+    "semantic": true
+  },
+  "perceivers": {
+    "google/gemma-3-1b": {
+      "entities": [],
+      "entities_raw": [],
+      "claims": [
+        "I love shopping online.",
+        "My dad was very overprotective.",
+        "I enjoy watching movies.",
+        "My children are at home.",
+        "I love country music, particularly randy travis."
+      ],
+      "domains": [
+        "hobby",
+        "other"
+      ],
+      "n_nodes": 5,
+      "n_entities": 0,
+      "n_entities_raw": 0,
+      "has_core_entity": false,
+      "n_turns": 30,
+      "n_claims_proposed": 86,
+      "n_percepts_admitted": 31,
+      "competent": true,
+      "competence_reason": "ok"
+    },
+    "google/gemma-3-4b": {
+      "entities": [],
+      "entities_raw": [
+        "Randy Travis"
+      ],
+      "claims": [
+        "I love shopping online.",
+        "My dad was overprotective.",
+        "Randy Travis is a favorite country artist.",
+        "I enjoy watching movies.",
+        "Randy Travis is a favorite country musician.",
+        "Randy Travis is country music."
+      ],
+      "domains": [
+        "hobby",
+        "other"
+      ],
+      "n_nodes": 6,
+      "n_entities": 0,
+      "n_entities_raw": 1,
+      "has_core_entity": false,
+      "n_turns": 30,
+      "n_claims_proposed": 35,
+      "n_percepts_admitted": 35,
+      "competent": true,
+      "competence_reason": "ok"
+    }
+  },
+  "competent": [
+    "google/gemma-3-1b",
+    "google/gemma-3-4b"
+  ],
+  "pairwise": [
+    {
+      "pair": "google/gemma-3-1b vs google/gemma-3-4b",
+      "entity_jaccard": 1.0,
+      "domain_jaccard": 1.0,
+      "claim_alignment": {
+        "lexical": 0.6636,
+        "semantic": 0.9224
+      }
+    }
+  ],
+  "gold_fidelity": {},
+  "verdict": "\u2713\u2713 STRONG (entity-J 1.00, domain-J 1.00, claim-lex 0.66)"
+}

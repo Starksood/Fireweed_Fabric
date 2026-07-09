@@ -1,0 +1,65 @@
+{
+  "experiment": "abstention_v21_full",
+  "n_items": 1200,
+  "n_personas": 722,
+  "readers": [
+    "google/gemma-3-1b",
+    "qwen/qwen3-4b-2507"
+  ],
+  "judge_ensemble": [
+    "qwen/qwen3-4b-2507",
+    "google/gemma-3-4b",
+    "liquid/lfm2.5-1.2b"
+  ],
+  "pooled": {
+    "n": 2400,
+    "rag_hallucination": 154,
+    "fw_hallucination": 0,
+    "rag_structural": 2210,
+    "fw_structural": 2400
+  },
+  "hallucination_reduction": 1.0,
+  "per_reader": {
+    "google/gemma-3-1b": {
+      "n": 1200,
+      "rag_hallucination": 117,
+      "fw_hallucination": 0,
+      "rag_structural": 1057,
+      "fw_structural": 1200
+    },
+    "qwen/qwen3-4b-2507": {
+      "n": 1200,
+      "rag_hallucination": 37,
+      "fw_hallucination": 0,
+      "rag_structural": 1153,
+      "fw_structural": 1200
+    }
+  },
+  "rag_label_distribution": {
+    "HALLUCINATION": 154,
+    "STRUCTURAL_ABSTENTION": 2210,
+    "HEDGE": 36
+  },
+  "fw_label_distribution": {
+    "STRUCTURAL_ABSTENTION": 2400
+  },
+  "rag_hallucination_by_category": {
+    "attribute-absent": {
+      "rag_hallucination": 109,
+      "n": 1420
+    },
+    "relational-absent": {
+      "rag_hallucination": 12,
+      "n": 378
+    },
+    "temporal-absent": {
+      "rag_hallucination": 15,
+      "n": 294
+    },
+    "quantity-absent": {
+      "rag_hallucination": 18,
+      "n": 308
+    }
+  },
+  "headline": "Across 722 personas / 2400 answer opportunities, Fireweed produced 0 confident false assertions vs 154 for naive RAG (100% reduction). Fireweed abstained STRUCTURALLY on 100% of absent-answer traps; RAG mixed 154 fabrications + 36 vague hedges into its refusals. Trustworthiness is a substrate property: the weak reader (gemma-1b) fabricated 117 as RAG vs the capable qwen-4b 37, but BOTH went to 0 inside the substrate."
+}

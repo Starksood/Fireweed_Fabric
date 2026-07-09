@@ -64,11 +64,19 @@ def table_write_side() -> str:
                 f"{f2(row.get('domain_jaccard'))} | {f2(ca.get('semantic'))} |\n")
     out += f"\n*verdict:* {d.get('verdict','—')}  ·  *competent perceivers:* {', '.join(short(m) for m in d.get('competent',[]))}\n"
     sb = load("sbert_unified_results.json")
+    tc = load("msc_true_ceiling_gemma_results.json")
     if sb:
+        ceiling = ""
+        if tc:
+            pw = tc.get("pairwise", [{}])[0]
+            ceiling = (f" · same-family temperature-0.7 ceiling "
+                       f"{f2(pw.get('claim_alignment', {}).get('semantic'))} "
+                       f"(gemma-1b vs gemma-4b under realistic sampling, MSC corpus — the non-hollow upper reference)")
         out += (f"\n*Anchors (all sbert):* cross-persona floor {f2(sb.get('write_cross_persona_floor_sbert'))} "
-                f"(accounts of different people) · same-perceiver ceiling {f2(sb.get('write_same_perceiver_ceiling'))} "
-                f"(temp-0 rerun, hollow — it measures determinism). The 0.77–0.87 cross-model band sits far above "
-                f"the different-person floor.\n")
+                f"(accounts of different people) · determinism check {f2(sb.get('write_same_perceiver_ceiling'))} "
+                f"(temp-0 same-perceiver rerun — proves determinism, not an upper bound){ceiling}. "
+                f"The 0.77–0.87 cross-model band sits far above the different-person floor and close beneath "
+                f"the same-family ceiling.\n")
     return out
 
 
@@ -76,11 +84,13 @@ def table_locomo() -> str:
     """Table 2 — third-party (LoCoMo) write-side replication. entity/domain-J from the harness
     run; claim-semantic on sbert (from sbert_locomo_anchors) so it's on the paper's one scale."""
     d = load("write_side_locomo_caroline_results.json")
+    jf = load("write_side_locomo_caroline_junkfilter_results.json")
     sb = load("sbert_locomo_anchors_results.json")
     if not d or not sb:
         return section("Table 2 — LoCoMo third-party replication", "MISSING") + "_artifact missing_\n"
     out = section("Table 2 — Third-party (LoCoMo) write-side replication (§4.1)",
-                  "write_side_locomo_caroline_results.json + sbert_locomo_anchors_results.json")
+                  "write_side_locomo_caroline_junkfilter_results.json (entity-J, post junk-filter) + "
+                  "write_side_locomo_caroline_results.json (pre-filter) + sbert_locomo_anchors_results.json")
     out += "| pair | axis | entity-J | domain-J | claim-semantic (sbert) |\n|---|---|---|---|---|\n"
     axis = {
         "google/gemma-3-1b vs google/gemma-3-4b": "scale",
@@ -90,16 +100,30 @@ def table_locomo() -> str:
     short = lambda s: (s.replace("google/gemma-3-", "gemma-").replace("qwen/qwen3-4b-2507", "qwen-4b"))
     sbert_by_pair = {p["pair"]: p["claim_semantic_sbert"]
                      for p in sb.get("cross_perceiver_same_person_sbert", {}).get("pairwise", [])}
+    jf_by_pair = {p["pair"]: p["entity_jaccard"] for p in (jf or {}).get("pairwise", [])}
+    ej_pre, ej_post = [], []
     for row in d.get("pairwise", []):
         pair = row["pair"]
-        out += (f"| {short(pair)} | {axis.get(pair,'—')} | {f2(row.get('entity_jaccard'))} | "
+        pre = row.get("entity_jaccard")
+        post = jf_by_pair.get(pair)
+        ej = f"{f2(post)} ({f2(pre)})" if post is not None else f2(pre)
+        if pre is not None:
+            ej_pre.append(pre)
+        if post is not None:
+            ej_post.append(post)
+        out += (f"| {short(pair)} | {axis.get(pair,'—')} | {ej} | "
                 f"{f2(row.get('domain_jaccard'))} | {f2(sbert_by_pair.get(pair))} |\n")
     floor = sb.get("cross_person_floor_sbert", {}).get("mean")
     cpm = sb.get("cross_perceiver_same_person_sbert", {}).get("mean")
     out += (f"\n*Anchors (all sbert):* cross-person floor {f2(floor)} (Caroline vs a different LoCoMo "
             f"speaker, Jon) · same-perceiver ceiling {f2(sb.get('same_perceiver_ceiling'))}. Cross-perceiver "
-            f"claim-semantic {f2(cpm)} sits +{f2((cpm or 0) - (floor or 0))} above the floor; entity-J "
-            f"degrades on open-domain chat (entity-linker surfaces sentence-initial capitalized common words).\n")
+            f"claim-semantic {f2(cpm)} sits +{f2((cpm or 0) - (floor or 0))} above the floor.\n")
+    if ej_post:
+        out += (f"\n*Entity-J:* shown post junk-filter, pre-filter in parentheses. A deterministic filter "
+                f"(pinned word-frequency lexicon, Zipf ≥ 5.0, + contraction/pronoun exclusion — no model in "
+                f"the loop) raises mean entity-J {f2(sum(ej_pre)/len(ej_pre))} → {f2(sum(ej_post)/len(ej_post))}; "
+                f"claim-semantic and domain-J are unchanged by the filter, so the residual gap is extraction "
+                f"noise (sub-Zipf common words; cross-perceiver nickname canonicalization), not account divergence.\n")
     return out
 
 
@@ -187,9 +211,10 @@ def table_abstention() -> str:
     d = load("adversarial_fabrication_sweep.judged.json")
     if not d:
         return section("Table 7 — Structural abstention", "MISSING") + "_artifact missing_\n"
-    out = section("Table 7 — Structural abstention under adversarial load (§8)", "adversarial_fabrication_sweep.judged.json + abstention_cluster_stats.json + judge_human_agreement_results.json")
+    out = section("Table 7 — Structural abstention: pilot (§8)", "adversarial_fabrication_sweep.judged.json + abstention_cluster_stats.json + judge_human_agreement_results.json")
     out += ("*Per-reader raw counts only — per-cell n=12 is too small for per-reader inference. The pooled "
-            "effect is directional but not significant (below); §8 rests on the provenance guarantee.*\n\n")
+            "pilot effect is directional but not significant (below); the load-bearing §8 evidence is the "
+            "scaled run beneath this table.*\n\n")
     out += "| reader | bare RAG fab | inside Fireweed fab |\n|---|---|---|\n"
     short = lambda s: s.replace("google/", "").replace("qwen/", "").replace("-2507", "")
     for reader, c in d.get("judged_counts", {}).items():
@@ -209,6 +234,29 @@ def table_abstention() -> str:
     if jh:
         out += (f"\n*Judge validation ({d.get('judge','—')}):* judge–human agreement {pct(jh['agreement'])}, "
                 f"Cohen's κ = {jh['cohens_kappa']} on an {jh['n_items']}-item subset (single annotator).\n")
+    # Scaled run (V5): 1,200 items / 722 third-party personas / 2 readers spanning the pilot's
+    # capability range. Raw judged rows ship in abstention_v21/abstention_v21_full.json.
+    an = load("abstention_v21/abstention_v21_full_analysis.json")
+    ev = load("abstention_v21/ensemble_judge_validation.json")
+    if an:
+        p = an.get("pooled", {})
+        pr = an.get("per_reader", {})
+        short = lambda s: s.replace("google/", "").replace("qwen/", "").replace("-2507", "")
+        out += ("\n**At scale (the load-bearing §8 result).** "
+                f"{an.get('n_items'):,} adversarial items over {an.get('n_personas')} third-party MSC personas, "
+                f"answered by {len(an.get('readers', []))} readers spanning the pilot's capability range "
+                f"({', '.join(short(r) for r in an.get('readers', []))}) in both configurations — "
+                f"{p.get('n'):,} answer opportunities per configuration. Inside Fireweed: "
+                f"**{p.get('fw_hallucination')}** confident false assertions; bare RAG: **{p.get('rag_hallucination')}**.\n\n")
+        out += "| reader | bare RAG fab (n=1200) | inside Fireweed fab (n=1200) |\n|---|---|---|\n"
+        for r, c in pr.items():
+            out += f"| {short(r)} | {c.get('rag_hallucination')} | {c.get('fw_hallucination')} |\n"
+        if ev:
+            out += (f"\n*Ensemble judge ({len(ev.get('models', []))} local models, majority vote):* "
+                    f"agreement {pct(ev['agreement'])}, Cohen's κ = {ev['cohens_kappa']} vs the human-labeled "
+                    f"slice (n={ev['n']}).\n")
+        out += ("*source: `abstention_v21/abstention_v21_full.json` (raw judged rows) + "
+                "`abstention_v21/abstention_v21_full_analysis.json` + `abstention_v21/ensemble_judge_validation.json`*\n")
     return out
 
 

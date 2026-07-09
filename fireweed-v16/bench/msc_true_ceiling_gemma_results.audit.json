@@ -1,0 +1,37 @@
+{
+  "google/gemma-3-1b": {
+    "claims": [
+      "I love shopping online.",
+      "My dad was very overprotective.",
+      "I enjoy watching movies.",
+      "My children are at home.",
+      "I love country music, particularly randy travis."
+    ],
+    "entities": [],
+    "domains": [
+      "hobby",
+      "other"
+    ],
+    "raw_samples": []
+  },
+  "google/gemma-3-4b": {
+    "claims": [
+      "I love shopping online.",
+      "My dad was overprotective.",
+      "Randy Travis is a favorite country artist.",
+      "I enjoy watching movies.",
+      "Randy Travis is a favorite country musician.",
+      "Randy Travis is country music."
+    ],
+    "entities": [],
+    "domains": [
+      "hobby",
+      "other"
+    ],
+    "raw_samples": []
+  },
+  "_gold": {
+    "claims": [],
+    "domains": []
+  }
+}

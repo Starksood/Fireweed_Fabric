@@ -14,19 +14,21 @@
 
 *verdict:* ✓✓ STRONG (entity-J 1.00, domain-J 0.90, claim-lex 0.69)  ·  *competent perceivers:* gemma-1b, gemma-4b, qwen-4b
 
-*Anchors (all sbert):* cross-persona floor 0.29 (accounts of different people) · same-perceiver ceiling 1.00 (temp-0 rerun, hollow — it measures determinism). The 0.77–0.87 cross-model band sits far above the different-person floor.
+*Anchors (all sbert):* cross-persona floor 0.29 (accounts of different people) · determinism check 1.00 (temp-0 same-perceiver rerun — proves determinism, not an upper bound) · same-family temperature-0.7 ceiling 0.92 (gemma-1b vs gemma-4b under realistic sampling, MSC corpus — the non-hollow upper reference). The 0.77–0.87 cross-model band sits far above the different-person floor and close beneath the same-family ceiling.
 
 
 ### Table 2 — Third-party (LoCoMo) write-side replication (§4.1)
-*source: `write_side_locomo_caroline_results.json + sbert_locomo_anchors_results.json`*
+*source: `write_side_locomo_caroline_junkfilter_results.json (entity-J, post junk-filter) + write_side_locomo_caroline_results.json (pre-filter) + sbert_locomo_anchors_results.json`*
 
 | pair | axis | entity-J | domain-J | claim-semantic (sbert) |
 |---|---|---|---|---|
-| gemma-1b vs gemma-4b | scale | 0.31 | 0.71 | 0.73 |
-| gemma-1b vs qwen-4b | scale + family | 0.57 | 0.86 | 0.83 |
-| gemma-4b vs qwen-4b | family | 0.42 | 0.86 | 0.81 |
+| gemma-1b vs gemma-4b | scale | 0.40 (0.31) | 0.71 | 0.73 |
+| gemma-1b vs qwen-4b | scale + family | 0.67 (0.57) | 0.86 | 0.83 |
+| gemma-4b vs qwen-4b | family | 0.50 (0.42) | 0.86 | 0.81 |
 
-*Anchors (all sbert):* cross-person floor 0.36 (Caroline vs a different LoCoMo speaker, Jon) · same-perceiver ceiling 1.00. Cross-perceiver claim-semantic 0.79 sits +0.43 above the floor; entity-J degrades on open-domain chat (entity-linker surfaces sentence-initial capitalized common words).
+*Anchors (all sbert):* cross-person floor 0.36 (Caroline vs a different LoCoMo speaker, Jon) · same-perceiver ceiling 1.00. Cross-perceiver claim-semantic 0.79 sits +0.43 above the floor.
+
+*Entity-J:* shown post junk-filter, pre-filter in parentheses. A deterministic filter (pinned word-frequency lexicon, Zipf ≥ 5.0, + contraction/pronoun exclusion — no model in the loop) raises mean entity-J 0.43 → 0.52; claim-semantic and domain-J are unchanged by the filter, so the residual gap is extraction noise (sub-Zipf common words; cross-perceiver nickname canonicalization), not account divergence.
 
 
 ### Table 3 — Read-side interchangeability (semantic on sbert, floor-controlled; §4.2)
@@ -76,10 +78,10 @@
 | hot-swap | live transplant | 18/18 pre-swap nodes carried (continuity 1.00); 31 added by new model |
 
 
-### Table 7 — Structural abstention under adversarial load (§8)
+### Table 7 — Structural abstention: pilot (§8)
 *source: `adversarial_fabrication_sweep.judged.json + abstention_cluster_stats.json + judge_human_agreement_results.json`*
 
-*Per-reader raw counts only — per-cell n=12 is too small for per-reader inference. The pooled effect is directional but not significant (below); §8 rests on the provenance guarantee.*
+*Per-reader raw counts only — per-cell n=12 is too small for per-reader inference. The pooled pilot effect is directional but not significant (below); the load-bearing §8 evidence is the scaled run beneath this table.*
 
 | reader | bare RAG fab | inside Fireweed fab |
 |---|---|---|
@@ -92,6 +94,16 @@
 **Directional, not significant.** Pooled bare RAG **18** vs Fireweed **9** confident false assertions; fabrication fell for **5/5** readers. But the 12 questions recur across readers, so the pooled McNemar (p=0.049) assumes independence it does not have. Cluster-robust: question-bootstrap 95% CI on the reduction **[-0.05, 0.38] (crosses zero)**; reader sign test two-sided **p = 0.0625**. §8 leans on provenance, not the rate.
 
 *Judge validation (qwen/qwen3-4b-2507):* judge–human agreement 92%, Cohen's κ = 0.747 on an 24-item subset (single annotator).
+
+**At scale (the load-bearing §8 result).** 1,200 adversarial items over 722 third-party MSC personas, answered by 2 readers spanning the pilot's capability range (gemma-3-1b, qwen3-4b) in both configurations — 2,400 answer opportunities per configuration. Inside Fireweed: **0** confident false assertions; bare RAG: **154**.
+
+| reader | bare RAG fab (n=1200) | inside Fireweed fab (n=1200) |
+|---|---|---|
+| gemma-3-1b | 117 | 0 |
+| qwen3-4b | 37 | 0 |
+
+*Ensemble judge (3 local models, majority vote):* agreement 96%, Cohen's κ = 0.882 vs the human-labeled slice (n=24).
+*source: `abstention_v21/abstention_v21_full.json` (raw judged rows) + `abstention_v21/abstention_v21_full_analysis.json` + `abstention_v21/ensemble_judge_validation.json`*
 
 
 ### Appendix B — Closing the loop (§9)
