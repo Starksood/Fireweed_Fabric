@@ -1,5 +1,7 @@
 # Fireweed — paper verification bundle
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21278302.svg)](https://doi.org/10.5281/zenodo.21278301)
+
 Independent verification for the paper **"A Model-Independent Memory Substrate: Preserving an Agent's
 Account of a User Across LLM Swaps, Scales, and Families."**
 
@@ -95,3 +97,19 @@ MIT for the evaluation/recompute code (see [LICENSE](LICENSE)). Benchmark output
 released for verification; third-party datasets retain their own licenses — in particular the LoCoMo
 corpora under `fireweed-v16/data/locomo/` derive from **LoCoMo** (Maharana et al., ACL 2024) and are
 subject to that dataset's terms.
+
+## Citation
+
+If you use this work, please cite the archived release (the concept DOI always resolves to the latest version):
+
+```bibtex
+@misc{sood2026fireweed,
+  title  = {A Model-Independent Memory Substrate: Preserving an Agent's Account
+            of a User Across LLM Swaps, Scales, and Families},
+  author = {Sood, Sanyam},
+  year   = {2026},
+  doi    = {10.5281/zenodo.21278301},
+  url    = {https://doi.org/10.5281/zenodo.21278301},
+  note   = {Paper and verification bundle, v1.0.0 (version DOI: 10.5281/zenodo.21278302)}
+}
+```
