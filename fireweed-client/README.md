@@ -20,22 +20,26 @@ pip install fireweed-client
 from fireweed_client import FireweedClient
 
 with FireweedClient(api_key="YOUR_KEY", base_url="https://api.fireweed.example") as fw:
-    # write experience — the server perceives it and commits only grounded facts
-    # `speaker` anchors first-person facts to a person; without it "I" names nobody and reads abstain.
-    fw.commit("user-42", "I moved to Portland last spring.", speaker="Maya")
+    # bind a session to the person speaking in it
+    maya = fw.session("user-42", speaker="Maya")
+
+    # write experience — the server perceives it and commits only grounded facts.
+    # `speaker` rewrites "I ..." to "Maya ..." so the fact anchors to a person; without it the
+    # subject stays "I", which names nobody, and reads will honestly abstain.
+    maya.commit("I moved to Portland last spring.")
 
     # deterministic retrieval (fast, no LLM) — grounded nodes
-    fw.retrieve("user-42", "Where does the user live?")
+    maya.retrieve("Where does Maya live?")
 
     # a grounded answer, with provenance (every answer traces to memory nodes)
-    ans = fw.read("user-42", "What pet does the user have?")
+    ans = maya.read("What pet does Maya have?")
     print(ans["answer"], "→ grounded in", ans["provenance_node_ids"])
 
-    # semantic search across ALL of this user's sessions
-    fw.search("pets", k=5)
-
     # audit: every node's source turn + verbatim span + immutable timestamp
-    fw.audit("user-42")
+    maya.audit()
+
+    # semantic search spans ALL of the tenant's sessions, so it stays on the client
+    fw.search("pets", k=5)
 ```
 
 ## Vendor independence (hot-swap the model, keep the memory)
@@ -55,18 +59,19 @@ fw.read("user-42", "Where do I live?", provider="local")     # your own hosted m
 fw = FireweedClient(api_key="YOUR_KEY")
 
 def agent_turn(user_id: str, user_name: str, user_msg: str) -> str:
-    # `speaker` anchors the user's first-person facts ("I moved to Portland") to them
-    fw.commit(user_id, user_msg, speaker=user_name)    # remember what the user said
-    ctx = fw.retrieve(user_id, user_msg)["matched"]    # grounded, deterministic recall
+    # one client serves every user; the session carries who is speaking
+    user = fw.session(user_id, speaker=user_name)
+    user.commit(user_msg)                              # remember what the user said
+    ctx = user.retrieve(user_msg)["matched"]           # grounded, deterministic recall
     # ... hand `ctx` to your LangChain/LlamaIndex/custom agent as grounded memory ...
-    reply = fw.read(user_id, user_msg)["answer"]       # or let Fireweed answer, with provenance
-    return reply
+    return user.read(user_msg)["answer"]               # or let Fireweed answer, with provenance
 ```
 
 ## API surface
 
 | Method | Endpoint | Notes |
 |---|---|---|
+| `session(session_id, speaker=None)` | — | binds a session (+speaker) so calls drop the repeated args |
 | `health()` | `GET /v1/health` | |
 | `commit(session, text, source_id=None, speaker=None)` | `POST /v1/memory/commit` | perceive → decide → commit; `speaker` anchors first-person facts |
 | `retrieve(session, query)` | `POST /v1/memory/retrieve` | deterministic, fast, grounded nodes |

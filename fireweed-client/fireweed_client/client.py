@@ -11,7 +11,7 @@ from typing import Any
 
 import httpx
 
-__all__ = ["FireweedClient", "FireweedError"]
+__all__ = ["FireweedClient", "Session", "FireweedError"]
 
 
 class FireweedError(Exception):
@@ -109,6 +109,18 @@ class FireweedClient:
             raise FireweedError(resp.status_code, _detail(resp))
         return resp.content
 
+    def session(self, session_id: str, speaker: str | None = None) -> "Session":
+        """A handle bound to one session (and optionally one speaker).
+
+            user = fw.session("user-42", speaker="Maya")
+            user.commit("I moved to Portland.")      # speaker applied automatically
+            user.read("Where does Maya live?")
+
+        Speaker belongs here rather than on the client: one server process serves many users
+        through a single client, but each session is one person.
+        """
+        return Session(self, session_id, speaker)
+
     def close(self) -> None:
         self._client.close()
 
@@ -117,6 +129,35 @@ class FireweedClient:
 
     def __exit__(self, *exc) -> None:
         self.close()
+
+
+class Session:
+    """A `FireweedClient` bound to one session_id + speaker. Pure ergonomics — every call forwards
+    to the client, so there is still zero memory logic on this side of the wire."""
+
+    def __init__(self, client: FireweedClient, session_id: str, speaker: str | None = None):
+        self._c = client
+        self.session_id = session_id
+        self.speaker = speaker
+
+    def commit(self, text: str, source_id: str | None = None, speaker: str | None = None) -> dict:
+        return self._c.commit(self.session_id, text, source_id=source_id,
+                              speaker=speaker if speaker is not None else self.speaker)
+
+    def retrieve(self, query: str) -> dict:
+        return self._c.retrieve(self.session_id, query)
+
+    def read(self, question: str, provider: str | None = None, model: str | None = None) -> dict:
+        return self._c.read(self.session_id, question, provider=provider, model=model)
+
+    def audit(self) -> dict:
+        return self._c.audit(self.session_id)
+
+    def export(self) -> bytes:
+        return self._c.export(self.session_id)
+
+    def __repr__(self) -> str:
+        return f"Session({self.session_id!r}, speaker={self.speaker!r})"
 
 
 def _detail(resp: httpx.Response) -> str:

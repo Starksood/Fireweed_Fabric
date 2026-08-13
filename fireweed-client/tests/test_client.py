@@ -111,3 +111,19 @@ def test_commit_sends_speaker(client):
     reads abstain (the bug the live E2E run caught)."""
     assert client.commit("s1", "I moved to Portland.", speaker="Maya")["_speaker_seen"] == "Maya"
     assert client.commit("s1", "Maya moved to Portland.")["_speaker_seen"] is None
+
+
+def test_session_handle_binds_session_and_speaker(client):
+    """Speaker belongs to a session, not the client: one server process serves many users."""
+    user = client.session("s1", speaker="Maya")
+    assert user.commit("I moved to Portland.")["_speaker_seen"] == "Maya"
+    assert user.commit("I got a cat.", speaker="Sam")["_speaker_seen"] == "Sam"   # per-call override
+    assert user.retrieve("where?")["session_id"] == "s1"
+    assert user.read("where does Maya live?")["answer"] == "Portland"
+    assert "s1" in repr(user) and "Maya" in repr(user)
+
+
+def test_two_sessions_do_not_share_a_speaker(client):
+    a, b = client.session("s1", speaker="Maya"), client.session("s2", speaker="Sam")
+    assert a.commit("I moved.")["_speaker_seen"] == "Maya"
+    assert b.commit("I moved.")["_speaker_seen"] == "Sam"
