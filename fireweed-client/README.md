@@ -10,9 +10,16 @@ to build (or maintain) any of it.
 
 ## Install
 
+Not on PyPI yet — install from source (it has one dependency, `httpx`):
+
 ```bash
-pip install fireweed-client
+git clone https://github.com/Starksood/Fireweed_Fabric.git
+pip install ./Fireweed_Fabric/fireweed-client
 ```
+
+> **You also need a backend.** The client is HTTP-only and there is **no public hosted endpoint yet**;
+> the engine is closed-source, so self-hosting is not available either. The SDK is usable today if you
+> have a key and a host (design partners) or run the backend yourself. Open an issue for access.
 
 ## Quick start
 

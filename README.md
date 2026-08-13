@@ -1,4 +1,40 @@
-# Fireweed — paper verification bundle
+# Fireweed
+
+**A deterministic, model-independent memory substrate for LLM agents.** The memory is the durable
+object; the model is a transient, swappable tenant. Nothing ungrounded is ever committed — the model
+proposes, deterministic code decides — so every answer traces to a stored fact, and the system
+abstains instead of fabricating when it doesn't know.
+
+There are two things in this repo, for two different readers:
+
+| I want to… | Go to |
+|---|---|
+| **Build with Fireweed** — durable agent memory over HTTP | [`fireweed-client/`](fireweed-client/) — the Python SDK + a runnable demo |
+| **Check the research** — reproduce the paper's numbers | [Verify the paper's numbers](#verify-the-papers-numbers), below |
+
+## Build with Fireweed
+
+```python
+from fireweed_client import FireweedClient
+
+with FireweedClient(api_key="YOUR_KEY", base_url="https://your-fireweed-host") as fw:
+    maya = fw.session("user-42", speaker="Maya")
+    maya.commit("I moved to Portland last spring.")
+    ans = maya.read("Where does Maya live?")
+    print(ans["answer"], "→ grounded in", ans["provenance_node_ids"])
+```
+
+The SDK is a **thin HTTP client with zero memory logic** — the substrate, resolver, and firewall run
+server-side. See [`fireweed-client/README.md`](fireweed-client/README.md) for the full API, the
+model hot-swap story (same memory, different vendor, identical provenance), and a Streamlit demo.
+
+> **Status — read before you `pip install`.** The client talks to a Fireweed backend, and **there is
+> no public hosted endpoint yet**; the engine is not open source, so you cannot self-host it either.
+> Today the SDK is usable if you have been given a key and a host (design partners), or you are
+> running the backend yourself. If you want access, open an issue. We would rather say this plainly
+> than ship a package that 404s against every URL you try.
+
+## Verify the paper's numbers
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21278302.svg)](https://doi.org/10.5281/zenodo.21278301)
 
@@ -17,7 +53,7 @@ repo lets you check that the numbers behind that claim are real, from committed 
 > tables — recomputed on one public sentence encoder (`sentence-transformers/all-MiniLM-L6-v2`). The
 > implementation (`src/fireweed/**`) is deliberately not included; see [MANIFEST.md](MANIFEST.md).
 
-## Quickstart
+### Quickstart
 
 ```bash
 pip install -r requirements.txt     # sentence-transformers, numpy, pytest (CPU torch pulled in transitively)
@@ -30,7 +66,7 @@ committed copy. `pytest` is the authoritative per-claim gate (tolerances absorb 
 sentence-transformers/torch builds). The first run downloads the ~80 MB sbert model from Hugging Face
 and caches it; every run after that is offline.
 
-## What each paper claim rests on
+### What each paper claim rests on
 
 Every number traces to a committed JSON; the recompute script turns raw outputs into the reported
 statistic. (Similarities are all on one encoder so read- and write-side numbers are comparable.)
@@ -53,7 +89,7 @@ statistic. (Similarities are all on one encoder so read- and write-side numbers 
 claim is an *honest limitation* — LoCoMo entity-J degrading, the abstention effect not surviving
 clustering — the test asserts the *limitation*, so it can't silently drift into an overclaim.
 
-## How the raw outputs were produced (method, not runnable here)
+### How the raw outputs were produced (method, not runnable here)
 
 The committed JSONs come from the closed Fireweed pipeline. For provenance, the method:
 
@@ -77,9 +113,10 @@ The scripts that drive these models (`run_write_side_interchangeability.py`, `ru
 `run_adversarial_fabrication.py`, …) `import fireweed` and are **not** shipped — they are not needed to
 verify the statistics, which is the point of this bundle.
 
-## Layout
+### Layout
 
 ```
+fireweed-client/             the public Python SDK (+ demo) — the product surface
 reproduce.py                 one-command recompute + table diff
 tests/test_paper_claims.py   pytest: assert each paper number (tolerances)
 MANIFEST.md                  full include/exclude list + provenance
@@ -93,7 +130,8 @@ the ones that produced the paper — verify with a diff against any released sou
 
 ## License
 
-MIT for the evaluation/recompute code (see [LICENSE](LICENSE)). Benchmark outputs and fixtures are
+MIT for the SDK (`fireweed-client/`) and the evaluation/recompute code (see [LICENSE](LICENSE)).
+The Fireweed engine itself is **not** included in this repo and is not open source. Benchmark outputs and fixtures are
 released for verification; third-party datasets retain their own licenses — in particular the LoCoMo
 corpora under `fireweed-v16/data/locomo/` derive from **LoCoMo** (Maharana et al., ACL 2024) and are
 subject to that dataset's terms.
