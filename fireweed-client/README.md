@@ -21,7 +21,8 @@ from fireweed_client import FireweedClient
 
 with FireweedClient(api_key="YOUR_KEY", base_url="https://api.fireweed.example") as fw:
     # write experience — the server perceives it and commits only grounded facts
-    fw.commit("user-42", "I moved to Portland last spring and adopted a tabby cat named Pekoe.")
+    # `speaker` anchors first-person facts to a person; without it "I" names nobody and reads abstain.
+    fw.commit("user-42", "I moved to Portland last spring.", speaker="Maya")
 
     # deterministic retrieval (fast, no LLM) — grounded nodes
     fw.retrieve("user-42", "Where does the user live?")
@@ -53,8 +54,9 @@ fw.read("user-42", "Where do I live?", provider="local")     # your own hosted m
 ```python
 fw = FireweedClient(api_key="YOUR_KEY")
 
-def agent_turn(user_id: str, user_msg: str) -> str:
-    fw.commit(user_id, user_msg)                       # remember what the user said
+def agent_turn(user_id: str, user_name: str, user_msg: str) -> str:
+    # `speaker` anchors the user's first-person facts ("I moved to Portland") to them
+    fw.commit(user_id, user_msg, speaker=user_name)    # remember what the user said
     ctx = fw.retrieve(user_id, user_msg)["matched"]    # grounded, deterministic recall
     # ... hand `ctx` to your LangChain/LlamaIndex/custom agent as grounded memory ...
     reply = fw.read(user_id, user_msg)["answer"]       # or let Fireweed answer, with provenance
@@ -66,7 +68,7 @@ def agent_turn(user_id: str, user_msg: str) -> str:
 | Method | Endpoint | Notes |
 |---|---|---|
 | `health()` | `GET /v1/health` | |
-| `commit(session, text, source_id=None)` | `POST /v1/memory/commit` | perceive → decide → commit |
+| `commit(session, text, source_id=None, speaker=None)` | `POST /v1/memory/commit` | perceive → decide → commit; `speaker` anchors first-person facts |
 | `retrieve(session, query)` | `POST /v1/memory/retrieve` | deterministic, fast, grounded nodes |
 | `read(session, question, provider=None, model=None)` | `POST /v1/memory/read` | grounded answer + provenance + model hot-swap |
 | `search(query, k=10)` | `POST /v1/memory/search` | cross-session semantic search |

@@ -34,6 +34,10 @@ with st.sidebar:
     base_url = st.text_input("Backend URL", value="http://localhost:8000")
     api_key = st.text_input("API key", value="dev-key-tenant-a", type="password")
     session_id = st.text_input("Session", value="demo")
+    speaker = st.text_input("Speaker (who is talking)", value="Maya")
+    st.caption("First-person input is rewritten to the speaker before perception, so 'I ...' facts "
+               "anchor to a real person. Leave blank to see why that matters: the fact still stores, "
+               "but 'I' names nobody, so answers honestly abstain.")
     st.header("Reader model")
     provider_label = st.selectbox("Provider (hot-swappable)", list(PROVIDERS))
     provider, model = PROVIDERS[provider_label]
@@ -60,17 +64,20 @@ col_chat, col_mem = st.columns([1, 1])
 # ── left: write experience, ask questions ─────────────────────────────────────
 with col_chat:
     st.subheader("1. Tell the agent about yourself")
-    msg = st.text_input("Say something", value="I moved to Portland and adopted a tabby cat named Pekoe.",
+    # Two sentences, not one compound clause: small perceivers reliably extract one claim per
+    # sentence, so "X. Y." commits both facts where "X and Y" often yields only the first.
+    msg = st.text_input("Say something",
+                        value="I moved to Portland. I adopted a tabby cat named Pekoe.",
                         key="msg")
     if st.button("Commit to memory", type="primary"):
         try:
-            r = client.commit(session_id, msg)
+            r = client.commit(session_id, msg, speaker=speaker or None)
             st.success(f"Perceived → {r['admitted']} grounded fact(s) committed.")
         except FireweedError as e:
             st.error(str(e))
 
     st.subheader("2. Ask a question")
-    q = st.text_input("Question", value="Where do I live and what pet do I have?", key="q")
+    q = st.text_input("Question", value="Where does Maya live and what pet does she have?", key="q")
     if st.button("Answer (current model)"):
         try:
             a = client.read(session_id, q, provider=provider, model=model)

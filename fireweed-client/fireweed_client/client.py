@@ -65,10 +65,18 @@ class FireweedClient:
     def health(self) -> dict:
         return self._json("GET", "/v1/health")
 
-    def commit(self, session_id: str, text: str, source_id: str | None = None) -> dict:
-        """Write experience into memory (perceive -> deterministic decide -> commit)."""
+    def commit(self, session_id: str, text: str, source_id: str | None = None,
+               speaker: str | None = None) -> dict:
+        """Write experience into memory (perceive -> deterministic decide -> commit).
+
+        Pass `speaker` for first-person input: "I moved to Portland" is rewritten to
+        "<speaker> moved to Portland" before perception, so the fact anchors to that person and
+        becomes answerable. Without it the subject stays "I", which names nobody — the fact is
+        stored and retrievable but reads will honestly abstain.
+        """
         return self._json("POST", "/v1/memory/commit",
-                          json={"session_id": session_id, "text": text, "source_id": source_id})
+                          json={"session_id": session_id, "text": text, "source_id": source_id,
+                                "speaker": speaker})
 
     def retrieve(self, session_id: str, query: str) -> dict:
         """Deterministic retrieval — grounded nodes, no LLM. Fast."""
