@@ -15,6 +15,7 @@ dependencies = ["httpx>=0.24"]
 
 [project.optional-dependencies]
 test = ["pytest>=7"]
+demo = ["streamlit>=1.30"]
 
 [project.urls]
 Homepage = "https://github.com/Starksood/Fireweed_Fabric"

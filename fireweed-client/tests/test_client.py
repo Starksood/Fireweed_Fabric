@@ -24,7 +24,8 @@ def _handler(request: httpx.Request) -> httpx.Response:
     if p == "/v1/health":
         return httpx.Response(200, json={"status": "ok", "engine": "fireweed-v16", "providers": ["local"]})
     if p == "/v1/memory/commit":
-        return httpx.Response(200, json={"tenant_id": "t", "session_id": body["session_id"], "admitted": 2})
+        return httpx.Response(200, json={"tenant_id": "t", "session_id": body["session_id"],
+                                         "admitted": 2, "_speaker_seen": body.get("speaker")})
     if p == "/v1/memory/retrieve":
         return httpx.Response(200, json={"tenant_id": "t", "session_id": body["session_id"],
                                          "query": body["query"], "matched": [{"node_id": "n1"}],
@@ -103,3 +104,26 @@ def test_retries_on_5xx_then_succeeds(monkeypatch):
                         transport=httpx.MockTransport(flaky)) as c:
         assert c.health()["status"] == "ok"
     assert calls["n"] == 2                                       # retried once, then succeeded
+
+
+def test_commit_sends_speaker(client):
+    """`speaker` must reach the wire — without it the server can't anchor first-person facts and
+    reads abstain (the bug the live E2E run caught)."""
+    assert client.commit("s1", "I moved to Portland.", speaker="Maya")["_speaker_seen"] == "Maya"
+    assert client.commit("s1", "Maya moved to Portland.")["_speaker_seen"] is None
+
+
+def test_session_handle_binds_session_and_speaker(client):
+    """Speaker belongs to a session, not the client: one server process serves many users."""
+    user = client.session("s1", speaker="Maya")
+    assert user.commit("I moved to Portland.")["_speaker_seen"] == "Maya"
+    assert user.commit("I got a cat.", speaker="Sam")["_speaker_seen"] == "Sam"   # per-call override
+    assert user.retrieve("where?")["session_id"] == "s1"
+    assert user.read("where does Maya live?")["answer"] == "Portland"
+    assert "s1" in repr(user) and "Maya" in repr(user)
+
+
+def test_two_sessions_do_not_share_a_speaker(client):
+    a, b = client.session("s1", speaker="Maya"), client.session("s2", speaker="Sam")
+    assert a.commit("I moved.")["_speaker_seen"] == "Maya"
+    assert b.commit("I moved.")["_speaker_seen"] == "Sam"
