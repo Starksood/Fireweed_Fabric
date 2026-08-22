@@ -1,9 +1,15 @@
 # Fireweed
 
+> 🛑 **Retraction (2026-08-22).** The scaled abstention result — *"0 vs 154"* — is **withdrawn**: it measured an empty substrate. See [`RETRACTION.md`](RETRACTION.md), which includes a command you can run against this repository to confirm it. The §6.5 pilot result and every other measurement here are unaffected.
+
 **A deterministic, model-independent memory substrate for LLM agents.** The memory is the durable
-object; the model is a transient, swappable tenant. Nothing ungrounded is ever committed — the model
-proposes, deterministic code decides — so every answer traces to a stored fact, and the system
-abstains instead of fabricating when it doesn't know.
+object; the model is a transient, swappable tenant. The model proposes, deterministic code decides —
+so a committed fact traces to the source span it came from, and retrieval abstains instead of
+answering from evidence it does not have.
+
+*Stated precisely, because the looser version was wrong:* on the **document** path a claim may not
+assert more than its cited span, and that is enforced and tested. The **conversational** path
+resolves subjects from context and rewords by design, and does not carry that guarantee.
 
 There are two things in this repo, for two different readers:
 
@@ -79,7 +85,7 @@ statistic. (Similarities are all on one encoder so read- and write-side numbers 
 | **§5 Lesion (non-substrate control)** — structure comes from consolidation | entity-J **0.78 → 0.10** (gap +0.68); claim-semantic **tied ~0.88** | `lesion_contrast_results.json` (+ `.audit.json`) | read directly |
 | **§6 Perturbation battery** — null controls | null-fork agreement **1.0**; cross-person merge contamination **0.0**; corruption recovery fraction **1.0** | `fork_divergence_results.json`, `merge_identity_results.json`, `corrupt_resilience_results.json` | read directly |
 | **§8 Structural abstention — pilot** (honest demotion) | pooled RAG **18** vs Fireweed **9** (5/5 readers reduce), but cluster-robust CI **[-0.05, 0.38] crosses zero**, sign test **p≈0.06** | `adversarial_fabrication_sweep.judged.json` | `abstention_cluster_stats.py` → `abstention_cluster_stats.json` |
-| **§8 Structural abstention — at scale** (the load-bearing result) | **0 vs 154** confident false assertions over **1,200** items / **722** MSC personas / 2 readers (2,400 opportunities per config); both readers → 0 | `abstention_v21/abstention_v21_full.json` (raw judged rows) | recounted by `tests/test_paper_claims.py::test_abstention_scaled_zero_vs_154` |
+| ~~**§8 Structural abstention — at scale**~~ | 🛑 **RETRACTED 2026-08-22 — measured an empty substrate.** All 2,400 rows carry one identical abstention string; the Fireweed arm was absent, not sound. RAG's 154 stands as a measurement of RAG. | [`RETRACTION.md`](RETRACTION.md) — includes a reproduction you can run on this repo | test disabled pending a valid re-run |
 | **§8 Scaled-run judge validation** | ensemble (3 models) Cohen's **κ = 0.882**, agreement **96%** | `abstention_v21/ensemble_judge_validation.json` | read directly |
 | **§8 Judge validation** | Cohen's **κ ≈ 0.75**, agreement **92%** | `adversarial_fabrication_sweep.judged.json` + inlined author labels | `judge_human_agreement.py` |
 | **§9 Closed loop** (supporting) | OOD valid-JSON **1/12 → 12/12**, claim-F1 **0.00 → 0.90** | `stage_4_3b_iter_results.json` | read directly |

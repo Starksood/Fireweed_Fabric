@@ -211,25 +211,31 @@ def test_locomo_junk_filter_recovers_entity_j():
         assert post_by[pair]["domain_jaccard"] == pytest.approx(pre_by[pair]["domain_jaccard"], abs=1e-6)
 
 
+@pytest.mark.skip(reason="RETRACTED 2026-08-22 — the run measured an EMPTY substrate; see "
+                        "RETRACTION.md. Re-enable only against a re-run with verified non-empty "
+                        "substrates.")
 def test_abstention_scaled_zero_vs_154():
-    """Paper §8 (the load-bearing scaled result): 1,200 adversarial items over 722 third-party MSC
-    personas, two readers spanning the pilot's capability range, 2,400 answer opportunities per
-    configuration — Fireweed 0 confident false assertions vs bare RAG 154. Recounted from the raw
-    judged rows, not read from a summary."""
-    d = L("abstention_v21/abstention_v21_full.json")
-    rows = d["rows"]
+    """RETRACTED. Kept, skipped, with the defect asserted below rather than deleted.
+
+    This test recounted the raw judged rows instead of trusting a summary — the right discipline —
+    and it passed, because the arithmetic of the artifact was correct. What nothing asserted was that
+    the substrate under test contained anything. It verified the sum, not the subject.
+    """
+
+
+def test_retracted_scaled_run_was_an_empty_substrate():
+    """The retraction, as an executable claim.
+
+    A withdrawn number should be as checkable as a published one. If this ever fails, the retraction
+    itself is wrong and must be revisited.
+    """
+    rows = L("abstention_v21/abstention_v21_full.json")["rows"]
+    distinct = {r["fw_prose"].strip() for r in rows}
     assert len(rows) == 2400
-    assert len({r["persona_id"] for r in rows}) == 722
-    assert len({r["id"] for r in rows}) == 1200
-    assert len({r["reader"] for r in rows}) == 2
-    fw_fab = sum(1 for r in rows if r["fw_label"] == "HALLUCINATION")
-    rag_fab = sum(1 for r in rows if r["rag_label"] == "HALLUCINATION")
-    assert fw_fab == 0, f"paper claims zero Fireweed fabrications; raw rows show {fw_fab}"
-    assert rag_fab == 154, f"paper claims 154 RAG fabrications; raw rows show {rag_fab}"
-    # summary artifact must agree with the recount
-    an = L("abstention_v21/abstention_v21_full_analysis.json")
-    assert an["pooled"]["fw_hallucination"] == fw_fab
-    assert an["pooled"]["rag_hallucination"] == rag_fab
+    assert len(distinct) == 1, (
+        f"retraction claims every Fireweed answer was identical; found {len(distinct)} distinct")
+    assert "don't have any information" in distinct.pop()
+    assert all(r["fw_abstained"] for r in rows)
 
 
 def test_abstention_scaled_capability_independence():
